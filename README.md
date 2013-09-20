@@ -7,10 +7,6 @@ Con este proyecto se pretende crear una plataforma para que los habitantes de Cu
 
 Todos podemos ayudar!
 
-Quieres contribuir?
-
-Clona este repositorio y comienza a desarrollar módulos pendientes.
-
 Módulos propuestos
 -------------------
 
@@ -23,3 +19,21 @@ Módulos propuestos
 
 Se pretende crear una plataforma colaborativa donde todos podemos acceder a alimentar el sistema, tal vez con login social (Facebook, Twitter)
 
+Quieres apoyar?
+----------------
+
+**Clona este repositorio:**
+
+*git clone git@github.com:alfrekjv/culiacan.git*
+
+**Instala la carpeta vendors:**
+
+*php composer.phar install*
+
+**Crea y carga la base de datos:**
+
+*el archivo se encuenta en app/sql/culiacan.sql*
+
+**Apunta tu navegador a:**
+
+*http://localhost/culiacan/public*
