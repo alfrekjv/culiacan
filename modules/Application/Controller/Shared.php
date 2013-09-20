@@ -10,6 +10,13 @@ class Shared extends BaseController
 
     protected $_title = '';
 
+    public function createResponse($data)
+    {
+        $this->getService('response')->headers->set('Content-type', 'application/json');
+
+        return json_encode($data);
+    }
+
     protected function isLoggedIn()
     {
         return $this->getSession()->has('ppiAuthUser');
@@ -22,35 +29,38 @@ class Shared extends BaseController
     {
         return $this->getAuthData();
     }
-    
+
     /**
      * Get the user salt from the config
-     * 
+     *
      * @return mixed
      */
     protected function getConfigSalt()
     {
         $config = $this->getConfig();
+
         return $config['authSalt'];
     }
-    
-    
+
+
     /**
      * Get the user's auth object from the session
-     * 
+     *
      * @throws \Exception If the auth user object doesn't exist
      */
-    protected function getAuthData() {
+    protected function getAuthData()
+    {
         $authUser = $this->session('ppiAuthUser');
-        if($authUser === null) {
+        if ($authUser === null) {
             throw new \Exception('Unable to obtain ppi auth user data');
         }
+
         return $authUser;
     }
 
     /**
      * Get the user storage
-     * 
+     *
      * @return \UserModule\Storage\User
      */
     protected function getUserStorage()
@@ -60,7 +70,7 @@ class Shared extends BaseController
 
     /**
      * Get the forgot user storage
-     * 
+     *
      * @return \UserModule\Storage\UserForgot
      */
     protected function getUserForgotStorage()
@@ -70,7 +80,7 @@ class Shared extends BaseController
 
     /**
      * Get the user activation storage
-     * 
+     *
      * @return \UserModule\Storage\UserActivation
      */
     protected function getUserActivationStorage()
@@ -78,13 +88,13 @@ class Shared extends BaseController
         return new \UserModule\Storage\UserActivation($this->getService('DataSource'));
     }
 
-    
+
     /**
      * Render a template
      *
      * @param  string $template The template to render
-     * @param  array  $params   The params to pass to the renderer
-     * @param  array  $options  Extra options
+     * @param  array $params    The params to pass to the renderer
+     * @param  array $options   Extra options
      * @return string
      */
     protected function render($template, array $params = array(), array $options = array())
@@ -111,12 +121,13 @@ class Shared extends BaseController
     {
         $helper = $this->getService('menu.templating.helper');
         $helper->setActiveRouteName($this->helper('routing')->getActiveRouteName(), $this->helper('routing')->getParams());
+
         return $helper;
     }
 
     /**
      * Add a template global variable
-     * 
+     *
      * @param string $param
      * @param mixed $value
      */

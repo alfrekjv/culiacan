@@ -4,5 +4,6 @@ Homepage:
 
 
 
-
-
+Lugares_JSON:
+    pattern: /lugares.json
+    defaults: { _controller: "Application:Lugar:getLugares" }
