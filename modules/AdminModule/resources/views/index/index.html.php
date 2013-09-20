@@ -9,5 +9,5 @@
 <div class="inner admin=dashboard">
     <h2>Bienvenido/a</h2>
 
-    <p>En esta sección podrás administrar tu catálogo de productos, y sus respectivos componentes, tales como: marcas, líneas, sub-lineas, etc.</p>
+    <p>Porque Culiacán somos todos</p>
 </div>

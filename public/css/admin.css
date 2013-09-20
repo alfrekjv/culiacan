@@ -1,0 +1,6 @@
+table {color: #565656;}
+table {background: #f1f1f1;}
+
+.sub-menu ul {list-style:none; clear: left; height: 20px; width: 90%; background: #000000;}
+.sub-menu ul li {display: block; float: left; width: 150px;}
+.input-prepend, .input-append {color: #000000;}

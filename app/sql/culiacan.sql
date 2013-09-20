@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2013 at 03:22 AM
+-- Generation Time: Sep 20, 2013 at 12:06 PM
 -- Server version: 5.6.12
 -- PHP Version: 5.3.26
 
@@ -102,13 +102,17 @@ CREATE TABLE IF NOT EXISTS `Persona` (
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_level_id` int(10) unsigned NOT NULL DEFAULT '1',
+  `provider` varchar(45) DEFAULT NULL,
   `title` varchar(10) DEFAULT NULL,
-  `firstname` varchar(255) DEFAULT NULL,
-  `lastname` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `user` varchar(255) NOT NULL,
   `password` varchar(255) DEFAULT NULL,
   `salt` varchar(255) DEFAULT NULL,
+  `provider_id` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `display_name` varchar(200) CHARACTER SET utf8 COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `photo_url` varchar(200) CHARACTER SET utf8 COLLATE utf8_spanish2_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_level_id` (`user_level_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
@@ -162,9 +166,9 @@ CREATE TABLE IF NOT EXISTS `user_level` (
 --
 
 INSERT INTO `user_level` (`id`, `title`) VALUES
-(1, 'Usuario'),
-(2, 'Administrador'),
-(3, 'Developer');
+(1, 'Admin'),
+(2, 'Developer'),
+(3, 'Usuario');
 
 --
 -- Constraints for dumped tables

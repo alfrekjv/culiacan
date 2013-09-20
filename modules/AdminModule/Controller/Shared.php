@@ -95,7 +95,9 @@ class Shared extends BaseController
     {
         $options['helpers'][] = $this->getService('user.security.templating.helper');
         $options['helpers'][] = $this->getMenuTemplatingHelper();
+
         $this->addTemplateGlobal('activeRouteName', $this->helper('routing')->getActiveRouteName());
+
         return parent::render($template, $params, $options);
     }
 
@@ -123,7 +125,7 @@ class Shared extends BaseController
     }
     
     protected function isAdmin() {
-        return $this->isLoggedIn() && in_array($this->getService('user.security')->getUser()->getLevelTitle(), array('Administrator', 'Developer'));
+        return $this->isLoggedIn() && in_array($this->getService('user.security')->getUser()->getLevelTitle(), array('Admin', 'Developer'));
     }
 
     /**
