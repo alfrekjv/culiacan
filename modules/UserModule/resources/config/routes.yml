@@ -129,3 +129,8 @@ User_Social_Login:
 User_Social_EndPoint:
     pattern: /user/social/endpoint
     defaults: { _controller: "User:Auth:socialEndPoint"}
+
+
+User_Yomero:
+    pattern: /yomero
+    defaults: { _controller: "User:Auth:yomero"}
