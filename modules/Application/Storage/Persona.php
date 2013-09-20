@@ -112,4 +112,24 @@ class Persona extends BaseStorage
         return $row['total'];
     }
 
+    public function total_personas(){
+        $row = $this->createQueryBuilder()
+               ->select('count(id) as total')
+               ->from($this->getTableName(), 'c')
+               ->execute()
+               ->fetch($this->getFetchMode());
+
+        return $row['total'];
+    }
+
+    public function total_tipo_persona($tipo = NULL){
+        $row = $this->createQueryBuilder()
+               ->select('count(id) as total')
+               ->from($this->getTableName(), 'c')
+               ->andWhere('status = "'.$tipo.'"')
+               ->execute()
+               ->fetch($this->getFetchMode());
+        return $row['total'];
+    }
+
 }

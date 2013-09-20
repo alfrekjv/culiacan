@@ -54,3 +54,19 @@ Admin_Lugares_Edit:
 Admin_Lugares_Delete:
     pattern: /admin/lugares/delete/{id}
     defaults: { _controller: "AdminModule:Lugar:delete" }
+
+Admin_Personas_Index:
+    pattern: /admin/personas/
+    defaults: { _controller: "AdminModule:Persona:index" }
+
+Admin_Personas_Create:
+    pattern: /admin/personas/create
+    defaults: { _controller: "AdminModule:Persona:create" }
+
+Admin_Personas_Edit:
+    pattern: /admin/personas/edit/{id}
+    defaults: { _controller: "AdminModule:Persona:edit" }
+
+Admin_Personas_Delete:
+    pattern: /admin/personas/delete/{id}
+    defaults: { _controller: "AdminModule:Persona:delete" }
