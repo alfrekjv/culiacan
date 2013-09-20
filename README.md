@@ -34,6 +34,10 @@ Quieres apoyar?
 
 *el archivo se encuenta en app/sql/culiacan.sql*
 
+**Configura la app con los datos de conexión**
+
+*En app/config/connections hay un archivo que se llama local.config.php-dist debes cambiarle el nombre y eliminar -dist y ahi configurar tu base de datos, usuario y password.*
+
 **Apunta tu navegador a:**
 
 *http://localhost/culiacan/public*
