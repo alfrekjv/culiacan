@@ -2,7 +2,7 @@
 namespace Application\Storage;
 
 use Application\Storage\Base as BaseStorage;
-use Application\Entity\Lugar as Entity;
+use Application\Entity\Noticia as Entity;
 
 class Noticia extends BaseStorage
 {

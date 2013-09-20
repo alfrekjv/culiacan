@@ -2,7 +2,7 @@
 namespace Application\Storage;
 
 use Application\Storage\Base as BaseStorage;
-use Application\Entity\Lugar as Entity;
+use Application\Entity\Persona as Entity;
 
 class Persona extends BaseStorage
 {
