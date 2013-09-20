@@ -9,5 +9,5 @@
 <div class="inner admin=dashboard">
     <h2>Bienvenido/a</h2>
 
-    <p>Porque Culiacán somos todos</p>
+    <p>Porque Culiacán somos todos.</p>
 </div>

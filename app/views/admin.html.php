@@ -5,13 +5,12 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <title><?php $view['slots']->output('title', '') ?></title>
+    <title><?php $view['slots']->output('title', 'Porque Culiacán somos todos.') ?></title>
 
     <!-- CSS Stuff -->
     <link href="<?=$view['assets']->getUrl('css/libs/bootstrap.min.css');?>" rel="stylesheet">
@@ -29,11 +28,9 @@
     </script>
     <?php $view['slots']->output('include_js_head'); ?>
     <!-- /JS Head Stuff -->
-
 </head>
 
 <body>
-
 <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6. -->
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a
     different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a>
@@ -43,15 +40,15 @@
     <div class="inside">
         <div class="logo">
             <a href="<?=$view['router']->generate('Homepage');?>">
-                <img src="<?=$view['assets']->getUrl('images/logo.png');?>" alt="B-art make up store"/>
+                <img src="<?=$view['assets']->getUrl('images/culiacan-dniii.png');?>" alt=""/>
             </a>
         </div>
 
         <nav class="main-nav">
             <a href="<?=$view['router']->generate('Admin_Index');?>" class="nav-admin"><i class="icon-white icon-home"></i> Dashboard</a>
+            <a href="<?=$view['router']->generate('Admin_Lugares_Index');?>" class="nav-admin"><i class="icon-white icon-home"></i> Lugares</a>
             <a href="<?=$view['router']->generate('User_Logout');?>" class="nav-admin"><i class="icon-white icon-remove"></i> Salir</a>
         </nav>
-
     </div>
 </header>
 

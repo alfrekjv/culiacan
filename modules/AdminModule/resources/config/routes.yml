@@ -36,3 +36,21 @@ Admin_Index:
 Admin_Index2:
     pattern: /admin
     defaults: { _controller: "AdminModule:Index:index" }
+
+
+
+Admin_Lugares_Index:
+    pattern: /admin/lugares/
+    defaults: { _controller: "AdminModule:Lugar:index" }
+
+Admin_Lugares_Create:
+    pattern: /admin/lugares/create
+    defaults: { _controller: "AdminModule:Lugar:create" }
+
+Admin_Lugares_Edit:
+    pattern: /admin/lugares/edit/{id}
+    defaults: { _controller: "AdminModule:Lugar:edit" }
+
+Admin_Lugares_Delete:
+    pattern: /admin/lugares/delete/{id}
+    defaults: { _controller: "AdminModule:Lugar:delete" }

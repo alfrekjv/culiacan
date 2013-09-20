@@ -37,12 +37,29 @@ class Module extends BaseModule
     
     public function getServiceConfig()
     {
+
         return array('factories' => array(
 
             'email.helper' => function($sm) {
                 return new \Application\Classes\Email();
+            },
+
+            'lugar.storage' => function($sm) {
+                return new \Application\Storage\Lugar($sm->getService('datasource'));
+            },
+
+            'necesidad.storage' => function($sm) {
+                return new \Application\Storage\Necesidad($sm->getService('datasource'));
+            },
+
+            'noticia.storage' => function($sm) {
+                return new \Application\Storage\Noticia($sm->getService('datasource'));
+            },
+
+            'persona.storage' => function($sm) {
+                return new \Application\Storage\Persona($sm->getService('datasource'));
             }
-            
+
         ));
     }
 

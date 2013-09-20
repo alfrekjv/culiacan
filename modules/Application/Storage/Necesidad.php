@@ -2,13 +2,13 @@
 namespace Application\Storage;
 
 use Application\Storage\Base as BaseStorage;
-use Application\Entity\Rating as Entity;
+use Application\Entity\Lugar as Entity;
 
-class Rating extends BaseStorage
+class Necesidad extends BaseStorage
 {
     protected $_meta = array(
         'conn'    => 'main',
-        'table'   => 'rating',
+        'table'   => 'Necesidad',
         'primary' => 'id',
         'fetchMode' => \PDO::FETCH_ASSOC
     );
@@ -42,22 +42,6 @@ class Rating extends BaseStorage
         return $this->delete(array($this->getPrimaryKey() => $memberID));
     }
 
-    public function getByProductId($id)
-    {
-        $row = $this->createQueryBuilder()
-            ->select('AVG(r.rate) as rating')
-            ->from($this->getTableName(), 'r')
-            ->andWhere('r.product_id = :id')
-            ->setParameter(':id', $id)
-            ->execute()
-            ->fetch($this->getFetchMode());
-
-        if ($row === false) { return 0; }
-
-        return $row['rating'];
-
-    }
-
     /**
      * Check if a user record exists by User ID
      *
@@ -67,12 +51,12 @@ class Rating extends BaseStorage
     public function existsByID($id)
     {
         $row = $this->createQueryBuilder()
-            ->select('count(id) as total')
-            ->from($this->getTableName(), 'u')
-            ->andWhere('u.id = :id')
-            ->setParameter(':id', $id)
-            ->execute()
-            ->fetch($this->getFetchMode());
+               ->select('count(id) as total')
+               ->from($this->getTableName(), 'u')
+               ->andWhere('u.id = :id')
+               ->setParameter(':id', $id)
+               ->execute()
+               ->fetch($this->getFetchMode());
 
         return $row['total'] > 0;
     }
@@ -100,10 +84,10 @@ class Rating extends BaseStorage
     {
         $entities = array();
         $rows     = $this->createQueryBuilder()
-            ->select('*')
-            ->from($this->getTableName(), 'c')
-            ->execute()
-            ->fetchAll($this->getFetchMode());
+                    ->select('*')
+                    ->from($this->getTableName(), 'c')
+                    ->execute()
+                    ->fetchAll($this->getFetchMode());
 
         foreach ($rows as $row) {
             $entities[] = new Entity($row);
@@ -120,10 +104,10 @@ class Rating extends BaseStorage
     public function countAll()
     {
         $row = $this->createQueryBuilder()
-            ->select('count(id) as total')
-            ->from($this->getTableName(), 'c')
-            ->execute()
-            ->fetch($this->getFetchMode());
+               ->select('count(id) as total')
+               ->from($this->getTableName(), 'c')
+               ->execute()
+               ->fetch($this->getFetchMode());
 
         return $row['total'];
     }
