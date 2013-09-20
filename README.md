@@ -1,4 +1,4 @@
-culiacan
+Culiacán
 ========
 
 Sistema de información para los habitantes de Culiacán.
