@@ -1,79 +1,183 @@
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+-- phpMyAdmin SQL Dump
+-- version 4.0.4.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Sep 20, 2013 at 03:22 AM
+-- Server version: 5.6.12
+-- PHP Version: 5.3.26
 
-CREATE TABLE IF NOT EXISTS `culiacan`.`Lugar` (
-  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'nombre			',
-  `nombre` VARCHAR(45) NULL DEFAULT NULL,
-  `calle` VARCHAR(45) NULL DEFAULT NULL,
-  `numero` VARCHAR(45) NULL DEFAULT NULL,
-  `colonia` VARCHAR(45) NULL DEFAULT NULL,
-  `ciudad` VARCHAR(45) NULL DEFAULT NULL,
-  `estado` VARCHAR(45) NULL DEFAULT NULL,
-  `pais` VARCHAR(45) NULL DEFAULT NULL,
-  `codigo_postal` VARCHAR(10) NULL DEFAULT NULL,
-  `tipo` ENUM('centro de acopio', 'albergue', 'otro') NULL DEFAULT NULL,
-  `observaciones` TEXT NULL DEFAULT NULL,
-  `status` TINYINT(1) NULL DEFAULT 1,
-  `created_at` DATETIME NULL DEFAULT NULL,
-  `modified_at` DATETIME NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_general_ci;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
-CREATE TABLE IF NOT EXISTS `culiacan`.`Persona` (
-  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(100) NULL DEFAULT NULL,
-  `apellidos` VARCHAR(100) NULL DEFAULT NULL,
-  `edad` INT(3) NULL DEFAULT NULL,
-  `observaciones` TEXT NULL DEFAULT NULL,
-  `status` ENUM('desaparecida', 'encontrada', 'en albergue') NULL DEFAULT NULL,
-  `created_at` DATETIME NULL DEFAULT NULL,
-  `modified_at` DATETIME NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_general_ci;
+--
+-- Database: `culiacan`
+--
+CREATE DATABASE IF NOT EXISTS `culiacan` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `culiacan`;
 
-CREATE TABLE IF NOT EXISTS `culiacan`.`Noticia` (
-  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `autor` INT(11) UNSIGNED NOT NULL,
-  `titulo` VARCHAR(100) NULL DEFAULT NULL,
-  `contenido` TEXT NULL DEFAULT NULL,
-  `created_at` DATETIME NULL DEFAULT NULL,
-  `modified_at` DATETIME NULL DEFAULT NULL,
-  PRIMARY KEY (`id`, `autor`),
-  INDEX `fk_Noticias_User1_idx` (`autor` ASC),
-  CONSTRAINT `fk_Noticias_User1`
-    FOREIGN KEY (`autor`)
-    REFERENCES `culiacan`.`User` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_general_ci;
+-- --------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `culiacan`.`Necesidad` (
-  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `lugar_id` INT(11) UNSIGNED NOT NULL,
-  `titulo` VARCHAR(45) NULL DEFAULT NULL,
-  `descripcion` TEXT NULL DEFAULT NULL,
-  `tipo` ENUM('alimento', 'objeto', 'otro') NULL DEFAULT NULL,
-  `created_at` DATETIME NULL DEFAULT NULL,
-  `modified_at` DATETIME NULL DEFAULT NULL,
-  PRIMARY KEY (`id`, `lugar_id`),
-  INDEX `fk_Necesidades_Lugar_idx` (`lugar_id` ASC),
-  CONSTRAINT `fk_Necesidades_Lugar`
-    FOREIGN KEY (`lugar_id`)
-    REFERENCES `culiacan`.`Lugar` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_general_ci;
+--
+-- Table structure for table `Lugar`
+--
 
+CREATE TABLE IF NOT EXISTS `Lugar` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'nombre			',
+  `nombre` varchar(45) DEFAULT NULL,
+  `calle` varchar(45) DEFAULT NULL,
+  `numero` varchar(45) DEFAULT NULL,
+  `colonia` varchar(45) DEFAULT NULL,
+  `ciudad` varchar(45) DEFAULT NULL,
+  `estado` varchar(45) DEFAULT NULL,
+  `pais` varchar(45) DEFAULT NULL,
+  `codigo_postal` varchar(10) DEFAULT NULL,
+  `tipo` enum('centro de acopio','albergue','otro') DEFAULT NULL,
+  `observaciones` text,
+  `status` tinyint(1) DEFAULT '1',
+  `created_at` datetime DEFAULT NULL,
+  `modified_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Necesidad`
+--
+
+CREATE TABLE IF NOT EXISTS `Necesidad` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `lugar_id` int(11) unsigned NOT NULL,
+  `titulo` varchar(45) DEFAULT NULL,
+  `descripcion` text,
+  `tipo` enum('alimento','objeto','otro') DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `modified_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`,`lugar_id`),
+  KEY `fk_Necesidades_Lugar_idx` (`lugar_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Noticia`
+--
+
+CREATE TABLE IF NOT EXISTS `Noticia` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `autor` int(11) unsigned NOT NULL,
+  `titulo` varchar(100) DEFAULT NULL,
+  `contenido` text,
+  `created_at` datetime DEFAULT NULL,
+  `modified_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`,`autor`),
+  KEY `fk_Noticias_User1_idx` (`autor`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Persona`
+--
+
+CREATE TABLE IF NOT EXISTS `Persona` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) DEFAULT NULL,
+  `apellidos` varchar(100) DEFAULT NULL,
+  `edad` int(3) DEFAULT NULL,
+  `observaciones` text,
+  `status` enum('desaparecida','encontrada','en albergue') DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `modified_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_level_id` int(10) unsigned NOT NULL DEFAULT '1',
+  `title` varchar(10) DEFAULT NULL,
+  `firstname` varchar(255) DEFAULT NULL,
+  `lastname` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `user` varchar(255) NOT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `salt` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_level_id` (`user_level_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_activation_token`
+--
+
+CREATE TABLE IF NOT EXISTS `user_activation_token` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `used` tinyint(1) DEFAULT '0',
+  `user_id` int(10) unsigned NOT NULL,
+  `date_used` datetime NOT NULL,
+  `token` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`,`token`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_forgot_token`
+--
+
+CREATE TABLE IF NOT EXISTS `user_forgot_token` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `used` tinyint(1) DEFAULT '0',
+  `user_id` int(10) unsigned NOT NULL,
+  `date_used` datetime NOT NULL,
+  `token` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`,`token`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_level`
+--
+
+CREATE TABLE IF NOT EXISTS `user_level` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `user_level`
+--
+
+INSERT INTO `user_level` (`id`, `title`) VALUES
+(1, 'Usuario'),
+(2, 'Administrador'),
+(3, 'Developer');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Necesidad`
+--
+ALTER TABLE `Necesidad`
+  ADD CONSTRAINT `fk_Necesidades_Lugar` FOREIGN KEY (`lugar_id`) REFERENCES `Lugar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `Noticia`
+--
+ALTER TABLE `Noticia`
+  ADD CONSTRAINT `fk_Noticias_User1` FOREIGN KEY (`autor`) REFERENCES `User` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

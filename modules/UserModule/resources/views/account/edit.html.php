@@ -32,7 +32,7 @@
             <legend>Edit your account</legend>
 
             <div class="control-group">
-                <label class="control-label" for="formFirstName">First Name <em>*</em></label>
+                <label class="control-label" for="formFirstName">Nombre <em>*</em></label>
 
                 <div class="controls">
                     <input type="text" class="input-xlarge validate[required]" id="formFirstName" name="userFirstName"
@@ -42,7 +42,7 @@
             </div>
 
             <div class="control-group">
-                <label class="control-label" for="formLastName">Last Name <em>*</em></label>
+                <label class="control-label" for="formLastName">Apellido/s <em>*</em></label>
 
                 <div class="controls">
                     <input type="text" class="input-xlarge validate[required]" id="formLastName" name="userLastName"
@@ -52,7 +52,7 @@
             </div>
 
             <div class="control-group">
-                <label class="control-label" for="userUsername">Username <em>*</em></label>
+                <label class="control-label" for="userUsername">Usuario <em>*</em></label>
 
                 <div class="controls">
                     <input type="text" class="input-xlarge validate[required]" id="userUsername"
@@ -62,7 +62,7 @@
             </div>
 
             <div class="control-group">
-                <label class="control-label" for="formEmail">Email Address <em>*</em></label>
+                <label class="control-label" for="formEmail">Email <em>*</em></label>
 
                 <div class="controls">
                     <input type="text" class="input-xlarge validate[required,custom[email]]" id="formEmail"

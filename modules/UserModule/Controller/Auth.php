@@ -11,27 +11,30 @@ class Auth extends SharedController
     protected $userStorage;
 
     // Create first admin user.
-    /*public function yomeroAction()
+    /**
+     * Crea tu propio usuario para que puedas hacer pruebas.
+     */
+    public function yomeroAction()
     {
         $userStorage     = $this->getUserStorage();
         $user = array(
-            'email'       => 'alfrekjv@gmail.com',
-            'first_name'  => 'Alfredo',
-            'last_name'   => 'Juárez',
-            'user'        => 'alfrekjv',
-            'password'    => 'asks0ft',
-            'salt'        => base64_encode(openssl_random_pseudo_bytes(16)),
-            'status'      => 1,
-            'level'       => 1,
-            'created_at'  => date('Y-m-d H:i:s'),
-            'modified_at' => date('Y-m-d H:i:s')
+            'email'         => 'TUCORREO',
+            'first_name'    => 'TUNOMBRE',
+            'last_name'     => 'TUAPELLIDO',
+            'user'          => 'TUUSARIO',
+            'password'      => 'password',
+            'salt'          => base64_encode(openssl_random_pseudo_bytes(16)),
+            'status'        => 1,
+            'user_level_id' => 1,
+            'created_at'    => date('Y-m-d H:i:s'),
+            'modified_at'   => date('Y-m-d H:i:s')
         );
 
         // Create the user
-        $newUserID = $userStorage->create($user, $this->getConfigSalt());
+        $userStorage->create($user, $this->getConfigSalt());
 
         echo 'Usuario creado correctamente.';
-    } */
+    }
 
     public function signupAction()
     {
@@ -141,56 +144,15 @@ class Auth extends SharedController
         // Prepare user array for insertion
         $user = array(
             'email'     => $post['userEmail'],
-            'firstname' => $post['userFirstName'],
-            'lastname'  => $post['userLastName'],
-            'username'  => $post['userUsername'],
+            'first_name' => $post['userFirstName'],
+            'last_name'  => $post['userLastName'],
+            'user'  => $post['userUsername'],
             'password'  => $post['userPassword'],
             'salt'      => base64_encode(openssl_random_pseudo_bytes(16))
         );
 
         // Create the user
         $newUserID = $userStorage->create($user, $this->getConfigSalt());
-
-        // Meta data setup
-        $metaInsertData = array();
-        $metaMap        = array(
-            'dob'           => 'userDOB',
-            'primary_phone' => 'userPrimaryPhone',
-            'twitter'       => 'userTwitter',
-            'facebook'      => 'userFacebook'
-        );
-
-        foreach ($metaMap as $key => $val) {
-            if (isset($post[$val]) && !empty($post[$val])) {
-                $metaInsertData[$key] = $post[$val];
-            }
-        }
-
-        if (isset($metaInsertData['dob'])) {
-            list($dobMonth, $dobDay, $dobYear) = explode('/', $metaInsertData['dob']);
-            $dateTime              = new \DateTime("{$dobYear}-{$dobMonth}-{$dobDay}");
-            $metaInsertData['dob'] = $dateTime->format('m/d/Y');
-        }
-
-        if (isset($metaInsertData['twitter'])) {
-            $metaInsertData['twitter'] = str_replace('@', '', $metaInsertData['twitter']);
-        }
-
-        // Create the users meta fields
-        $userMetaStorage->create($newUserID, $metaInsertData);
-
-        // upload pictures, if any...
-        $userGallery   = $this->getService('user.gallery.storage');
-        $accountHelper = $this->getService('user.account.helper');
-        $files         = $this->files();
-        $config        = $this->getConfig();
-
-        if (isset($files['userPicture1']) && !empty($files['userPicture1'])) {
-            $accountHelper->createGalleryItem($newUserID, $files['userPicture1']);
-        }
-        if (isset($files['userPicture2']) && !empty($files['userPicture2'])) {
-            $accountHelper->createGalleryItem($newUserID, $files['userPicture2']);
-        }
 
         // Generate sha1() based activation code
         $activationCode = sha1(openssl_random_pseudo_bytes(16));

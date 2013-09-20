@@ -18,8 +18,8 @@
         </dl>
 
         <div class="buttons">
-            <a class="btn btn-large" href="<?=$view['router']->generate('User_Edit_Account');?>">Edit Account</a>
-            <a class="btn btn-large" href="<?=$view['router']->generate('User_Edit_Password');?>">Edit Password</a>
+            <a class="btn btn-large" href="<?=$view['router']->generate('User_Edit_Account');?>">Editar Cuenta</a>
+            <a class="btn btn-large" href="<?=$view['router']->generate('User_Edit_Password');?>">Cambiar Password</a>
         </div>
     </section>
 

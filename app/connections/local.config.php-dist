@@ -1,0 +1,13 @@
+<?php
+
+$connections = array();
+
+$connections['main'] = array(
+    'type'   => 'pdo_mysql',
+    'host'   => 'localhost',
+    'dbname' => 'culiacan',
+    'user'   => 'root',
+    'pass'   => ''
+);
+
+return $connections;

@@ -3,3 +3,4 @@ vendor/*
 .idea
 .idea/*
 .DS_STORE
+app/connections/local.config.php
