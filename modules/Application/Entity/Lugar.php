@@ -29,6 +29,13 @@ class Lugar
         }
     }
 
+    public function toArray()
+    {
+        $vars = get_object_vars($this);
+
+        return $vars;
+    }
+
     /**
      * @param null $calle
      */

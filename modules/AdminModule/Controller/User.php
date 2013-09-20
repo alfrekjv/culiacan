@@ -176,13 +176,13 @@ class User extends SharedController
 
         $post = $this->post();
         $user = array(
-            'email'      => $post['userEmail'],
-            'first_name' => $post['userFirstName'],
-            'last_name'  => $post['userLastName'],
-            'user'       => $post['userUsername'],
-            'password'   => $post['userPassword'],
-            'salt'       => base64_encode(openssl_random_pseudo_bytes(16)),
-            'level'      => 1
+            'email'         => $post['userEmail'],
+            'first_name'    => $post['userFirstName'],
+            'last_name'     => $post['userLastName'],
+            'user'          => $post['userUsername'],
+            'password'      => $post['userPassword'],
+            'salt'          => base64_encode(openssl_random_pseudo_bytes(16)),
+            'user_level_id' => 3
         );
 
         // Create the user

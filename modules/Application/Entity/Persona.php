@@ -23,6 +23,13 @@ class Persona
         }
     }
 
+    public function toArray()
+    {
+        $vars = get_object_vars($this);
+
+        return $vars;
+    }
+
     /**
      * @param mixed $apellidos
      */
