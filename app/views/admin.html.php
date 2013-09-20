@@ -47,6 +47,7 @@
         <nav class="main-nav">
             <a href="<?=$view['router']->generate('Admin_Index');?>" class="nav-admin"><i class="icon-white icon-home"></i> Dashboard</a>
             <a href="<?=$view['router']->generate('Admin_Lugares_Index');?>" class="nav-admin"><i class="icon-white icon-home"></i> Lugares</a>
+            <a href="<?=$view['router']->generate('Admin_Users_Index');?>" class="nav-admin"><i class="icon-white icon-home"></i> Usuarios</a>
             <a href="<?=$view['router']->generate('User_Logout');?>" class="nav-admin"><i class="icon-white icon-remove"></i> Salir</a>
         </nav>
     </div>
