@@ -102,7 +102,19 @@
                                     <span rel="formPatientName" class="help-inline"></span>
                                 </div>
                             </div>
-                            
+
+                            <div class="control-group">
+                                <label class="control-label" for="formLevel">Nivel <em>*</em></label>
+
+                                <div class="controls">
+                                    <select id="user_level_id" name="user_level_id">
+                                        <option value="1">Admin</option>
+                                        <option value="2">Colaborador</option>
+                                        <option value="3" selected>Usuario</option>
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="form-actions buttons-area">
                                 <a href="<?=$view['router']->generate('Admin_Users_Index');?>" class="">Cancelar</a>
                                 <input type="submit" class="btn btn-large btn-step" data-goto-step="2" value="Crear Usuario">
