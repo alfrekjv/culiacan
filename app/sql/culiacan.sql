@@ -1,0 +1,79 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+CREATE TABLE IF NOT EXISTS `culiacan`.`Lugar` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'nombre			',
+  `nombre` VARCHAR(45) NULL DEFAULT NULL,
+  `calle` VARCHAR(45) NULL DEFAULT NULL,
+  `numero` VARCHAR(45) NULL DEFAULT NULL,
+  `colonia` VARCHAR(45) NULL DEFAULT NULL,
+  `ciudad` VARCHAR(45) NULL DEFAULT NULL,
+  `estado` VARCHAR(45) NULL DEFAULT NULL,
+  `pais` VARCHAR(45) NULL DEFAULT NULL,
+  `codigo_postal` VARCHAR(10) NULL DEFAULT NULL,
+  `tipo` ENUM('centro de acopio', 'albergue', 'otro') NULL DEFAULT NULL,
+  `observaciones` TEXT NULL DEFAULT NULL,
+  `status` TINYINT(1) NULL DEFAULT 1,
+  `created_at` DATETIME NULL DEFAULT NULL,
+  `modified_at` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_general_ci;
+
+CREATE TABLE IF NOT EXISTS `culiacan`.`Persona` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(100) NULL DEFAULT NULL,
+  `apellidos` VARCHAR(100) NULL DEFAULT NULL,
+  `edad` INT(3) NULL DEFAULT NULL,
+  `observaciones` TEXT NULL DEFAULT NULL,
+  `status` ENUM('desaparecida', 'encontrada', 'en albergue') NULL DEFAULT NULL,
+  `created_at` DATETIME NULL DEFAULT NULL,
+  `modified_at` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_general_ci;
+
+CREATE TABLE IF NOT EXISTS `culiacan`.`Noticia` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `autor` INT(11) UNSIGNED NOT NULL,
+  `titulo` VARCHAR(100) NULL DEFAULT NULL,
+  `contenido` TEXT NULL DEFAULT NULL,
+  `created_at` DATETIME NULL DEFAULT NULL,
+  `modified_at` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`, `autor`),
+  INDEX `fk_Noticias_User1_idx` (`autor` ASC),
+  CONSTRAINT `fk_Noticias_User1`
+    FOREIGN KEY (`autor`)
+    REFERENCES `culiacan`.`User` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_general_ci;
+
+CREATE TABLE IF NOT EXISTS `culiacan`.`Necesidad` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `lugar_id` INT(11) UNSIGNED NOT NULL,
+  `titulo` VARCHAR(45) NULL DEFAULT NULL,
+  `descripcion` TEXT NULL DEFAULT NULL,
+  `tipo` ENUM('alimento', 'objeto', 'otro') NULL DEFAULT NULL,
+  `created_at` DATETIME NULL DEFAULT NULL,
+  `modified_at` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`, `lugar_id`),
+  INDEX `fk_Necesidades_Lugar_idx` (`lugar_id` ASC),
+  CONSTRAINT `fk_Necesidades_Lugar`
+    FOREIGN KEY (`lugar_id`)
+    REFERENCES `culiacan`.`Lugar` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_general_ci;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

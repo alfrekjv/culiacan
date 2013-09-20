@@ -1,0 +1,21 @@
+<?php
+
+namespace AdminModule\Storage;
+
+use PPI\DataSource\ActiveQuery;
+
+class Base extends ActiveQuery {
+
+    public function getDataForSelect($field, $where = '')
+    {
+        $data   = array();
+        $rows   = $this->fetchAll($this->getFetchMode());
+
+        foreach ($rows as $row) {
+            $data[$row[$field]] = $row['id'];
+        }
+
+        return $data;
+    }
+
+}

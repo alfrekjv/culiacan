@@ -1,0 +1,38 @@
+Admin_Users_Index:
+    pattern: /admin/users
+    defaults: { _controller: "AdminModule:User:index"}
+
+Admin_User_Create:
+    pattern: /admin/users/create
+    defaults: { _controller: "AdminModule:User:create"}
+
+Admin_User_Create_Submit:
+    pattern: /admin/users/create-submit
+    defaults: { _controller: "AdminModule:User:createSubmit"}
+    requirements:
+        _method: POST
+
+Admin_User_Edit:
+    pattern: /admin/users/edit/{id}
+    defaults: { _controller: "AdminModule:User:edit"}
+
+Admin_User_Edit_Submit:
+    pattern: /admin/users/edit/{id}
+    defaults: { _controller: "AdminModule:User:editSubmit"}
+    requirements:
+        _method: POST
+    
+Admin_User_Delete:
+    pattern: /admin/users/delete/{id}
+    defaults: { _controller: "AdminModule:User:delete"}
+
+
+       
+        
+Admin_Index:
+    pattern: /admin/
+    defaults: { _controller: "AdminModule:Index:index" }
+    
+Admin_Index2:
+    pattern: /admin
+    defaults: { _controller: "AdminModule:Index:index" }
