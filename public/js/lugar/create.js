@@ -1,4 +1,22 @@
 $(document).ready(function() {
+	var ciudad = "Culiacan Rosales";
+	var calle;
+	var numero;
+	var colonia;
+	var direccion = ciudad;
+
+	$('#calle').blur(function(){
+		calle = $(this).val();
+		buscarCoordenadas();
+	});
+	$('#numero').blur(function(){
+		numero = $(this).val();
+		buscarCoordenadas();
+	});
+	$('#colonia').live('change',function(){
+		colonia = $('#colonia option:selected').text();
+		buscarCoordenadas();
+	});
 
     $('#ciudad').live('change',function(e) {
 
@@ -13,6 +31,7 @@ $(document).ready(function() {
     var culiacan = new google.maps.LatLng(24.80485, -107.385498);
 	var marker;
 	var map;
+	var geocoder;
 
 	function initialize() {
 	  var mapOptions = {
@@ -20,9 +39,10 @@ $(document).ready(function() {
 	    mapTypeId: google.maps.MapTypeId.ROADMAP,
 	    center: culiacan
 	  };
-
+	  geocoder = new google.maps.Geocoder();
 	  map = new google.maps.Map(document.getElementById('map-canvas'),
 	          mapOptions);
+
 
 	  marker = new google.maps.Marker({
 	    map:map,
@@ -38,6 +58,16 @@ $(document).ready(function() {
 	  });
 	  google.maps.event.addListener(marker, 'mouseup', cambiaCoordenada);
 	}
+
+	function buscarCoordenadas(){
+		adress = ciudad+" "+calle+" "+numero+" "+colonia;
+		geocoder.geocode( { 'address': adress}, function(results) {
+			moverMarcador(results[0].geometry.location);
+	    });
+
+	}
+	
+
 
 	function moverMarcador(latlng){
 		marker.setMap(null);
@@ -65,5 +95,7 @@ $(document).ready(function() {
 		document.getElementById('lng').value = marker.getPosition().lng();
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
+
+
 
 });
