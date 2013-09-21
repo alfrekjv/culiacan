@@ -93,8 +93,15 @@
                 <span rel="codigo_postal" class="help-inline"></span>
             </div>
         </div>
-
         <div class="control-group">
+            <label class="control-label" for="name">Mapa <em>*</em></label>
+
+            <div class="controls">
+                <div id="map-canvas" style="height:400px;"></div>
+            </div>
+        </div>
+        
+        <div class="control-group hidden">
             <label class="control-label" for="name">Latitud <em>*</em></label>
 
             <div class="controls">
@@ -103,7 +110,7 @@
             </div>
         </div>
 
-        <div class="control-group">
+        <div class="control-group hidden">
             <label class="control-label" for="name">Longitud <em>*</em></label>
 
             <div class="controls">
@@ -149,5 +156,8 @@
 
 
 <?php $view['slots']->start('include_js_body'); ?>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA4-g0ztDzispF3WgqWkLIPNdSBOlYAZAc&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script type="text/javascript" src="<?= $view['assets']->getUrl('js/lugar/create.js'); ?>"></script>
+    
 <?php $view['slots']->stop(); ?>
