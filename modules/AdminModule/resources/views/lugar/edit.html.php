@@ -94,23 +94,9 @@
                 <div id="map-canvas" style="height:400px;"></div>
             </div>
         </div>
-        <div class="control-group">
-            <label class="control-label" for="lat">Latitud <em>*</em></label>
 
-            <div class="controls">
-                <input type="text" class="input-xlarge validate[required]" id="lat" name="lat" value="<?=$data->getLat();?>">
-                <span rel="lat" class="help-inline"></span>
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" for="lng">Longitud <em>*</em></label>
-
-            <div class="controls">
-                <input type="text" class="input-xlarge validate[required]" id="lng" name="lng" value="<?=$data->getLng();?>">
-                <span rel="lng" class="help-inline"></span>
-            </div>
-        </div>
+        <input type="hidden" id="lat" name="lat" value="<?=$data->getLat();?>">
+        <input type="hidden" id="lng" name="lng" value="<?=$data->getLng();?>">
 
         <div class="control-group">
             <label class="control-label" for="name">Tipo</label>
@@ -161,69 +147,5 @@
 
 <?php $view['slots']->start('include_js_body'); ?>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA4-g0ztDzispF3WgqWkLIPNdSBOlYAZAc&sensor=false"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('#ciudad').live('change',function(e) {
-                var url = ppi.baseUrl + 'admin/lugar/updateColonias/' + $(this).val();
-
-                $.get(url, function(response) {
-                    $('#colonia').html(response.content);
-                }, 'json');
-            });
-
-            var position = new google.maps.LatLng(<?=$data->getLat();?>, <?=$data->getLng();?>);
-            var marker;
-            var map;
-
-            function initialize() {
-                var mapOptions = {
-                    zoom: 13,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    center: position
-                };
-
-                map = new google.maps.Map(document.getElementById('map-canvas'),
-                    mapOptions);
-
-                marker = new google.maps.Marker({
-                    map:map,
-                    animation: google.maps.Animation.DROP,
-                    position: position,
-                    draggable: true
-                });
-                google.maps.event.addListener(marker, 'click', toggleBounce);
-                google.maps.event.addListener(map, 'click', function(event){
-                    var latlng = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
-                    moverMarcador(latlng);
-                });
-                google.maps.event.addListener(marker, 'mouseup', cambiaCoordenada);
-            }
-
-            function moverMarcador(latlng){
-                marker.setMap(null);
-                marker = new google.maps.Marker({
-                    map:map,
-                    draggable:true,
-                    animation: google.maps.Animation.DROP,
-                    position: latlng
-                });
-                cambiaCoordenada();
-                google.maps.event.addListener(marker, 'mouseup', cambiaCoordenada);
-            }
-
-            function toggleBounce() {
-                if (marker.getAnimation() != null) {
-                    marker.setAnimation(null);
-                } else {
-                    marker.setAnimation(google.maps.Animation.BOUNCE);
-                }
-            }
-            function cambiaCoordenada(){
-                document.getElementById('lat').value = marker.getPosition().lat();
-                document.getElementById('lng').value = marker.getPosition().lng();
-            }
-            initialize();
-        });
-    </script>
-    
+    <script type="text/javascript" src="<?=$view['assets']->getUrl('js/lugar/edit.js');?>"></script>
 <?php $view['slots']->stop(); ?>
