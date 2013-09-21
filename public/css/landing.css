@@ -28,7 +28,9 @@ body {background-color: #eee}
 .form-persona {margin-top: 10px}
 .navbar-banderas {
   background: #eece00;
-  border-top: 1px solid #8f8f8f
+  border-top: 1px solid #8f8f8f;
+  opacity:0.80;
+  filter:alpha(opacity=80)
 }
 .navbar-banderas .nav {font-size: 20px;font-weight: bold}
 .navbar-banderas .nav > li > a {color: #333; border-radius: 0}

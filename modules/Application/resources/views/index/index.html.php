@@ -54,7 +54,7 @@
         <div id="google-maps" class="col-xs-9 col-sm-9 col-md-9 col-lg-10">
             <div id="mapa-canvas" class="hidden-xs hidden-md"></div>
             <div id="btn-municipios" class="btn-group hidden-xs hidden-md">
-                <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown"><span class="text">Culiacán</span>
+                <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-map-marker"></span> <span class="text">Culiacán</span>
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu">
                     <li data-filtro="culiacan" class="active"><a href="#">Culiacán</a></li>
@@ -90,7 +90,7 @@
     </div>
 </div>
 
-<div class="navbar navbar-inverse navbar-banderas navbar-fixed-bottom hidden-xs hidden-md" style="bottom:62px">
+<div class="navbar navbar-inverse navbar-banderas navbar-fixed-bottom hidden-xs hidden-md" style="bottom:53px">
     <ul class="nav nav-pills">
         <li><a href="#" data-tipo="centros"><span class="glyphicon glyphicon-home"></span> Centros de Acopio</a></li>
         <li><a href="#" data-tipo="albergues"><span class="glyphicon glyphicon-user"></span> Albergues</a></li>
