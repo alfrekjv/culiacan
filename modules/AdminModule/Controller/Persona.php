@@ -110,8 +110,8 @@ class Persona extends SharedController
         // Prepare array for insertion
         $storage->update(
             array(
-                 'nombre'           => $post['nombre'],
-                 'apellidos'        => $post['apellidos'],
+                 'nombre'           => utf8_encode($post['nombre']),
+                 'apellidos'        => utf8_encode($post['apellidos']),
                  'edad'             => $post['edad'],
                  'observaciones'    => $post['observaciones'],
                  'status'           => $post['status'],
@@ -145,6 +145,19 @@ class Persona extends SharedController
         $this->setFlash('success', 'Persona eliminada correctamente.');
 
         return $this->redirectToRoute('Admin_Personas_Index');
+    }
+
+    public function buscarAction(){
+        if ( ! $this->isAdmin() ) {
+            $this->setFlash('error', 'You don\'t have permission to access that page');
+            return $this->redirectToRoute('User_Login');
+        }
+
+        $variable_post_busqueda = 'yee';
+        
+        $resultado = $this->getService('persona.storage')->buscar_personas($variable_post_busqueda);
+
+        echo json_encode($resultado);
     }
 
 }

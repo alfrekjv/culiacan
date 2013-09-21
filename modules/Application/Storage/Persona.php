@@ -132,4 +132,18 @@ class Persona extends BaseStorage
         return $row['total'];
     }
 
+    public function buscar_personas($informacion = ''){
+        $entities = array();
+        $rows     = $this->createQueryBuilder()
+                    ->select('*')->from($this->getTableName(), 'c')
+                    ->andWhere('( nombre LIKE "%'.$informacion.'%" OR apellidos LIKE "%'.$informacion.'%" )')
+                    ->execute()->fetchAll($this->getFetchMode());
+
+        foreach ($rows as $row) {
+            $entities[] = new Entity($row);
+        }
+
+        return $entities;
+    }
+
 }

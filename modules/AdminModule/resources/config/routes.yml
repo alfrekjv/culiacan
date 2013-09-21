@@ -70,3 +70,7 @@ Admin_Personas_Edit:
 Admin_Personas_Delete:
     pattern: /admin/personas/delete/{id}
     defaults: { _controller: "AdminModule:Persona:delete" }
+
+Admin_Personas_Buscar:
+    pattern: /admin/personas/buscar
+    defaults: { _controller: "AdminModule:Persona:buscar" }
