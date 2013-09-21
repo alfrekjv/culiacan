@@ -9,6 +9,23 @@ $(document).ready(function () {
 
     $('#mapa-canvas').height($('body').height());
 
+    $('#btn-municipios .dropdown-menu').on('click', 'a', function (event)
+    {
+      event.preventDefault();
+      var $parent = $(this).closest('#btn-municipios');
+      var $btn = $parent.find('button');
+      var $prev = $parent.find('li.active');
+      $prev.toggleClass('active');
+      var $next = $(this).parent().addClass('active');
+      $parent.toggleClass('open');
+      $btn.find('.text').text($next.find('a').text());
+      return false;
+    });
+    
+    $('#modal-directorio').on('shown.bs.modal', function () {
+        $('a[data-toggle=tooltip]').tooltip();
+    })
+
     $('.nav.nav-pills a').click(function (e) {
 
         e.preventDefault();
@@ -102,6 +119,15 @@ function placeSpotsOnMap() {
     latlng = new google.maps.LatLng(latitude, longitude);
     map.setCenter(latlng);
     map.setZoom(14);
+
+    $.getJSON(ppi.baseUrl + 'lugares/afectadas.json', function (spots) {
+        addMarkerFromCat(spots, 'afectadas');
+    });
+
+    $.getJSON(ppi.baseUrl + 'lugares/agua.json', function (spots) {
+        addMarkerFromCat(spots, 'agua');
+    });
+
 }
 
 function addMarkerFromCat(category, catname) {

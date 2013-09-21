@@ -22,6 +22,10 @@ Afectadas_JSON:
     defaults: { _controller: "Application:Lugar:getAfectadas" }
 
 
+AguaPotable_JSON:
+    pattern: /lugares/agua.json
+    defaults: { _controller: "Application:Lugar:getAgua" }
+
 
 Personas_JSON:
     pattern: /personas.json

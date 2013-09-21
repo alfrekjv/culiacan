@@ -112,6 +112,7 @@ class Lugar extends SharedController
         );
     }
 
+
     public function reportarAction(){
         $storage      = $this->getService('lugar.storage');
         $post         = $this->post();
@@ -151,7 +152,27 @@ class Lugar extends SharedController
         }
 
         return json_encode($resultado);
+    }
 
+
+    public function getAguaAction()
+    {
+
+        $storage = $this->getService('lugar.storage');
+        $lugares = $storage->getAgua();
+        $map     = array();
+
+        foreach ($lugares as $lugar) {
+            $map[] = $lugar->toArray();
+        }
+
+        return $this->createResponse(
+            array(
+                 'status' => 'success',
+                 'code'   => 'OK',
+                 'data'   => $map
+            )
+        );
     }
 
 }

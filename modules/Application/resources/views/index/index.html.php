@@ -3,7 +3,7 @@
 <?php $view['slots']->start('include_css') ?>
     <link href="<?= $view['assets']->getUrl('css/landing.css'); ?>" type="text/css" rel="stylesheet"/>
 <?php $view['slots']->stop(); ?>
-
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 <div class="navbar navbar-inverse navbar-fixed-top hidden-md hidden-lg">
     <div class="container">
         <div class="navbar-header">
@@ -54,7 +54,7 @@
         <div id="google-maps" class="col-xs-9 col-sm-9 col-md-9 col-lg-10">
             <div id="mapa-canvas" class="hidden-xs hidden-md"></div>
             <div id="btn-municipios" class="btn-group hidden-xs hidden-md">
-                <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown"><span class="text">Culiacán</span>
+                <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-map-marker"></span> <span class="text">Culiacán</span>
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu">
                     <li data-filtro="culiacan" class="active"><a href="#">Culiacán</a></li>
@@ -90,24 +90,71 @@
     </div>
 </div>
 
-<div class="navbar navbar-inverse navbar-banderas navbar-fixed-bottom hidden-xs hidden-md" style="bottom:62px">
+<div class="navbar navbar-inverse navbar-banderas navbar-fixed-bottom hidden-xs hidden-md" style="bottom:49px">
     <ul class="nav nav-pills">
         <li><a href="#" data-tipo="centros"><span class="glyphicon glyphicon-home"></span> Centros de Acopio</a></li>
         <li><a href="#" data-tipo="albergues"><span class="glyphicon glyphicon-user"></span> Albergues</a></li>
         <li><a href="#" data-tipo="evacuadas"><span class="glyphicon glyphicon-log-in"></span> Zonas Evacuadas</a></li>
         <li><a href="#" data-tipo="afectadas"><span class="glyphicon glyphicon-log-in"></span> Zonas Afectadas</a></li>
+        <li><a href="#" data-tipo="agua"><span class="glyphicon glyphicon-log-in"></span> Abast. de Agua Potable</a></li>
     </ul>
 </div>
-<div class="navbar navbar-inverse navbar-emergencias navbar-fixed-bottom hidden-xs hidden-md">
-    <h2 class="navbar-text"><b>EMERGENCIAS 066</b></h2>
 
-    <div class="menu">
-        <div class="nav">
-            <a href="">Directorio</a> |
-            <a href="">Donaciones</a> |
-            <a href="#" id="btn-reportar-lugar">Reportar Lugar</a> |
-            <a href="">Reportar Persona</a>
+
+ 
+            
+
+<div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex6-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><b><span class="glyphicon glyphicon-phone-alt"></span> EMERGENCIAS 066</b></a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex6-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#modal-directorio" data-toggle="modal">Directorio</a></li>
+        <li><a href="">Donaciones</a></li>
+        <li><a href="#" id="btn-reportar-lugar">Reportar Lugar</a></li>
+        <li><a href="">Reportar Persona</a></li>
+      </ul>
+    </div>
+</div>
+
+<div id="modal-directorio" class="modal fade" tabindex="-1" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a class="close" data-dismiss="modal" aria-hidden="true" data-toggle="tooltip" data-placement="left" data-original-title="Cerrar ventana">&times;</a>
+          <h2 class="modal-title">Directorio</h2>
         </div>
+        <div class="modal-body">
+            <ul id="list-directorio" class="list-inline text-center">
+                <li><a href="http://culiacan.gob.mx/" target="_blank"><img src="<?=$view['assets']->getUrl('images/ayuntamiento-culiacan.png');?>" class="img-responsive" alt=""></a></li>
+                <li><a href="http://cloudadmin.mx/" target="_blank"><img src="<?=$view['assets']->getUrl('images/cloudadmin.png');?>" class="img-responsive" alt=""></a></li>
+                <li><a href="http://tomatovalley.net/" target="_blank"><img src="<?=$view['assets']->getUrl('images/tomato-valley.png');?>" class="img-responsive" alt=""></a></li>
+            </ul>
+
+            <div class="contributors">
+                <h2>Colaboradores</h2>
+
+                <p>
+                    Alfredo Juárez <br>
+                    Julián Quiñonez <br>
+                    Antonio Yee <br>
+                    Alonso Uribe <br>
+                    Jorge Pilotzi <br>
+                </p>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-minus-sign"></span> Cerrar ventana</button>
+
+        </div>
+      </div>
     </div>
 </div>
 
@@ -127,7 +174,7 @@
             <div class="modal-body">
                 <form id="form-reportar-lugar" name="form-reportar-lugar" action="#"  method="post">
                     <input id="status" name="status" type="hidden" value="2">
-                    <div id="msj-error" class="alert" style="margin-top:-34px; display:none"></div>
+                    <div id="msj-error" class="alert" style="display:none"></div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group" >
