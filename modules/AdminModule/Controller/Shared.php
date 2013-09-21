@@ -8,6 +8,13 @@ use AdminModule\Entity\AuthUser as AuthUserEntity;
 class Shared extends BaseController
 {
 
+    public function createResponse($data)
+    {
+        $this->getService('response')->headers->set('Content-type', 'application/json');
+
+        return json_encode($data);
+    }
+
     /**
      * Get the config options for emailing
      * 

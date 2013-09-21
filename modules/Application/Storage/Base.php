@@ -4,12 +4,13 @@ namespace Application\Storage;
 
 use PPI\DataSource\ActiveQuery;
 
-class Base extends ActiveQuery {
+class Base extends ActiveQuery
+{
 
-    public function getDataForSelect($field, $where = '')
+    public function getDataForSelect($field)
     {
-        $data   = array();
-        $rows   = $this->fetchAll($this->getFetchMode());
+        $data = array();
+        $rows = $this->fetchAll($this->getFetchMode());
 
         foreach ($rows as $row) {
             $data[$row[$field]] = $row['id'];

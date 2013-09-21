@@ -1,6 +1,5 @@
 <?php $view->extend('::admin.html.php'); ?>
 <?php $view['slots']->start('include_css') ?>
-<link rel="stylesheet" href="<?php echo $view['assets']->getUrl('admin/css/catalogos/marcas/index.css') ?>"/>
 <?php $view['slots']->stop(); ?>
 
 <div class="inner">
@@ -52,11 +51,12 @@
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="name">Colonia <em>*</em></label>
+            <label class="control-label" for="colonia">Colonia <em>*</em></label>
 
             <div class="controls">
-                <input type="text" class="input-xlarge validate[required]" id="colonia" name="colonia" value="">
-                <span rel="colonia" class="help-inline"></span>
+                <select name="colonia" id="colonia">
+                    <option value="none">Seleccione primero un municipio...</option>
+                </select>
             </div>
         </div>
 
@@ -64,17 +64,22 @@
             <label class="control-label" for="name">Ciudad <em>*</em></label>
 
             <div class="controls">
-                <input type="text" class="input-xlarge validate[required]" id="ciudad" name="ciudad" value="">
-                <span rel="ciudad" class="help-inline"></span>
+                <select id="ciudad" name="ciudad" class="required">
+                    <option value="none" selected="">Seleccione una ciudad...</option>
+                    <?php foreach ($municipios as $nombre => $id) : ?>
+                        <option value='<?=$id;?>'><?=utf8_encode($nombre);?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="name">Estado <em>*</em></label>
+            <label class="control-label" for="estado">Estado <em>*</em></label>
 
             <div class="controls">
-                <input type="text" class="input-xlarge validate[required]" id="estado" name="estado" value="">
-                <span rel="estado" class="help-inline"></span>
+                <select id="estado" name="estado">
+                    <option value="Sinaloa">Sinaloa</option>
+                </select>
             </div>
         </div>
 
@@ -141,3 +146,8 @@
     </form>
 
 </div>
+
+
+<?php $view['slots']->start('include_js_body'); ?>
+    <script type="text/javascript" src="<?= $view['assets']->getUrl('js/lugar/create.js'); ?>"></script>
+<?php $view['slots']->stop(); ?>

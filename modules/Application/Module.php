@@ -58,6 +58,14 @@ class Module extends BaseModule
 
             'persona.storage' => function($sm) {
                 return new \Application\Storage\Persona($sm->getService('datasource'));
+            },
+
+            'municipios.storage' => function($sm) {
+                return new \Application\Storage\Municipios($sm->getService('datasource'));
+            },
+
+            'colonias.storage' => function($sm) {
+                return new \Application\Storage\Colonias($sm->getService('datasource'));
             }
 
         ));

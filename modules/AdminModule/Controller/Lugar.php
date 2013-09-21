@@ -15,7 +15,7 @@ class Lugar extends SharedController
             return $this->redirectToRoute('User_Login');
         }
 
-        $data = $this->getService('lugar.storage')->getAll();
+        $data       = $this->getService('lugar.storage')->getAll();
 
         return $this->render('AdminModule:lugar:index.html.php', compact('data'));
     }
@@ -30,7 +30,11 @@ class Lugar extends SharedController
         }
 
         if (!$this->post()) {
-            return $this->render('AdminModule:lugar:create.html.php');
+
+            $colonias   = $this->getService('colonias.storage')->getDataForSelect('nombre');
+            $municipios = $this->getService('municipios.storage')->getDataForSelect('municipio');
+
+            return $this->render('AdminModule:lugar:create.html.php', compact('colonias', 'municipios'));
         }
 
         $storage      = $this->getService('lugar.storage');
@@ -113,6 +117,8 @@ class Lugar extends SharedController
                  'estado'        => $post['estado'],
                  'pais'          => $post['pais'],
                  'codigo_postal' => $post['codigo_postal'],
+                 'lat'           => $post['lat'],
+                 'lng'           => $post['lng'],
                  'tipo'          => $post['tipo'],
                  'colonia'       => $post['colonia'],
                  'modified_at'   => date('Y-m-d H:i:s')
@@ -145,6 +151,30 @@ class Lugar extends SharedController
         $this->setFlash('success', 'Lugar eliminado correctamente.');
 
         return $this->redirectToRoute('Admin_Lugares_Index');
+    }
+
+    public function updateColoniasAction()
+    {
+
+        $colonias    = array();
+        $municipioId = $this->getRouteParam('municipioId');
+        $storage     = $this->getService('colonias.storage');
+        $data        = $storage->getByMunicipioId($municipioId);
+
+        foreach ($data as $row) {
+            $colonias[$row->getNombre()] = $row->getId();
+        }
+
+        $content     = $this->render('AdminModule:lugar:colonias.html.php', compact('colonias'), array('partial' => true));
+
+        return $this->createResponse(
+               array(
+                    'status' => 'success',
+                    'code'   => 'OK',
+                    'content' => $content
+               )
+        );
+
     }
 
 }

@@ -74,3 +74,8 @@ Admin_Personas_Delete:
 Admin_Personas_Buscar:
     pattern: /admin/personas/buscar
     defaults: { _controller: "AdminModule:Persona:buscar" }
+
+
+Admin_Colonias_UpdateList:
+    pattern: /admin/lugar/updateColonias/{municipioId}
+    defaults: { _controller: "AdminModule:Lugar:updateColonias" }
