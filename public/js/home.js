@@ -23,7 +23,7 @@ $(document).ready(function () {
         $btn.find('.text').text($next.find('a').text());
     });
 
-    $('.nav.nav-pills a').click(function (e) {
+    $('#btn-tipo a').click(function (e) {
 
         e.preventDefault();
         map.clearOverlays();

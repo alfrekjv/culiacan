@@ -176,4 +176,29 @@ class Lugar extends SharedController
 
     }
 
+    public function publicarAction(){
+        if (!$this->isAdmin()) {
+            $this->setFlash('error', 'You don\'t have permission to access that page');
+            return $this->redirectToRoute('User_Login');
+        }
+
+        $id = $this->getRouteParam('id');
+        $storage = $this->getService('lugar.storage');
+
+        if (!filter_var($id, FILTER_VALIDATE_INT)) {
+            die('E_INVALID_ROLE_ID');
+        }
+
+        $storage->update(
+            array(
+                 'status'        => 1,
+                 'modified_at'   => date('Y-m-d H:i:s')
+            ),
+            array('id' => $id)
+        );
+
+        $this->setFlash('success', 'Lugar Publicado Correctamente!');
+        $this->redirectToRoute('Admin_Lugares_Index');
+    }
+
 }

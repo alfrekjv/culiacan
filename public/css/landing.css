@@ -40,20 +40,34 @@ body, h1, h2, h3, h4, h5, h6 { font-family: 'PT Sans', Helvetica, Arial, sans-se
   padding-right: 0;
   padding-left: 0
 }
-.btn-primary {
+.btn-municipios {
     background-color: #222;
     border-color: #080808;
 }
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary.active,
-.open .dropdown-toggle.btn-primary {
+.btn-municipios:hover,
+.btn-municipios:focus,
+.btn-municipios:active,
+.btn-municipios.active,
+.open .dropdown-toggle.btn-municipios {
     background-color: #444;
     border-color: #080808;
 }
-.modal.fade.in { 
-  padding-top: 5%;
+#btn-tipo > .btn-default {
+  background-color: #eece00;
+  border-color: #eece00;
+  font-weight: bold
+}
+#btn-tipo > .btn-default:hover,
+#btn-tipo > .btn-default:focus,
+#btn-tipo > .btn-default:active,
+#btn-tipo > .btn-default.active {
+  background-color: #e6e6e6;
+  border-color: #e6e6e6
+}
+#btn-tipo > .btn-lg {
+  border-radius: 0;
+}
+.modal.fade.in {
   overflow: auto
 }
 .modal-header, .modal-body, .modal-footer { 
