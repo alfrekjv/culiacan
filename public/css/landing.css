@@ -59,6 +59,9 @@ body, h1, h2, h3, h4, h5, h6 { font-family: 'PT Sans', Helvetica, Arial, sans-se
 .modal-header, .modal-body, .modal-footer { 
   padding: 10px 
 }
+
+.spot .title {font-weight: bold;}
+
 @media (max-width: 768px) {
    body {
       padding-top: 170px

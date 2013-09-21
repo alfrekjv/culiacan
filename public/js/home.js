@@ -9,8 +9,8 @@ $(document).ready(function () {
 
     $('#mapa-canvas').height($('body').height());
 
-    $('#btn-municipios .dropdown-menu').on('click', 'a', function (event)
-    {
+    $('#btn-municipios .dropdown-menu').on('click', 'a', function (event) {
+
         event.preventDefault();
 
         var $parent = $(this).closest('#btn-municipios'),
@@ -36,16 +36,13 @@ $(document).ready(function () {
 
     });
 
-    initialize();
-    placeSpotsOnMap();
-
 });
 
 function placeSpotsOnMap() {
 
     // Place Spots on the Map
-    $.getJSON(ppi.baseUrl + 'lugares/centros.json', function (spots) {
-        addMarkerFromCat(spots, 'centros');
+    $.getJSON(ppi.baseUrl + 'lugares/agua.json', function (spots) {
+        addMarkerFromCat(spots, 'agua');
     });
 
     $.getJSON(ppi.baseUrl + 'lugares/evacuadas.json', function (spots) {
@@ -60,27 +57,26 @@ function placeSpotsOnMap() {
         addMarkerFromCat(spots, 'afectadas');
     });
 
-    $.getJSON(ppi.baseUrl + 'lugares/agua.json', function (spots) {
-        addMarkerFromCat(spots, 'agua');
+    $.getJSON(ppi.baseUrl + 'lugares/centros.json', function (spots) {
+        addMarkerFromCat(spots, 'centros');
     });
 }
 
-function addMarkerFromCat(category, catname) {
+function addMarkerFromCat(spots, catname) {
 
-    var venues = category.data;
+    var venues = spots.data;
 
     for (i = 0; i < venues.length; i++) {
-
 
         var address  = venues[i].calle + " " + venues[i].numero + " " + venues[i].colonia + " " +
             venues[i].ciudad + " " + venues[i].estado + " " + venues[i].pais;
 
         var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(venues[i].lat, venues[i].lng),
-            map:      map,
-            title:    venues[i].nombre,
-            icon:     ppi.baseUrl + 'images/' + catname + '.png',
-            animation:google.maps.Animation.DROP
+            position:   new google.maps.LatLng(venues[i].lat, venues[i].lng),
+            map:        map,
+            title:      venues[i].nombre,
+            icon:       ppi.baseUrl + 'images/' + catname + '.png',
+            animation:  google.maps.Animation.DROP
         });
 
         markersArray.push(marker);
@@ -94,7 +90,8 @@ function addMarkerFromCat(category, catname) {
                     infoWindow = new google.maps.InfoWindow();
                 }
 
-                var desc = "<div class='title'>" + venues[i].nombre + "</div>";
+                var desc = "<div class='spot'><div class='title'>" + venues[i].nombre + "</div>" +
+                           "<div class='address'>" + address + "</div></div>";
 
                 infoWindow.setContent(desc);
                 infoWindow.open(map, marker);
@@ -103,24 +100,23 @@ function addMarkerFromCat(category, catname) {
     }
 }
 
-initialize = function () {
+function initialize() {
 
-    function initialize() {
+    latitude  = 24.80481147653668;
+    longitude = -107.39376068115234;
 
-        latitude  = 24.80481147653668;
-        longitude = -107.39376068115234;
+    var mapOptions = {
+        zoom:       13,
+        center:     new google.maps.LatLng(latitude, longitude),
+        mapTypeId:  google.maps.MapTypeId.ROADMAP
+    };
 
-        var mapOptions = {
-            zoom: 13,
-            center: new google.maps.LatLng(latitude, longitude),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
+    map = new google.maps.Map(document.getElementById('mapa-canvas'), mapOptions);
 
-        map = new google.maps.Map(document.getElementById('mapa-canvas'), mapOptions);
-    }
-
-    google.maps.event.addDomListener(window, 'load', initialize);
+    placeSpotsOnMap();
 }
+
+google.maps.event.addDomListener(window, 'load', initialize);
 
 google.maps.Map.prototype.clearOverlays = function () {
     if (markersArray) {
