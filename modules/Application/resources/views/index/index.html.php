@@ -99,14 +99,43 @@
         <li><a href="#" data-tipo="agua"><span class="glyphicon glyphicon-log-in"></span> Abast. de Agua Potable</a></li>
     </ul>
 </div>
-<div class="navbar navbar-inverse navbar-emergencias navbar-fixed-bottom hidden-xs hidden-md">
-    <h2 class="navbar-text"><b>EMERGENCIAS 066</b></h2>
 
-    <div class="menu">
-        <div class="nav">
-            <a href="">Directorio</a> |
-            <a href="">Donaciones</a>
+<div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex6-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><b><span class="glyphicon glyphicon-phone-alt"></span> EMERGENCIAS 066</b></a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex6-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#modal-directorio" data-toggle="modal">Directorio</a></li>
+        <li><a href="">Donaciones</a></li>
+      </ul>
+    </div>
+</div>
+
+<div id="modal-directorio" class="modal fade" tabindex="-1" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a class="close" data-dismiss="modal" aria-hidden="true" data-toggle="tooltip" data-placement="left" data-original-title="Cerrar ventana">&times;</a>
+          <h2 class="modal-title">Directorio</h2>
         </div>
+        <div class="modal-body" style="padding:10px">
+            <ul id="list-directorio" class="list-inline text-center">
+                <li><a href="http://culiacan.gob.mx/" target="_blank"><img src="<?=$view['assets']->getUrl('images/ayuntamiento-culiacan.png');?>" class="img-responsive" alt=""></a></li>
+                <li><a href="http://cloudadmin.mx/" target="_blank"><img src="<?=$view['assets']->getUrl('images/cloudadmin.png');?>" class="img-responsive" alt=""></a></li>
+                <li><a href="http://tomatovalley.net/" target="_blank"><img src="<?=$view['assets']->getUrl('images/tomato-valley.png');?>" class="img-responsive" alt=""></a></li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-minus-sign"></span> Cerrar ventana</button>
+        </div>
+      </div>
     </div>
 </div>
 

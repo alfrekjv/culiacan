@@ -22,6 +22,10 @@ $(document).ready(function () {
       return false;
     });
     
+    $('#modal-directorio').on('shown.bs.modal', function () {
+        $('a[data-toggle=tooltip]').tooltip();
+    })
+
     $('.nav.nav-pills a').click(function (e) {
 
         e.preventDefault();
