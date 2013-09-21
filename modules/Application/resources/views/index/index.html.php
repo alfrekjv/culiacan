@@ -134,11 +134,27 @@
                 <li><a href="http://tomatovalley.net/" target="_blank"><img src="<?=$view['assets']->getUrl('images/tomato-valley.png');?>" class="img-responsive" alt=""></a></li>
             </ul>
 
+            <div class="creditos">
+                <p>"La grandeza de un pueblo no se mide en su riqueza, si no en su capacidad de unirse para salir adelante en situaciones difíciles" -- A Juárez.</p>
+
+                <p>Culiacán ha demostrado que es un pueblo muy unido y con mucho coraje ante situaciones tan adversas como la presente.</p>
+
+                <p>Este proyecto es un homenaje para todas aquellas personas que han salido a las calles a ayudar, y sobre todo, a todas las familias que lamentablemente han tenido pérdidas inmesurables.</p>
+
+                <p>Quiero agradecer a todas las personas que directa o indirectamente apoyaron para que este proyecto saliera a la luz en menos de 24 horas.</p>
+
+                <p>Nuestro objetivo es centralizar la información para apoyar en las labores de rescate, limpieza y evacuación.</p>
+
+                <p>
+                    Atentamente<br>
+                    Alfredo Juárez
+                </p>
+            </div>
+
             <div class="contributors">
                 <h2>Colaboradores</h2>
 
                 <p>
-                    Alfredo Juárez <br>
                     Julián Quiñonez <br>
                     Antonio Yee <br>
                     Alonso Uribe <br>
