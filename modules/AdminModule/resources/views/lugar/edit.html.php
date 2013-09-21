@@ -7,10 +7,10 @@
     <div class="breadcrumb">
         <a href="<?= $view['router']->generate('Admin_Index'); ?>">Admin</a> >>
         <a href="<?= $view['router']->generate('Admin_Lugares_Index'); ?>">Lugares</a> >>
-        Agregar Lugar
+        Editar Lugar
     </div>
 
-    <h2>Agregar Lugar</h2>
+    <h2>EDITAR LUGAR</h2>
 
     <?php if (isset($errors) && !empty($errors)): ?>
         <div class="alert alert-error">
@@ -162,42 +162,68 @@
 <?php $view['slots']->start('include_js_body'); ?>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA4-g0ztDzispF3WgqWkLIPNdSBOlYAZAc&sensor=false"></script>
     <script type="text/javascript">
-    $(document).ready(function(){
-        var position = new google.maps.LatLng(<?=$data->getLat();?>, <?=$data->getLng();?>);
-        var marker;
-        var map;
+        $(document).ready(function(){
+            $('#ciudad').live('change',function(e) {
+                var url = ppi.baseUrl + 'admin/lugar/updateColonias/' + $(this).val();
 
-        function initialize() {
-            var mapOptions = {
-                zoom: 13,
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                center: position
-            };
-
-            map = new google.maps.Map(document.getElementById('map-canvas'),
-                mapOptions);
-
-            marker = new google.maps.Marker({
-                map:map,
-                animation: google.maps.Animation.DROP,
-                position: position,
-                draggable: true
+                $.get(url, function(response) {
+                    $('#colonia').html(response.content);
+                }, 'json');
             });
-            google.maps.event.addListener(marker, 'click', toggleBounce);
-            google.maps.event.addListener(marker, 'mouseup', cambiaCoordenada);
-        }
-        function toggleBounce() {
-            if (marker.getAnimation() != null) {
-                marker.setAnimation(null);
-            } else {
-                marker.setAnimation(google.maps.Animation.BOUNCE);
+
+            var position = new google.maps.LatLng(<?=$data->getLat();?>, <?=$data->getLng();?>);
+            var marker;
+            var map;
+
+            function initialize() {
+                var mapOptions = {
+                    zoom: 13,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    center: position
+                };
+
+                map = new google.maps.Map(document.getElementById('map-canvas'),
+                    mapOptions);
+
+                marker = new google.maps.Marker({
+                    map:map,
+                    animation: google.maps.Animation.DROP,
+                    position: position,
+                    draggable: true
+                });
+                google.maps.event.addListener(marker, 'click', toggleBounce);
+                google.maps.event.addListener(map, 'click', function(event){
+                    var latlng = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
+                    moverMarcador(latlng);
+                });
+                google.maps.event.addListener(marker, 'mouseup', cambiaCoordenada);
             }
-        }
-        function cambiaCoordenada(){
-            document.getElementById('lat').value = marker.getPosition().lat();
-            document.getElementById('lng').value = marker.getPosition().lng();
-        }
-        initialize();
-    });
+
+            function moverMarcador(latlng){
+                marker.setMap(null);
+                marker = new google.maps.Marker({
+                    map:map,
+                    draggable:true,
+                    animation: google.maps.Animation.DROP,
+                    position: latlng
+                });
+                cambiaCoordenada();
+                google.maps.event.addListener(marker, 'mouseup', cambiaCoordenada);
+            }
+
+            function toggleBounce() {
+                if (marker.getAnimation() != null) {
+                    marker.setAnimation(null);
+                } else {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            }
+            function cambiaCoordenada(){
+                document.getElementById('lat').value = marker.getPosition().lat();
+                document.getElementById('lng').value = marker.getPosition().lng();
+            }
+            initialize();
+        });
     </script>
+    
 <?php $view['slots']->stop(); ?>
