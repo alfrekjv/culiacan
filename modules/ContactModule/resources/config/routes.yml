@@ -1,0 +1,5 @@
+Contacto_Submit:
+    pattern: /contacto/enviar
+    defaults: { _controller: "ContactModule:Index:contact"}
+    requirements:
+        _method: POST

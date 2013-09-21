@@ -4,7 +4,8 @@ return array(
         'Framework',
         'Application',
         'UserModule',
-        'AdminModule'
+        'AdminModule',
+        'ContactModule'
     ),
     'listenerOptions' => array(
         'module_paths'   => array('./modules'),

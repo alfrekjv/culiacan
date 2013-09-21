@@ -94,7 +94,7 @@
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="name">Mapa <em>*</em></label>
+            <label class="control-label" for="name">Mapa <em>*</em> <small>Selecciona el punto en el mapa</small></label>
 
             <div class="controls">
                 <div id="map-canvas" style="height:400px;"></div>

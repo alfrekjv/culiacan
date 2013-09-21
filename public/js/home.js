@@ -9,6 +9,30 @@ $(document).ready(function () {
 
     $('#mapa-canvas').height($('body').height());
 
+    $('.sendEmail').live('click', function(e) {
+
+        e.preventDefault();
+
+        $.post(ppi.baseUrl + 'contacto/enviar', $('#contact-form').serialize(), function(response) {
+
+            if (response.status == 'success') {
+
+                alert(response.message);
+
+                $('#modal-contacto').modal('hide');
+            }
+
+            if (response.status == 'error') {
+
+                // @todo: Ponerle color..
+                $('.alert-error').fadeIn('fast');
+                $('.alert-error').html(response.message);
+            }
+
+        }, 'json');
+
+    });
+
     $('#btn-municipios .dropdown-menu').on('click', 'a', function (event) {
 
         event.preventDefault();
