@@ -131,6 +131,18 @@
                 <li><a href="http://cloudadmin.mx/" target="_blank"><img src="<?=$view['assets']->getUrl('images/cloudadmin.png');?>" class="img-responsive" alt=""></a></li>
                 <li><a href="http://tomatovalley.net/" target="_blank"><img src="<?=$view['assets']->getUrl('images/tomato-valley.png');?>" class="img-responsive" alt=""></a></li>
             </ul>
+
+            <div class="contributors">
+                <h2>Colaboradores</h2>
+
+                <p>
+                    Alfredo Juárez <br>
+                    Julián Quiñonez <br>
+                    Antonio Yee <br>
+                    Alonso Uribe <br>
+                    Jorge Pilotzi <br>
+                </p>
+            </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-minus-sign"></span> Cerrar ventana</button>
