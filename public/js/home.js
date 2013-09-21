@@ -21,6 +21,14 @@ $(document).ready(function () {
         $prev.toggleClass('active');
         $parent.toggleClass('open');
         $btn.find('.text').text($next.find('a').text());
+
+        // Move map
+        latitude  = $next.find('a').data('lat');
+        longitude = $next.find('a').data('lng');
+
+        latlng = new google.maps.LatLng(latitude, longitude);
+        map.setCenter(latlng);
+        map.setZoom(14);
     });
 
     $('#btn-tipo a').click(function (e) {

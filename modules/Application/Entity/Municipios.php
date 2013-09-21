@@ -7,6 +7,8 @@ class Municipios
 
     protected $id;
     protected $municipio;
+    protected $lat;
+    protected $lng;
 
     public function __construct(array $data)
     {
@@ -54,6 +56,38 @@ class Municipios
     public function getMunicipio()
     {
         return $this->municipio;
+    }
+
+    /**
+     * @param mixed $lat
+     */
+    public function setLat($lat)
+    {
+        $this->lat = $lat;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLat()
+    {
+        return $this->lat;
+    }
+
+    /**
+     * @param mixed $lng
+     */
+    public function setLng($lng)
+    {
+        $this->lng = $lng;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLng()
+    {
+        return $this->lng;
     }
 
 }
