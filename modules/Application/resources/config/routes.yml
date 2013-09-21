@@ -7,3 +7,15 @@ Homepage:
 Lugares_JSON:
     pattern: /lugares.json
     defaults: { _controller: "Application:Lugar:getLugares" }
+
+
+Personas_JSON:
+    pattern: /personas.json
+    defaults: { _controller: "Application:Persona:getPersonas" }
+
+
+Search_Personas_JSON:
+    pattern: /buscar/personas.json
+    defaults: { _controller: "Application:Persona:search" }
+    requirements:
+            _method: POST

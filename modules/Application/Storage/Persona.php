@@ -7,9 +7,9 @@ use Application\Entity\Persona as Entity;
 class Persona extends BaseStorage
 {
     protected $_meta = array(
-        'conn'    => 'main',
-        'table'   => 'Persona',
-        'primary' => 'id',
+        'conn'      => 'main',
+        'table'     => 'Persona',
+        'primary'   => 'id',
         'fetchMode' => \PDO::FETCH_ASSOC
     );
 
@@ -29,6 +29,24 @@ class Persona extends BaseStorage
 
         return new Entity($row);
 
+    }
+
+    public function getByKeyword($keyword = '')
+    {
+
+        $entities = array();
+        $rows     = $this->createQueryBuilder()
+                     ->select('*')
+                     ->from($this->getTableName(), 'p')
+                     ->where($this->createQueryBuilder()->expr()->like('p.nombre', "'%{$keyword}%'"))
+                     ->execute()
+                     ->fetchAll($this->getFetchMode());
+
+        foreach ($rows as $row) {
+            $entities[] = new Entity($row);
+        }
+
+        return $entities;
     }
 
     /**
@@ -112,23 +130,28 @@ class Persona extends BaseStorage
         return $row['total'];
     }
 
-    public function total_personas(){
+    public function total_personas()
+    {
+
         $row = $this->createQueryBuilder()
-               ->select('count(id) as total')
-               ->from($this->getTableName(), 'c')
-               ->execute()
-               ->fetch($this->getFetchMode());
+                    ->select('count(id) as total')
+                    ->from($this->getTableName(), 'c')
+                    ->execute()
+                    ->fetch($this->getFetchMode());
 
         return $row['total'];
     }
 
-    public function total_tipo_persona($tipo = NULL){
+    public function total_tipo_persona($tipo = NULL)
+    {
+
         $row = $this->createQueryBuilder()
                ->select('count(id) as total')
                ->from($this->getTableName(), 'c')
-               ->andWhere('status = "'.$tipo.'"')
+               ->andWhere('status = "' . $tipo . '"')
                ->execute()
                ->fetch($this->getFetchMode());
+
         return $row['total'];
     }
 

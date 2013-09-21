@@ -17,8 +17,8 @@ class Lugar extends SharedController
 
         $storage = $this->getService('lugar.storage');
         $lugares = $storage->getAll();
+        $map     = array();
 
-        $map = array();
         foreach ($lugares as $lugar) {
             $map[] = $lugar->toArray();
         }
