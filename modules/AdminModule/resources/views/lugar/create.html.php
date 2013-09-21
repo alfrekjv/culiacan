@@ -90,6 +90,15 @@
         </div>
 
         <div class="control-group">
+            <label class="control-label" for="name">C.P. <em>*</em></label>
+
+            <div class="controls">
+                <input type="text" class="input-xlarge validate[required]" id="codigo_postal" name="codigo_postal" value="">
+                <span rel="codigo_postal" class="help-inline"></span>
+            </div>
+        </div>
+
+        <div class="control-group">
             <label class="control-label" for="name">Tipo</label>
 
             <div class="controls">
