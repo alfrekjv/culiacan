@@ -38,19 +38,13 @@ class PErsona extends SharedController
         $map     = array();
         $post    = $this->post();
         $storage = $this->getService('persona.storage');
-        $data    = $storage->getByKeyword($post['keyword']);
+        $data    = $storage->buscar_personas($post['keyword']);
 
         foreach ($data as $row) {
             $map[] = $row->toArray();
         }
 
-        return $this->createResponse(
-            array(
-                 'status' => 'success',
-                 'code'   => 'OK',
-                 'data'   => $map
-            )
-        );
+        return $this->createResponse(array('data' => $map));
     }
 
 }
