@@ -54,7 +54,7 @@
         <div id="google-maps" class="col-xs-9 col-sm-9 col-md-9 col-lg-10">
             <div id="mapa-canvas" class="hidden-xs hidden-md"></div>
             <div id="btn-municipios" class="btn-group hidden-xs hidden-md">
-                <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-map-marker"></span> <span class="text">Culiacán</span>
+                <button type="button" class="btn btn-primary btn-municipios btn-lg dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-map-marker"></span> <span class="text">Culiacán</span>
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu">
                     <li data-filtro="culiacan" class="active"><a href="#">Culiacán</a></li>
@@ -91,13 +91,13 @@
 </div>
 
 <div class="navbar navbar-inverse navbar-banderas navbar-fixed-bottom hidden-xs hidden-md" style="bottom:49px">
-    <ul class="nav nav-pills">
-        <li><a href="#" data-tipo="centros"><span class="glyphicon glyphicon-home"></span> Centros de Acopio</a></li>
-        <li><a href="#" data-tipo="albergues"><span class="glyphicon glyphicon-user"></span> Albergues</a></li>
-        <li><a href="#" data-tipo="evacuadas"><span class="glyphicon glyphicon-log-in"></span> Zonas Evacuadas</a></li>
-        <li><a href="#" data-tipo="afectadas"><span class="glyphicon glyphicon-log-in"></span> Zonas Afectadas</a></li>
-        <li><a href="#" data-tipo="agua"><span class="glyphicon glyphicon-log-in"></span> Abast. de Agua Potable</a></li>
-    </ul>
+    <div id="btn-tipo" class="btn-group" data-toggle="buttons">
+        <a href="#" class="btn btn-default btn-lg" data-tipo="centros"><span class="glyphicon glyphicon-home"></span><input type="radio" name="options" id="option1"> Centros de Acopio</a>
+        <a href="#" class="btn btn-default btn-lg" data-tipo="albergues"><span class="glyphicon glyphicon-user"></span><input type="radio" name="options" id="option2"> Albergues</a>
+        <a href="#" class="btn btn-default btn-lg" data-tipo="evacuadas"><span class="glyphicon glyphicon-log-in"></span><input type="radio" name="options" id="option3"> Zonas Evacuadas</a>
+        <a href="#" class="btn btn-default btn-lg" data-tipo="afectadas"><span class="glyphicon glyphicon-log-in"></span><input type="radio" name="options" id="option4"> Zonas Afectadas</a>
+        <a href="#" class="btn btn-default btn-lg" data-tipo="agua"><span class="glyphicon glyphicon-log-in"></span><input type="radio" name="options" id="option5"> Abast. de Agua Potable</a>
+    </div>
 </div>
 
 <div class="navbar navbar-inverse navbar-fixed-bottom">
@@ -145,26 +145,22 @@
 
                 <p>Nuestro objetivo es centralizar la información para apoyar en las labores de rescate, limpieza y evacuación.</p>
 
-                <p>
-                    Atentamente<br>
-                    Alfredo Juárez
-                </p>
+                <h4 class="text-center" style="margin-bottom:0">Atentamente</h4>
+                <h3 class="text-center" style="margin-top:0">Alfredo Juárez</h3>
             </div>
 
             <div class="contributors">
-                <h2>Colaboradores</h2>
-
-                <p>
-                    Julián Quiñonez <br>
-                    Antonio Yee <br>
-                    Alonso Uribe <br>
-                    Jorge Pilotzi <br>
-                </p>
+                <h4 >Colaboradores</h4>
+                <ul class="list-inline" style="margin-bottom:0">
+                    <li>Julián Quiñonez</li>
+                    <li>Antonio Yee</li>
+                    <li>Alonso Uribe</li>
+                    <li>Jorge Pilotzi</li>
+                </ul>
             </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-minus-sign"></span> Cerrar ventana</button>
-
         </div>
       </div>
     </div>
@@ -178,12 +174,12 @@
 <div id="modal-reportar-lugar" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header lead">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-                <span id="titulo">Reportar Lugar</span>
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true" data-toggle="tooltip" data-placement="left" data-original-title="Cerrar ventana">&times;</a>
+                <h2 class="modal-title">Reportar Lugar</h2>
             </div>
             <div class="modal-body">
-                <form id="form-reportar-lugar" name="form-reportar-lugar" action="#"  method="post">
+                <form id="form-reportar-lugar" name="form-reportar-lugar" action="#" method="post">
                     <input id="status" name="status" type="hidden" value="2">
                     <div id="msj-error" class="alert" style="display:none"></div>
                     <div class="row">
@@ -230,9 +226,11 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label" for="observaciones">Observaciones</label>
-                            <textarea id="observaciones" name="observaciones" class="form-control" rows="3"></textarea>
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label class="control-label" for="observaciones">Observaciones</label>
+                                <textarea id="observaciones" name="observaciones" class="form-control" rows="3"></textarea>
+                            </div>
                         </div>
                     </div>
                     <input id="created_at" name="created_at" type="hidden" value="<?= date('Y-m-d H:i:s'); ?>">
