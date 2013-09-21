@@ -112,4 +112,46 @@ class Lugar extends SharedController
         );
     }
 
+    public function reportarAction(){
+        $storage      = $this->getService('lugar.storage');
+        $post         = $this->post();
+        $requiredKeys = array(
+            'nombre',
+            'calle',
+            'numero',
+            'colonia',
+            'ciudad',
+            'estado'
+        );
+
+        // Check for missing fields, or fields being empty.
+        foreach ($requiredKeys as $field) {
+            if (!isset($post[$field]) || empty($post[$field])) {
+                $missingFields[] = $field;
+            }
+        }
+
+       // $this->getService('response')->headers->set('Content-type', 'application/json');
+
+        if (!empty($missingFields)) {
+
+            $resultado['msj'] = 'Debe llenar los campos.';
+            $resultado['exito'] = FALSE;
+
+            return json_encode($resultado);
+        }
+
+        // Create the place
+        if ( $storage->create($post) ) {
+            $resultado['msj'] = 'Datos reportados correctamente.';
+            $resultado['exito'] = TRUE;
+        }else{
+            $resultado['msj'] = 'Ocurrio un problema, no se realizo su reporte.';
+            $resultado['exito'] = FALSE;
+        }
+
+        return json_encode($resultado);
+
+    }
+
 }

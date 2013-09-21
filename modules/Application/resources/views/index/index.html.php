@@ -104,7 +104,9 @@
     <div class="menu">
         <div class="nav">
             <a href="">Directorio</a> |
-            <a href="">Donaciones</a>
+            <a href="">Donaciones</a> |
+            <a href="#" id="btn-reportar-lugar">Reportar Lugar</a> |
+            <a href="">Reportar Persona</a>
         </div>
     </div>
 </div>
@@ -114,3 +116,74 @@
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="<?= $view['assets']->getUrl('js/home.js'); ?>"></script>
 <?php $view['slots']->stop(); ?>
+
+<div id="modal-reportar-lugar" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header lead">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <span id="titulo">Reportar Lugar</span>
+            </div>
+            <div class="modal-body">
+                <form id="form-reportar-lugar" name="form-reportar-lugar" action="#"  method="post">
+                    <input id="status" name="status" type="hidden" value="2">
+                    <div id="msj-error" class="alert" style="margin-top:-34px; display:none"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group" >
+                                <label class="control-label" for="nombre">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" class="form-control"/>
+                            </div>
+                            <div class="form-group" >
+                                <label class="control-label" for="calle">Calle</label>
+                                <input type="text" id="calle" name="calle" class="form-control"/>
+                            </div>
+                            <div class="form-group" >
+                                <label class="control-label" for="numero">Número</label>
+                                <input type="text" id="numero" name="numero" class="form-control"/>
+                            </div>
+                            <div class="form-group" >
+                                <label class="control-label" for="colonia">Colonia</label>
+                                <input type="text" id="colonia" name="colonia" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" >
+                                <label class="control-label" for="ciudad">Ciudad</label>
+                                <input type="text" id="ciudad" name="ciudad" class="form-control"/>
+                            </div>
+                            <div class="form-group" >
+                                <label class="control-label" for="estado">Estado</label>
+                                <input type="text" id="estado" name="estado" class="form-control"/>
+                            </div>
+                            <div class="form-group" >
+                                <label class="control-label" for="codigo_postal">C.P.</label>
+                                <input type="text" id="codigo_postal" name="codigo_postal" class="form-control"/>
+                            </div>
+                            <div class="form-group" >
+                                <label class="control-label" for="tipo">Tipo</label>
+                                <select name="tipo" id="tipo" class="form-control">
+                                    <option value="centro de acopio">Centro de Acopio</option>
+                                    <option value="albergue">Albergue</option>
+                                    <option value="zona afectada">Zona Afectada</option>
+                                    <option value="zona evacuada">Zona Evacuada</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="observaciones">Observaciones</label>
+                            <textarea id="observaciones" name="observaciones" class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <input id="created_at" name="created_at" type="hidden" value="<?= date('Y-m-d H:i:s'); ?>">
+                    <input id="modified_at" name="modified_at" type="hidden" value="<?= date('Y-m-d H:i:s'); ?>">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" type="button">Cancelar</button>
+                <button id="btn-guardar-reportar-lugar" name="btn-guardar-reportar-lugar" class="btn btn-primary" type="submit" data-loading-text="Espere..">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

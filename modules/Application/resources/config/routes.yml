@@ -33,3 +33,9 @@ Search_Personas_JSON:
     defaults: { _controller: "Application:Persona:search" }
     requirements:
             _method: POST
+
+Reportar_Lugares_Create:
+    pattern: /lugares/reportar
+    defaults: { _controller: "AdminModule:Lugar:reportar" }
+    requirements:
+        _method: POST
