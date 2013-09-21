@@ -36,6 +36,29 @@ $(document).ready(function () {
 
     });
 
+    $('#modal-reportar-lugar').on('hidden.bs.modal', function () {
+        $('#msj-error').css({'display': 'none'});
+        document.getElementById('form-reportar-lugar').reset();
+    });
+    $('#btn-reportar-lugar').click(function(){
+        $('#modal-reportar-lugar').modal('show');
+    });
+    $('#btn-guardar-reportar-lugar').click(function(){
+
+        $.post(ppi.baseUrl + 'lugares/reportar', $('#form-reportar-lugar').serialize(), function(resultado){
+            if ( resultado.exito ) {
+                document.getElementById('form-reportar-lugar').reset();
+                $('#msj-error').removeClass('alert-danger').addClass('alert-success').html(resultado.msj);
+                $('#msj-error').slideDown();
+            }else{
+                $('#msj-error').removeClass('alert-success').addClass('alert-danger').html(resultado.msj);
+                $('#msj-error').slideDown();
+            };
+        },'json');
+
+        return false;
+    });
+
 });
 
 function placeSpotsOnMap() {
@@ -90,7 +113,7 @@ function addMarkerFromCat(spots, catname) {
                     infoWindow = new google.maps.InfoWindow();
                 }
 
-                var desc = "<div class='spot'><div class='title'>" + venues[i].nombre + "</div>" +
+                var desc = "<div class='spot'><div class='title' style='font-weight: bold'>" + venues[i].nombre + "</div>" +
                            "<div class='address'>" + address + "</div></div>";
 
                 infoWindow.setContent(desc);

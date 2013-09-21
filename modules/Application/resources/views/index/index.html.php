@@ -100,10 +100,6 @@
     </ul>
 </div>
 
-
- 
-            
-
 <div class="navbar navbar-inverse navbar-fixed-bottom">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex6-collapse">
@@ -157,7 +153,6 @@
       </div>
     </div>
 </div>
-
 
 <?php $view['slots']->start('include_js_body'); ?>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
