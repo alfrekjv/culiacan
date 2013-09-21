@@ -1,16 +1,149 @@
-(function () {
+var map = null,
+    latitude = null,
+    longitude = null,
+    infoWindow = null,
+    markersArray = [];
 
-    window.onload = function () {
+$(document).ready(function () {
 
-        // Creando las opciones del mapa
-        var options = {
-            zoom: 6,
-            center: new google.maps.LatLng(36.1834, -117.4960),
+    $('#mapa-canvas').height($('body').height());
+
+    $('.nav.nav-pills a').click(function (e) {
+
+        e.preventDefault();
+        map.clearOverlays();
+
+        var type = $(this).data('tipo');
+
+        $.getJSON(ppi.baseUrl + 'lugares/' + type + '.json', function (spots) {
+            addMarkerFromCat(spots, type);
+        });
+
+    });
+
+    //check if the geolocation object is supported, if so get position
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+
+            latitude   = position.coords.latitude;
+            longitude  = position.coords.longitude;
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(latitude, longitude),
+                map:      map,
+                title:    'Tu estas aqui',
+                // icon:     'images/gpspoint.png',
+                animation:google.maps.Animation.DROP
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+
+                // Verifica si la ventana ya existe, no vuelve a crear una nueva.
+                if (!infoWindow) {
+                    infoWindow = new google.maps.InfoWindow();
+                }
+
+                var desc = "<h2>You are Here</h2>";
+
+                infoWindow.setContent(desc);
+                infoWindow.open(map, marker);
+            });
+
+            placeSpotsOnMap();
+
+        }, function (e) {
+            useDefaultLocation();
+        });
+    } else {
+        // browser don't support geo.
+        useDefaultLocation();
+    }
+
+    initialize();
+
+});
+
+function placeSpotsOnMap() {
+
+    // Place Spots on the Map
+    $.getJSON(ppi.baseUrl + 'lugares/centros.json', function (spots) {
+        addMarkerFromCat(spots, 'centros');
+    });
+
+    $.getJSON(ppi.baseUrl + 'lugares/evacuadas.json', function (spots) {
+        addMarkerFromCat(spots, 'evacuadas');
+    });
+
+    $.getJSON(ppi.baseUrl + 'lugares/albergues.json', function (spots) {
+        addMarkerFromCat(spots, 'albergues');
+    });
+
+    latlng = new google.maps.LatLng(latitude, longitude);
+    map.setCenter(latlng);
+    map.setZoom(14);
+}
+
+function addMarkerFromCat(category, catname) {
+
+    var venues = category.data;
+
+    for (i = 0; i < venues.length; i++) {
+
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(venues[i].lat, venues[i].lng),
+            map:      map,
+            title:    venues[i].nombre,
+            icon:     ppi.baseUrl + 'images/' + catname + '.png',
+            animation:google.maps.Animation.DROP
+        });
+
+        markersArray.push(marker);
+
+        // agregando Ventanas infoWindow
+        (function (i, marker) {
+            google.maps.event.addListener(marker, 'click', function () {
+
+                // Verifica si la ventana ya existe, no vuelve a crear una nueva.
+                if (!infoWindow) {
+                    infoWindow = new google.maps.InfoWindow();
+                }
+
+                var desc = "";
+
+                infoWindow.setContent(desc);
+                infoWindow.open(map, marker);
+            });
+        })(i, marker);
+    }
+}
+
+initialize = function () {
+
+    function initialize() {
+
+        var mapOptions = {
+            zoom: 8,
+            center: new google.maps.LatLng(-34.397, 150.644),
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
-        // creando el mapa
-        var map = new google.maps.Map(document.getElementById("map"), options);
-    };
-})();
+        map = new google.maps.Map(document.getElementById('mapa-canvas'), mapOptions);
+    }
 
+    google.maps.event.addDomListener(window, 'load', initialize);
+}
+
+function useDefaultLocation() {
+
+    latitude  = 31.8391;
+    longitude = -106.5631;
+
+    placeSpotsOnMap();
+}
+
+google.maps.Map.prototype.clearOverlays = function () {
+    if (markersArray) {
+        for (var i = 0; i < markersArray.length; i++) {
+            markersArray[i].setMap(null);
+        }
+    }
+}

@@ -96,6 +96,60 @@ class Lugar extends BaseStorage
         return $entities;
     }
 
+    public function getAlbergues()
+    {
+
+        $entities = array();
+        $rows     = $this->createQueryBuilder()
+                    ->select('*')
+                    ->from($this->getTableName(), 'l')
+                    ->where("l.tipo = 'albergue'")
+                    ->execute()
+                    ->fetchAll($this->getFetchMode());
+
+        foreach ($rows as $row) {
+            $entities[] = new Entity($row);
+        }
+
+        return $entities;
+    }
+
+    public function getCentros()
+    {
+
+        $entities = array();
+        $rows     = $this->createQueryBuilder()
+                    ->select('*')
+                    ->from($this->getTableName(), 'l')
+                    ->where("l.tipo = 'centro de acopio'")
+                    ->execute()
+                    ->fetchAll($this->getFetchMode());
+
+        foreach ($rows as $row) {
+            $entities[] = new Entity($row);
+        }
+
+        return $entities;
+    }
+
+    public function getEvacuadas()
+    {
+
+        $entities = array();
+        $rows     = $this->createQueryBuilder()
+                    ->select('*')
+                    ->from($this->getTableName(), 'l')
+                    ->where("l.tipo = 'zona afectada'")
+                    ->execute()
+                    ->fetchAll($this->getFetchMode());
+
+        foreach ($rows as $row) {
+            $entities[] = new Entity($row);
+        }
+
+        return $entities;
+    }
+
     /**
      * Get the total number of
      *

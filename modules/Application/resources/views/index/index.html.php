@@ -107,9 +107,9 @@
 
 <div class="navbar navbar-banderas navbar-fixed-bottom hidden-xs hidden-md" style="bottom:71px">
     <ul class="nav nav-pills">
-        <li><a href="#"><span class="glyphicon glyphicon-home"></span> Centros de Acopio</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Albergues</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Zona Evacuadas</a></li>
+        <li><a href="#" data-tipo="centros"><span class="glyphicon glyphicon-home"></span> Centros de Acopio</a></li>
+        <li><a href="#" data-tipo="albergues"><span class="glyphicon glyphicon-user"></span> Albergues</a></li>
+        <li><a href="#" data-tipo="evacuadas"><span class="glyphicon glyphicon-log-in"></span> Zona Evacuadas</a></li>
     </ul>
 </div>
 <div class="navbar navbar-inverse navbar-emergencias navbar-fixed-bottom hidden-xs hidden-md">

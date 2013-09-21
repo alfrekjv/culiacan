@@ -32,4 +32,64 @@ class Lugar extends SharedController
         );
     }
 
+    public function getAlberguesAction()
+    {
+
+        $storage = $this->getService('lugar.storage');
+        $lugares = $storage->getAlbergues();
+        $map     = array();
+
+        foreach ($lugares as $lugar) {
+            $map[] = $lugar->toArray();
+        }
+
+        return $this->createResponse(
+               array(
+                    'status' => 'success',
+                    'code'   => 'OK',
+                    'data'   => $map
+               )
+        );
+    }
+
+    public function getCentrosAction()
+    {
+
+        $storage = $this->getService('lugar.storage');
+        $lugares = $storage->getCentros();
+        $map     = array();
+
+        foreach ($lugares as $lugar) {
+            $map[] = $lugar->toArray();
+        }
+
+        return $this->createResponse(
+               array(
+                    'status' => 'success',
+                    'code'   => 'OK',
+                    'data'   => $map
+               )
+        );
+    }
+
+    public function getEvacuadasAction()
+    {
+
+        $storage = $this->getService('lugar.storage');
+        $lugares = $storage->getEvacuadas();
+        $map     = array();
+
+        foreach ($lugares as $lugar) {
+            $map[] = $lugar->toArray();
+        }
+
+        return $this->createResponse(
+               array(
+                    'status' => 'success',
+                    'code'   => 'OK',
+                    'data'   => $map
+               )
+        );
+    }
+
 }

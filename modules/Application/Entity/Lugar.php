@@ -14,6 +14,8 @@ class Lugar
     protected $estado;
     protected $pais;
     protected $codigo_postal;
+    protected $lat;
+    protected $lng;
     protected $tipo;
     protected $observaciones;
     protected $status;

@@ -4,9 +4,17 @@ Homepage:
 
 
 
-Lugares_JSON:
-    pattern: /lugares.json
-    defaults: { _controller: "Application:Lugar:getLugares" }
+Albergues_JSON:
+    pattern: /lugares/albergues.json
+    defaults: { _controller: "Application:Lugar:getAlbergues" }
+
+Centros_JSON:
+    pattern: /lugares/centros.json
+    defaults: { _controller: "Application:Lugar:getCentros" }
+
+Evacuadas_JSON:
+    pattern: /lugares/evacuadas.json
+    defaults: { _controller: "Application:Lugar:getEvacuadas" }
 
 
 Personas_JSON:
