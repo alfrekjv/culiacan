@@ -105,7 +105,7 @@
     </div>
 </div>
 
-<div class="navbar navbar-banderas navbar-fixed-bottom hidden-xs hidden-md" style="bottom:71px">
+<div class="navbar navbar-inverse navbar-banderas navbar-fixed-bottom hidden-xs hidden-md" style="bottom:62px">
     <ul class="nav nav-pills">
         <li><a href="#" data-tipo="centros"><span class="glyphicon glyphicon-home"></span> Centros de Acopio</a></li>
         <li><a href="#" data-tipo="albergues"><span class="glyphicon glyphicon-user"></span> Albergues</a></li>
