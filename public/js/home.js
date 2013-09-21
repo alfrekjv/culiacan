@@ -28,7 +28,7 @@ $(document).ready(function () {
 
         latlng = new google.maps.LatLng(latitude, longitude);
         map.setCenter(latlng);
-        map.setZoom(14);
+        map.setZoom(13);
     });
 
     $('#btn-tipo a').click(function (e) {
