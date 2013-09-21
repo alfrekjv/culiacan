@@ -182,7 +182,7 @@ class User extends SharedController
             'user'          => $post['userUsername'],
             'password'      => $post['userPassword'],
             'salt'          => base64_encode(openssl_random_pseudo_bytes(16)),
-            'user_level_id' => 3
+            'user_level_id' => $post['user_level_id']
         );
 
         // Create the user
