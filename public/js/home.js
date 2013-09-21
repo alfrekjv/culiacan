@@ -9,6 +9,19 @@ $(document).ready(function () {
 
     $('#mapa-canvas').height($('body').height());
 
+    $('#btn-municipios .dropdown-menu').on('click', 'a', function (event)
+    {
+      event.preventDefault();
+      var $parent = $(this).closest('#btn-municipios');
+      var $btn = $parent.find('button');
+      var $prev = $parent.find('li.active');
+      $prev.toggleClass('active');
+      var $next = $(this).parent().addClass('active');
+      $parent.toggleClass('open');
+      $btn.find('.text').text($next.find('a').text());
+      return false;
+    });
+    
     $('.nav.nav-pills a').click(function (e) {
 
         e.preventDefault();

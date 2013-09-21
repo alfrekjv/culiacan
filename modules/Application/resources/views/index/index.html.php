@@ -55,26 +55,12 @@
         <div id="google-maps" class="col-xs-9 col-sm-9 col-md-9 col-lg-10">
             <div id="mapa-canvas" class="hidden-xs hidden-md"></div>
             <div id="btn-municipios" class="btn-group hidden-xs hidden-md">
-                <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">Culiacán
-                    <span class="caret"></span></button>
+                <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown"><span class="text">Culiacán</span>
+                <span class="caret"></span></button>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Ahome</a></li>
-                    <li><a href="#">Angostura</a></li>
-                    <li><a href="#">Badiraguato</a></li>
-                    <li><a href="#">Concordia</a></li>
-                    <li><a href="#">Cosalá</a></li>
-                    <li class="active"><a href="#">Culiacán</a></li>
-                    <li><a href="#">Choix</a></li>
-                    <li><a href="#">Elota</a></li>
-                    <li><a href="#">Escuinapa</a></li>
-                    <li><a href="#">El Fuerte</a></li>
-                    <li><a href="#">Mazatlán</a></li>
-                    <li><a href="#">Mocorito</a></li>
-                    <li><a href="#">Rosario</a></li>
-                    <li><a href="#">Salvador Alvarado</a></li>
-                    <li><a href="#">San Ignacio</a></li>
-                    <li><a href="#">Sinaloa</a></li>
-                    <li><a href="#">Navolato</a></li>
+                    <li data-filtro="culiacan" class="active"><a href="#">Culiacán</a></li>
+                    <li data-filtro="mazatlan"><a href="#">Mazatlán</a></li>
+                    <li data-filtro="navolato"><a href="#">Navolato</a></li>
                 </ul>
             </div>
         </div>
@@ -83,7 +69,7 @@
             <form class="form-persona" action="#" method="POST">
                 <div class="form-group">
                     <div class="input-group">
-                        <input type="text" class="form-control input-lg" placeholder="Buscar una persona">
+                        <input type="text" class="form-control" placeholder="Buscar una persona">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                     </div>
                 </div>
