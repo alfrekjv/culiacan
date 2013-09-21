@@ -8,7 +8,10 @@ class Index extends SharedController
 
     public function indexAction()
     {
-        return $this->render('Application:index:index.html.php');
+
+        $municipios = $this->getService('municipios.storage')->getDataForSelect('municipio');
+
+        return $this->render('Application:index:index.html.php', compact('municipios'));
     }
 
 }

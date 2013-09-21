@@ -31,10 +31,9 @@ class Lugar extends SharedController
 
         if (!$this->post()) {
 
-            $colonias   = $this->getService('colonias.storage')->getDataForSelect('nombre');
             $municipios = $this->getService('municipios.storage')->getDataForSelect('municipio');
 
-            return $this->render('AdminModule:lugar:create.html.php', compact('colonias', 'municipios'));
+            return $this->render('AdminModule:lugar:create.html.php', compact('municipios'));
         }
 
         $storage      = $this->getService('lugar.storage');

@@ -209,6 +209,7 @@
                                     <option value="albergue">Albergue</option>
                                     <option value="zona afectada">Zona Afectada</option>
                                     <option value="zona evacuada">Zona Evacuada</option>
+                                    <option value="agua potable">Abst. de Agua Potable</option>
                                     <option value="otro">Otro</option>
                                 </select>
                             </div>
