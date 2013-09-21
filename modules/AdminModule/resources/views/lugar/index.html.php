@@ -37,7 +37,7 @@
                     <td><?=$row->getID();?></td>
                     <td><?=$view->escape($row->getNombre());?></td>
                     <td><?=$view->escape($row->getTipo());?></td>
-                    <td><?= $row->getStatus == 2 ? 'Pendiente' : 'Publico';?></td>
+                    <td><?= $row->getStatus() == 2 ? 'Pendiente' : 'Publico';?></td>
                     <td class="actions">
                         <?php if ( $view->escape($row->getStatus()) == '2' ): ?>
                             <a href="<?=$view['router']->generate('Admin_Lugares_Publicar', array('id' => $row->getID()));?>" title="Publicar lugar" class="btn deleteUser" data-userid="<?=$row->getID();?>"><i class="icon-remove"></i> Públicar</a>
