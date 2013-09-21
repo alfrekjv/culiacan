@@ -2,6 +2,7 @@ var map = null,
     latitude = null,
     longitude = null,
     infoWindow = null,
+    geocoder = null,
     markersArray = [];
 
 $(document).ready(function () {
@@ -88,6 +89,10 @@ function addMarkerFromCat(category, catname) {
 
     for (i = 0; i < venues.length; i++) {
 
+
+        var address  = venues[i].calle + " " + venues[i].numero + " " + venues[i].colonia + " " +
+                       venues[i].ciudad + " " + venues[i].estado + " " + venues[i].pais;
+
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(venues[i].lat, venues[i].lng),
             map:      map,
@@ -107,7 +112,7 @@ function addMarkerFromCat(category, catname) {
                     infoWindow = new google.maps.InfoWindow();
                 }
 
-                var desc = "";
+                var desc = "<div class='title'>" + venues[i].nombre + "</div>";
 
                 infoWindow.setContent(desc);
                 infoWindow.open(map, marker);
