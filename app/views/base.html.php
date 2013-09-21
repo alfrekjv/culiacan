@@ -41,78 +41,56 @@
     different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a>
     to experience this site.</p><![endif]-->
 
-<div class="container">
 
-    <header class="header">
+<!-- Begin Flash Message Injection -->
+<?php
 
-    </header>
+$flashNames = array(
+    'info'    => 'info',
+    'success' => 'success',
+    'error'   => 'error',
+    'warning' => 'block',
+    'notice'  => 'block'
+);
 
-    <div class="content" role="page">
+$flashHeadings = array(
+    'info'    => 'Atención!',
+    'error'   => 'Oops!',
+    'success' => 'Perfecto!',
+    'block'   => 'Precaución!'
+);
 
-        <!-- Begin Flash Message Injection -->
+if ($view['session']->hasFlashes()):
+    ?>
+    <div class="flashes">
         <?php
-
-        $flashNames = array(
-            'info'    => 'info',
-            'success' => 'success',
-            'error'   => 'error',
-            'warning' => 'block',
-            'notice'  => 'block'
-        );
-
-        $flashHeadings = array(
-            'info'    => 'Atención!',
-            'error'   => 'Oops!',
-            'success' => 'Perfecto!',
-            'block'   => 'Precaución!'
-        );
-
-        if ($view['session']->hasFlashes()):
-            ?>
-            <div class="flashes">
-                <?php
-                foreach ($view['session']->getFlashes() as $flashName => $flashes):
-                    $alertClass = isset($flashNames[$flashName]) ? $flashNames[$flashName] : 'info';
-                    foreach ($flashes as $flash):
-                        ?>
-                        <div class="alert alert-<?= $alertClass ?>">
-                            <button type="button" class="close" data-dismiss="alert">×</button>
-                            <i class="icon-info-sign"></i>
-                            <strong class="alert-heading"><?= $flashHeadings[$alertClass]; ?></strong>
-                            <span><?= $flash; ?></span>
-                        </div>
-                    <?php
-                    endforeach;
-                endforeach;
+        foreach ($view['session']->getFlashes() as $flashName => $flashes):
+            $alertClass = isset($flashNames[$flashName]) ? $flashNames[$flashName] : 'info';
+            foreach ($flashes as $flash):
                 ?>
-            </div>
-            <!-- End of Flash Message Injection -->
-        <?php endif; ?>
-
-        <!-- Begin dynamic page output -->
-        <div id="action-content">
-            <?php $view['slots']->output('_content'); ?>
-        </div>
-        <!-- End dynamic page output -->
-        <div class="clear"></div>
+                <div class="alert alert-<?= $alertClass ?>">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <i class="icon-info-sign"></i>
+                    <strong class="alert-heading"><?= $flashHeadings[$alertClass]; ?></strong>
+                    <span><?= $flash; ?></span>
+                </div>
+            <?php
+            endforeach;
+        endforeach;
+        ?>
     </div>
+    <!-- End of Flash Message Injection -->
+<?php endif; ?>
 
-</div>
-
-<div class="dialog modal" id="dialog" style="display: none;">
-    <div class="modal-header"><a class="close" href="#" data-dismiss="modal" data-target="#dialog">x</a>
-
-        <h3></h3></div>
-    <div class="modal-body"></div>
-    <div class="modal-footer"><a class="btn btn-primary" href="#">Aceptar</a></div>
-</div>
+<!-- Begin dynamic page output -->
+<?php $view['slots']->output('_content'); ?>
+<!-- End dynamic page output -->
 
 <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="<?=$view['assets']->getUrl('js/libs/jquery-1.8.0.min.js');?>"><\/script>')</script>
 <!-- JS Body Stuff -->
 <script src="<?= $view['assets']->getUrl('js/libs/bootstrap.min.js'); ?>"></script>
-<script src="<?= $view['assets']->getUrl('js/libs/lightbox.js'); ?>"></script>
 <script src="<?= $view['assets']->getUrl('js/main.js'); ?>"></script>
 <?php $view['slots']->output('include_js_body'); ?>
 <!-- /JS Body Stuff -->
