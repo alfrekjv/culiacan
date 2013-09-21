@@ -9,22 +9,29 @@ body {background-color: #eee}
 #google-maps {
   padding-right: 0
 }
+
 #sidebar {
    background-color: #eee;
    border-left: 2px solid #ccc;
    height: 100%;
    position: fixed;
-   right: 0
+   padding-left: 0;
+   right: 0;
+
+   border-left: 1px solid #c0c0c0;
 }
+
 #btn-municipios {
    top: 30px; right: 20px;
    position: absolute;
    z-index: 2000 !important
 }
+
+
 .form-persona {margin-top: 10px}
 .navbar-banderas {
-   background-color: #eece00; 
-   border-color: #eece00
+   background: #eece00;
+   border-top: 1px solid #8f8f8f;
 }
 .navbar-banderas .nav {font-size: 20px;font-weight: bold}
 .navbar-banderas .nav > li > a {color: #333; border-radius: 0}
@@ -41,6 +48,14 @@ body {background-color: #eee}
     background-color: #444;
     border-color: #080808;
 }
+
+.menu .nav {
+    text-align: right;
+    padding: 25px 25px 0 0;
+}
+
+.menu .nav a {color: #FFF;}
+
 @media (max-width: 768px) {
    body {
       padding-top: 170px

@@ -4,7 +4,6 @@
     <link href="<?= $view['assets']->getUrl('css/landing.css'); ?>" type="text/css" rel="stylesheet"/>
 <?php $view['slots']->stop(); ?>
 
-
 <div class="navbar navbar-inverse navbar-fixed-top hidden-md hidden-lg">
     <div class="container">
         <div class="navbar-header">
@@ -69,13 +68,13 @@
             <form class="form-persona" action="#" method="POST">
                 <div class="form-group">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Buscar una persona">
+                        <input type="text" class="form-control" placeholder="Buscar personas">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                     </div>
                 </div>
             </form>
 
-            <a class="twitter-timeline" href="https://twitter.com/search?q=%23culiacan" height="350"
+            <a class="twitter-timeline" href="https://twitter.com/search?q=%23culiacan" height="500"
                data-widget-id="381198995961307137">Tweets sobre "#culiacan"</a>
             <script>!function (d, s, id) {
                     var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
@@ -100,6 +99,13 @@
 </div>
 <div class="navbar navbar-inverse navbar-emergencias navbar-fixed-bottom hidden-xs hidden-md">
     <h2 class="navbar-text"><b>EMERGENCIAS 066</b></h2>
+
+    <div class="menu">
+        <div class="nav">
+            <a href="">Directorio</a> |
+            <a href="">Donaciones</a>
+        </div>
+    </div>
 </div>
 
 
