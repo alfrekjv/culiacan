@@ -33,7 +33,7 @@
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="name">Calle <em>*</em></label>
+            <label class="control-label" for="name">Calle </label>
 
             <div class="controls">
                 <input type="text" class="input-xlarge validate[required]" id="calle" name="calle" value="">
@@ -42,7 +42,7 @@
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="name">Número <em>*</em></label>
+            <label class="control-label" for="name">Número </label>
 
             <div class="controls">
                 <input type="text" class="input-xlarge validate[required]" id="numero" name="numero" value="">
@@ -51,7 +51,7 @@
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="colonia">Colonia <em>*</em></label>
+            <label class="control-label" for="colonia">Colonia </label>
 
             <div class="controls">
                 <select name="colonia" id="colonia">
@@ -61,7 +61,7 @@
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="name">Ciudad <em>*</em></label>
+            <label class="control-label" for="name">Ciudad </label>
 
             <div class="controls">
                 <select id="ciudad" name="ciudad" class="required">
@@ -74,7 +74,7 @@
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="estado">Estado <em>*</em></label>
+            <label class="control-label" for="estado">Estado </label>
 
             <div class="controls">
                 <select id="estado" name="estado">
@@ -86,7 +86,7 @@
         <input type="hidden" name="pais" id="pais" value="México">
 
         <div class="control-group">
-            <label class="control-label" for="name">C.P. <em>*</em></label>
+            <label class="control-label" for="name">C.P. </label>
 
             <div class="controls">
                 <input type="text" class="input-xlarge validate[required]" id="codigo_postal" name="codigo_postal" value="">

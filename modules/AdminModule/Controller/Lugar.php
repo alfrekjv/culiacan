@@ -39,12 +39,7 @@ class Lugar extends SharedController
         $storage      = $this->getService('lugar.storage');
         $post         = $this->post();
         $requiredKeys = array(
-            'nombre',
-            'calle',
-            'numero',
-            'colonia',
-            'ciudad',
-            'estado'
+            'nombre'
         );
 
         // Check for missing fields, or fields being empty.
