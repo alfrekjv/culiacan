@@ -119,6 +119,7 @@ class Lugar extends SharedController
                  'lat'           => $post['lat'],
                  'lng'           => $post['lng'],
                  'tipo'          => $post['tipo'],
+                 'status'        => $post['status'],
                  'colonia'       => $post['colonia'],
                  'modified_at'   => date('Y-m-d H:i:s')
             ),

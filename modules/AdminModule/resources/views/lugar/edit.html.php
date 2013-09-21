@@ -90,7 +90,7 @@
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="name">Latitud <em>*</em></label>
+            <label class="control-label" for="lat">Latitud <em>*</em></label>
 
             <div class="controls">
                 <input type="text" class="input-xlarge validate[required]" id="lat" name="lat" value="<?=$data->getLat();?>">
@@ -99,7 +99,7 @@
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="name">Longitud <em>*</em></label>
+            <label class="control-label" for="lng">Longitud <em>*</em></label>
 
             <div class="controls">
                 <input type="text" class="input-xlarge validate[required]" id="lng" name="lng" value="<?=$data->getLng();?>">
