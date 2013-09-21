@@ -126,7 +126,7 @@
             <label class="control-label" for="name">Status</label>
 
             <div class="controls">
-                <select name="tipo" id="tipo">
+                <select name="status" id="status">
                     <option value="1" <?=$data->getStatus() == 1 ? 'selected' : '';?>>Activo</option>
                     <option value="2" <?=$data->getStatus() == 2 ? 'selected' : '';?>>Pendiente por Aprobar</option>
                     <option value="0" <?=$data->getStatus() == 0 ? 'selected' : '';?>>Inactivo</option>
