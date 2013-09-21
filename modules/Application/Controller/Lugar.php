@@ -92,4 +92,24 @@ class Lugar extends SharedController
         );
     }
 
+    public function getAfectadasAction()
+    {
+
+        $storage = $this->getService('lugar.storage');
+        $lugares = $storage->getAfectadas();
+        $map     = array();
+
+        foreach ($lugares as $lugar) {
+            $map[] = $lugar->toArray();
+        }
+
+        return $this->createResponse(
+            array(
+                 'status' => 'success',
+                 'code'   => 'OK',
+                 'data'   => $map
+            )
+        );
+    }
+
 }

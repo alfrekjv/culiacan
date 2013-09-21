@@ -55,6 +55,9 @@ function placeSpotsOnMap() {
         addMarkerFromCat(spots, 'albergues');
     });
 
+    $.getJSON(ppi.baseUrl + 'lugares/afectadas.json', function (spots) {
+        addMarkerFromCat(spots, 'afectadas');
+    });
 }
 
 function addMarkerFromCat(category, catname) {

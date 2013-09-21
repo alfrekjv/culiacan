@@ -139,6 +139,24 @@ class Lugar extends BaseStorage
         $rows     = $this->createQueryBuilder()
                     ->select('*')
                     ->from($this->getTableName(), 'l')
+                    ->where("l.tipo = 'zona evacuada'")
+                    ->execute()
+                    ->fetchAll($this->getFetchMode());
+
+        foreach ($rows as $row) {
+            $entities[] = new Entity($row);
+        }
+
+        return $entities;
+    }
+
+    public function getAfectadas()
+    {
+
+        $entities = array();
+        $rows     = $this->createQueryBuilder()
+                    ->select('*')
+                    ->from($this->getTableName(), 'l')
                     ->where("l.tipo = 'zona afectada'")
                     ->execute()
                     ->fetchAll($this->getFetchMode());

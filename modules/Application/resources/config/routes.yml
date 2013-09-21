@@ -17,6 +17,12 @@ Evacuadas_JSON:
     defaults: { _controller: "Application:Lugar:getEvacuadas" }
 
 
+Afectadas_JSON:
+    pattern: /lugares/afectadas.json
+    defaults: { _controller: "Application:Lugar:getAfectadas" }
+
+
+
 Personas_JSON:
     pattern: /personas.json
     defaults: { _controller: "Application:Persona:getPersonas" }
