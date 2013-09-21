@@ -112,12 +112,24 @@
 
             <div class="controls">
                 <select name="tipo" id="tipo">
-                    <option value="centro de acopio">Centro de Acopio</option>
-                    <option value="albergue">Albergue</option>
-                    <option value="zona afectada">Zona Afectada</option>
-                    <option value="zona evacuada">Zona Evacuada</option>
-                    <option value="agua potable">Abast. de Agua Potable</option>
-                    <option value="otro">Otro</option>
+                    <option value="centro de acopio" <?=$data->getTipo() == 'centro de acopio' ? 'selected' : '';?>>Centro de Acopio</option>
+                    <option value="albergue" <?=$data->getTipo() == 'albergue' ? 'selected' : '';?>>Albergue</option>
+                    <option value="zona afectada" <?=$data->getTipo() == 'zona afectada' ? 'selected' : '';?>>Zona Afectada</option>
+                    <option value="zona evacuada" <?=$data->getTipo() == 'zona evacuada' ? 'selected' : '';?>>Zona Evacuada</option>
+                    <option value="agua potable" <?=$data->getTipo() == 'agua potable' ? 'selected' : '';?>>Abast. de Agua Potable</option>
+                    <option value="otro" <?=$data->getTipo() == 'otro' ? 'selected' : '';?>>Otro</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="name">Status</label>
+
+            <div class="controls">
+                <select name="tipo" id="tipo">
+                    <option value="1" <?=$data->getStatus() == 1 ? 'selected' : '';?>>Activo</option>
+                    <option value="2" <?=$data->getStatus() == 2 ? 'selected' : '';?>>Pendiente por Aprobar</option>
+                    <option value="0" <?=$data->getStatus() == 0 ? 'selected' : '';?>>Inactivo</option>
                 </select>
             </div>
         </div>

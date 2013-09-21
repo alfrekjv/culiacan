@@ -23,6 +23,7 @@
         <tr>
             <th>#</th>
             <th>Nombre</th>
+            <th>Tipo</th>
             <th>Acciones</th>
         </tr>
         </thead>
@@ -34,6 +35,7 @@
                 <tr>
                     <td><?=$row->getID();?></td>
                     <td><?=$view->escape($row->getNombre());?></td>
+                    <td><?=$view->escape($row->getTipo());?></td>
                     <td class="actions">
                         <a href="<?=$view['router']->generate('Admin_Lugares_Edit', array('id' => $row->getID()));?>" title="Edit User" class="btn"><i class="icon-edit"></i> Editar</a>
                         <a href="<?=$view['router']->generate('Admin_Lugares_Delete', array('id' => $row->getID()));?>" title="Delete User" class="btn deleteUser" data-userid="<?=$row->getID();?>"><i class="icon-remove"></i> Eliminar</a>
