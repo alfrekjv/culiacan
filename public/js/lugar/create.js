@@ -31,9 +31,26 @@ $(document).ready(function() {
 	    position: culiacan
 	  });
 	  google.maps.event.addListener(marker, 'click', toggleBounce);
+	  google.maps.event.addListener(map, 'click', function(event){
+
+    	var latlng = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
+    	moverMarcador(latlng);
+	  });
 	  google.maps.event.addListener(marker, 'mouseup', cambiaCoordenada);
 	}
 
+	function moverMarcador(latlng){
+		marker.setMap(null);
+		marker = new google.maps.Marker({
+		    map:map,
+		    draggable:true,
+		    animation: google.maps.Animation.DROP,
+		    position: latlng
+	  	});
+		cambiaCoordenada();
+		google.maps.event.addListener(marker, 'mouseup', cambiaCoordenada);
+
+	}
 	function toggleBounce() {
 
 	  if (marker.getAnimation() != null) {
