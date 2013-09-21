@@ -90,6 +90,24 @@
         </div>
 
         <div class="control-group">
+            <label class="control-label" for="name">Latitud <em>*</em></label>
+
+            <div class="controls">
+                <input type="text" class="input-xlarge validate[required]" id="lat" name="lat" value="<?=$data->getLat();?>">
+                <span rel="lat" class="help-inline"></span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="name">Longitud <em>*</em></label>
+
+            <div class="controls">
+                <input type="text" class="input-xlarge validate[required]" id="lng" name="lng" value="<?=$data->getLng();?>">
+                <span rel="lng" class="help-inline"></span>
+            </div>
+        </div>
+
+        <div class="control-group">
             <label class="control-label" for="name">Tipo</label>
 
             <div class="controls">
