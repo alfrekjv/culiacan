@@ -9,19 +9,20 @@ $(document).ready(function () {
 
     $('#mapa-canvas').height($('body').height());
 
-    $('#btn-municipios .dropdown-menu').on('click', 'a', function (event)
-    {
-      event.preventDefault();
-      var $parent = $(this).closest('#btn-municipios');
-      var $btn = $parent.find('button');
-      var $prev = $parent.find('li.active');
-      $prev.toggleClass('active');
-      var $next = $(this).parent().addClass('active');
-      $parent.toggleClass('open');
-      $btn.find('.text').text($next.find('a').text());
-      return false;
+    $('#btn-municipios .dropdown-menu').on('click', 'a', function (event) {
+
+        event.preventDefault();
+        var $parent = $(this).closest('#btn-municipios');
+        var $btn = $parent.find('button');
+        var $prev = $parent.find('li.active');
+        $prev.toggleClass('active');
+        var $next = $(this).parent().addClass('active');
+        $parent.toggleClass('open');
+        $btn.find('.text').text($next.find('a').text());
+
+        return false;
     });
-    
+
     $('#modal-directorio').on('shown.bs.modal', function () {
         $('a[data-toggle=tooltip]').tooltip();
     })
@@ -75,15 +76,15 @@ function addMarkerFromCat(category, catname) {
     for (i = 0; i < venues.length; i++) {
 
 
-        var address  = venues[i].calle + " " + venues[i].numero + " " + venues[i].colonia + " " +
-                       venues[i].ciudad + " " + venues[i].estado + " " + venues[i].pais;
+        var address = venues[i].calle + " " + venues[i].numero + " " + venues[i].colonia + " " +
+            venues[i].ciudad + " " + venues[i].estado + " " + venues[i].pais;
 
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(venues[i].lat, venues[i].lng),
-            map:      map,
-            title:    venues[i].nombre,
-            icon:     ppi.baseUrl + 'images/' + catname + '.png',
-            animation:google.maps.Animation.DROP
+            map: map,
+            title: venues[i].nombre,
+            icon: ppi.baseUrl + 'images/' + catname + '.png',
+            animation: google.maps.Animation.DROP
         });
 
         markersArray.push(marker);
@@ -110,7 +111,7 @@ initialize = function () {
 
     function initialize() {
 
-        latitude  = 24.80481147653668;
+        latitude = 24.80481147653668;
         longitude = -107.39376068115234;
 
         var mapOptions = {
