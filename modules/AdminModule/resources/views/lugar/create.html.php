@@ -115,6 +115,7 @@
                     <option value="centro de acopio">Centro de Acopio</option>
                     <option value="albergue">Albergue</option>
                     <option value="zona afectada">Zona Afectada</option>
+                    <option value="zona evacuada">Zona Evacuada</option>
                     <option value="otro">Otro</option>
                 </select>
             </div>

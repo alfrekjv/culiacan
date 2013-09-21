@@ -39,6 +39,7 @@ class Persona extends BaseStorage
                      ->select('*')
                      ->from($this->getTableName(), 'p')
                      ->where($this->createQueryBuilder()->expr()->like('p.nombre', "'%{$keyword}%'"))
+                     ->andWhere($this->createQueryBuilder()->expr()->like('p.apellidos', "'%{$keyword}%'"))
                      ->execute()
                      ->fetchAll($this->getFetchMode());
 
