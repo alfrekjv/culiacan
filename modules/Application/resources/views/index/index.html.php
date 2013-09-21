@@ -139,6 +139,9 @@
 			<li>
 				<a href="#">Reportar Persona</a>
 			</li>
+			<li>
+				<a href="#modal-contacto" data-toggle="modal">Contacto</a>
+			</li>
 		</ul>
 	</div>
 </div>
@@ -148,7 +151,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<a class="close" data-dismiss="modal" aria-hidden="true" data-toggle="tooltip" data-placement="left" data-original-title="Cerrar ventana">&times;</a>
-				<h2 class="modal-title">Directorio</h2>
+				<h4 class="modal-title">Directorio</h4>
 			</div>
 			<div class="modal-body">
 				<ul id="list-directorio" class="list-inline text-center">
@@ -196,12 +199,12 @@
 </div>
 
 
-<div id="modal-reportar-lugar" class="modal fade">
+<div id="modal-reportar-lugar" class="modal fade" tabindex="-1" aria-hidden="true" data-keyboard="false" data-backdrop="static">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
 				<a href="#" class="close" data-dismiss="modal" aria-hidden="true" title="Cerrar ventana">&times;</a>
-				<h2 class="modal-title">Reportar Lugar</h2>
+				<h4 class="modal-title">Reportar Lugar</h4>
 			</div>
 			<div class="modal-body">
 				<form id="form-reportar-lugar" name="form-reportar-lugar" action="#" method="post">
@@ -293,12 +296,43 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button class="btn btn-default" data-dismiss="modal" type="button">Cancelar</button>
-				<button id="btn-guardar-reportar-lugar" name="btn-guardar-reportar-lugar" class="btn btn-primary" type="submit" data-loading-text="Espere..">Enviar Reporte</button>
+				<button class="btn btn-danger pull-left" data-dismiss="modal" type="button"><span class="glyphicon glyphicon-minus-sign"></span> Cancelar</button>
+				<button id="btn-guardar-reportar-lugar" name="btn-guardar-reportar-lugar" class="btn btn-success" type="submit" data-loading-text="Espere.."><span class="glyphicon glyphicon-ok-sign"></span> Enviar Reporte</button>
 			</div>
 		</div>
 	</div>
 </div>
+
+<div id="modal-contacto" class="modal fade" tabindex="-1" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	      <h4 class="modal-title">Formulario de Contacto</h4>
+	    </div>
+	    <div class="modal-body">
+			<form role="form">
+			  <div class="form-group">
+			    <label for="nombre_completo">Tu nombre</label>
+			    <input type="text" class="form-control" id="nombre_completo" placeholder="Escribe tu nombre completo">
+			  </div>
+			  <div class="form-group">
+			    <label for="correo_electronico">Correo Electrónico</label>
+			    <input type="text" class="form-control" id="correo_electronico" placeholder="Ej: tucorreo@gmail.com">
+			  </div>
+			  <div class="form-group">
+			  	<label for="mensaje">Mensaje</label>
+			  	<textarea class="form-control" id="mensaje" name="mensaje" rows="3"></textarea>
+			  </div>
+			</form>
+	    </div>
+	    <div class="modal-footer">
+	      <button type="button" class="btn btn-danger pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-minus-sign"></span> Cancelar</button>
+	      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Enviar mensaje</button>
+	    </div>
+	  </div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <?php $view['slots']->start('include_js_body'); ?>
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript" src="<?= $view['assets']->getUrl('js/home.js'); ?>"></script>
