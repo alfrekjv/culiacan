@@ -168,6 +168,24 @@ class Lugar extends BaseStorage
         return $entities;
     }
 
+    public function getAgua()
+    {
+
+        $entities = array();
+        $rows     = $this->createQueryBuilder()
+                    ->select('*')
+                    ->from($this->getTableName(), 'l')
+                    ->where("l.tipo = 'agua potable'")
+                    ->execute()
+                    ->fetchAll($this->getFetchMode());
+
+        foreach ($rows as $row) {
+            $entities[] = new Entity($row);
+        }
+
+        return $entities;
+    }
+
     /**
      * Get the total number of
      *

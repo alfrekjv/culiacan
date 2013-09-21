@@ -96,6 +96,7 @@
         <li><a href="#" data-tipo="albergues"><span class="glyphicon glyphicon-user"></span> Albergues</a></li>
         <li><a href="#" data-tipo="evacuadas"><span class="glyphicon glyphicon-log-in"></span> Zonas Evacuadas</a></li>
         <li><a href="#" data-tipo="afectadas"><span class="glyphicon glyphicon-log-in"></span> Zonas Afectadas</a></li>
+        <li><a href="#" data-tipo="agua"><span class="glyphicon glyphicon-log-in"></span> Abast. de Agua Potable</a></li>
     </ul>
 </div>
 <div class="navbar navbar-inverse navbar-emergencias navbar-fixed-bottom hidden-xs hidden-md">

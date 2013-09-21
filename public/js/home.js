@@ -58,6 +58,10 @@ function placeSpotsOnMap() {
     $.getJSON(ppi.baseUrl + 'lugares/afectadas.json', function (spots) {
         addMarkerFromCat(spots, 'afectadas');
     });
+
+    $.getJSON(ppi.baseUrl + 'lugares/agua.json', function (spots) {
+        addMarkerFromCat(spots, 'agua');
+    });
 }
 
 function addMarkerFromCat(category, catname) {
