@@ -39,8 +39,65 @@ $(document).ready(function () {
 
     });
 
+    //check if the geolocation object is supported, if so get position
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+
+            latitude   = position.coords.latitude;
+            longitude  = position.coords.longitude;
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(latitude, longitude),
+                map:      map,
+                title:    'Tu estas aqui',
+                // icon:     'images/gpspoint.png',
+                animation:google.maps.Animation.DROP
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+
+                // Verifica si la ventana ya existe, no vuelve a crear una nueva.
+                if (!infoWindow) {
+                    infoWindow = new google.maps.InfoWindow();
+                }
+
+                var desc = "<h2>You are Here</h2>";
+
+                infoWindow.setContent(desc);
+                infoWindow.open(map, marker);
+            });
+
+            placeSpotsOnMap();
+
+        }, function (e) {
+            useDefaultLocation();
+        });
+    } else {
+        // browser don't support geo.
+        useDefaultLocation();
+    }
+
+    $('#modal-reportar-lugar').on('hidden.bs.modal', function () {
+        $('#msj-error').css({'display': 'none'});
+        document.getElementById('form-reportar-lugar').reset();
+    });
+    $('#btn-reportar-lugar').click(function(){
+        $('#modal-reportar-lugar').modal('show');
+    });
+    $('#btn-guardar-reportar-lugar').click(function(){
+        $.post(ppi.baseUrl + 'lugares/reportar', $('#form-reportar-lugar').serialize(), function(resultado){
+            if ( resultado.exito ) {                
+                document.getElementById('form-reportar-lugar').reset();
+                $('#msj-error').removeClass('alert-danger').addClass('alert-success').html(resultado.msj);
+                $('#msj-error').slideDown();
+            }else{                
+                $('#msj-error').removeClass('alert-success').addClass('alert-danger').html(resultado.msj);
+                $('#msj-error').slideDown();
+            };
+        },'json');
+        return false;
+    });
+
     initialize();
-    placeSpotsOnMap();
 
 });
 
@@ -59,6 +116,10 @@ function placeSpotsOnMap() {
         addMarkerFromCat(spots, 'albergues');
     });
 
+    latlng = new google.maps.LatLng(latitude, longitude);
+    map.setCenter(latlng);
+    map.setZoom(14);
+
     $.getJSON(ppi.baseUrl + 'lugares/afectadas.json', function (spots) {
         addMarkerFromCat(spots, 'afectadas');
     });
@@ -66,6 +127,7 @@ function placeSpotsOnMap() {
     $.getJSON(ppi.baseUrl + 'lugares/agua.json', function (spots) {
         addMarkerFromCat(spots, 'agua');
     });
+
 }
 
 function addMarkerFromCat(category, catname) {
@@ -110,12 +172,9 @@ initialize = function () {
 
     function initialize() {
 
-        latitude  = 24.80481147653668;
-        longitude = -107.39376068115234;
-
         var mapOptions = {
-            zoom: 13,
-            center: new google.maps.LatLng(latitude, longitude),
+            zoom: 8,
+            center: new google.maps.LatLng(-34.397, 150.644),
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
@@ -123,6 +182,14 @@ initialize = function () {
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
+}
+
+function useDefaultLocation() {
+
+    latitude  = 31.8391;
+    longitude = -106.5631;
+
+    placeSpotsOnMap();
 }
 
 google.maps.Map.prototype.clearOverlays = function () {
