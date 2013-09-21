@@ -90,11 +90,20 @@
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="name">C.P. <em>*</em></label>
+            <label class="control-label" for="name">Latitud <em>*</em></label>
 
             <div class="controls">
-                <input type="text" class="input-xlarge validate[required]" id="codigo_postal" name="codigo_postal" value="">
-                <span rel="codigo_postal" class="help-inline"></span>
+                <input type="text" class="input-xlarge validate[required]" id="lat" name="lat" value="">
+                <span rel="lat" class="help-inline"></span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="name">Longitud <em>*</em></label>
+
+            <div class="controls">
+                <input type="text" class="input-xlarge validate[required]" id="lng" name="lng" value="">
+                <span rel="lng" class="help-inline"></span>
             </div>
         </div>
 
