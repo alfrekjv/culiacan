@@ -1,5 +1,6 @@
-html, body {height: 100%;}
+html, body {height: 100%}
 body {background-color: #eee}
+body, h1, h2, h3, h4, h5, h6 { font-family: 'PT Sans', Helvetica, Arial, sans-serif }
 .row {margin-right: 0;margin-left: 0}
 .navbar-hr {
     background: #373737;
@@ -23,7 +24,7 @@ body {background-color: #eee}
    z-index: 1000 !important
 }
 #btn-municipios .btn {
-  font-size: 18px;
+  font-size: 16px;
 }
 .form-persona {margin-top: 10px}
 .navbar-banderas {
@@ -32,7 +33,7 @@ body {background-color: #eee}
   opacity:0.80;
   filter:alpha(opacity=80)
 }
-.navbar-banderas .nav {font-size: 20px;font-weight: bold}
+.navbar-banderas .nav {font-size: 18px;font-weight: bold}
 .navbar-banderas .nav > li > a {color: #333; border-radius: 0}
 .navbar-banderas .nav > li > a:hover, .navbar-banderas .nav > li > a:focus {background-color: #e6e6e6;}
 #list-directorio > li {
@@ -54,6 +55,9 @@ body {background-color: #eee}
 .modal.fade.in { 
   padding-top: 5%;
   overflow: auto
+}
+.modal-header, .modal-body, .modal-footer { 
+  padding: 10px 
 }
 @media (max-width: 768px) {
    body {

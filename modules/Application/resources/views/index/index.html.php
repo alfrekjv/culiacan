@@ -3,7 +3,7 @@
 <?php $view['slots']->start('include_css') ?>
     <link href="<?= $view['assets']->getUrl('css/landing.css'); ?>" type="text/css" rel="stylesheet"/>
 <?php $view['slots']->stop(); ?>
-
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 <div class="navbar navbar-inverse navbar-fixed-top hidden-md hidden-lg">
     <div class="container">
         <div class="navbar-header">
@@ -90,7 +90,7 @@
     </div>
 </div>
 
-<div class="navbar navbar-inverse navbar-banderas navbar-fixed-bottom hidden-xs hidden-md" style="bottom:53px">
+<div class="navbar navbar-inverse navbar-banderas navbar-fixed-bottom hidden-xs hidden-md" style="bottom:49px">
     <ul class="nav nav-pills">
         <li><a href="#" data-tipo="centros"><span class="glyphicon glyphicon-home"></span> Centros de Acopio</a></li>
         <li><a href="#" data-tipo="albergues"><span class="glyphicon glyphicon-user"></span> Albergues</a></li>
@@ -125,7 +125,7 @@
           <a class="close" data-dismiss="modal" aria-hidden="true" data-toggle="tooltip" data-placement="left" data-original-title="Cerrar ventana">&times;</a>
           <h2 class="modal-title">Directorio</h2>
         </div>
-        <div class="modal-body" style="padding:10px">
+        <div class="modal-body">
             <ul id="list-directorio" class="list-inline text-center">
                 <li><a href="http://culiacan.gob.mx/" target="_blank"><img src="<?=$view['assets']->getUrl('images/ayuntamiento-culiacan.png');?>" class="img-responsive" alt=""></a></li>
                 <li><a href="http://cloudadmin.mx/" target="_blank"><img src="<?=$view['assets']->getUrl('images/cloudadmin.png');?>" class="img-responsive" alt=""></a></li>
