@@ -229,7 +229,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-default" data-dismiss="modal" type="button">Cancelar</button>
-                <button id="btn-guardar-reportar-lugar" name="btn-guardar-reportar-lugar" class="btn btn-primary" type="submit" data-loading-text="Espere..">Guardar</button>
+                <button id="btn-guardar-reportar-lugar" name="btn-guardar-reportar-lugar" class="btn btn-primary" type="submit" data-loading-text="Espere..">Enviar Reporte</button>
             </div>
         </div>
     </div>
