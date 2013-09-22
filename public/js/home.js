@@ -146,7 +146,9 @@ function addMarkerFromCat(spots, catname) {
                 }
 
                 var desc = "<div class='spot'><div class='title' style='font-weight: bold'>" + venues[i].nombre + "</div>" +
-                           "<div class='address'>" + address + "</div></div>";
+                           "<div class='address'>" + address + "</div><br>" +
+                    "<div class='observaciones'><p>" + venues[i].observaciones + "</p></div> " +
+                    "</div>";
 
                 infoWindow.setContent(desc);
                 infoWindow.open(map, marker);
