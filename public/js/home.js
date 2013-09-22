@@ -71,9 +71,11 @@ $(document).ready(function () {
         $('#msj-error').css({'display': 'none'});
         document.getElementById('form-reportar-lugar').reset();
     });
+
     $('#btn-reportar-lugar').click(function(){
         $('#modal-reportar-lugar').modal('show');
     });
+
     $('#btn-guardar-reportar-lugar').click(function(){
 
         $.post(ppi.baseUrl + 'lugares/reportar', $('#form-reportar-lugar').serialize(), function(resultado){
@@ -90,6 +92,44 @@ $(document).ready(function () {
         return false;
     });
 
+    // Repotar persona
+    $('.reportarPersona').click(function(e) {
+
+        e.preventDefault();
+        var url = ppi.baseUrl + 'reportar/persona';
+
+        // Cargar html del form.
+        $.get(url, function(response) {
+            $('#modal-reportar-persona').html(response.content);
+            $('#modal-reportar-persona').modal('show');
+        }, 'json');
+
+    });
+
+    $('.reportarPersonaSubmit').live('click', function(e) {
+
+        e.preventDefault();
+
+        var url = ppi.baseUrl + 'reportar/persona/save';
+
+        $.post(url, $('#reportar-persona-form').serialize(), function(response) {
+
+            if (response.status == 'success') {
+
+                alert(response.message);
+
+                $('#modal-reportar-persona').modal('hide');
+            }
+
+            if (response.status == 'error') {
+
+                // @todo: Ponerle color..
+                $('.alert-error').fadeIn('fast');
+                $('.alert-error').html(response.message);
+            }
+
+        }, 'json');
+    });
 });
 
 function placeSpotsOnMap() {

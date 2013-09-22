@@ -135,7 +135,7 @@
                     <a href="#" id="btn-reportar-lugar">Reportar Lugar</a>
                 </li>
                 <li>
-                    <a href="#">Reportar Persona</a>
+                    <a href="#" class="reportarPersona">Reportar Persona</a>
                 </li>
                 <li>
                     <a href="#modal-contacto" data-toggle="modal">Contacto</a>
@@ -380,7 +380,8 @@
                     <button type="button" class="btn btn-danger pull-left" data-dismiss="modal"><span
                             class="glyphicon glyphicon-minus-sign"></span> Cancelar
                     </button>
-                    <button type="button" class="btn btn-success sendEmail"><span class="glyphicon glyphicon-ok-sign"></span>
+                    <button type="button" class="btn btn-success sendEmail"><span
+                            class="glyphicon glyphicon-ok-sign"></span>
                         Enviar mensaje
                     </button>
                 </div>
@@ -388,6 +389,10 @@
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div id="modal-reportar-persona" class="modal fade" tabindex="-1" aria-hidden="true" data-keyboard="false"
+         data-backdrop="static">
     </div><!-- /.modal -->
 <?php $view['slots']->start('include_js_body'); ?>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
