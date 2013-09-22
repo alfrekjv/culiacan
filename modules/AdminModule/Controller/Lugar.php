@@ -175,7 +175,7 @@ class Lugar extends SharedController
     public function publicarAction()
     {
 
-        if (!$this->isAdmin()) {
+        if (!$this->isAdmin() && !$this->isColaborador()) {
             $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
             return $this->redirectToRoute('User_Login');
         }
