@@ -4,3 +4,4 @@ vendor/*
 .idea/*
 .DS_STORE
 app/connections/local.config.php
+.sass-cache
