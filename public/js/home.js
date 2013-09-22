@@ -3,9 +3,33 @@ var map = null,
     longitude = null,
     infoWindow = null,
     geocoder = null,
-    markersArray = [];
+    markersArray = [],
+    culiacan = new google.maps.LatLng(24.80485, -107.385498),
+    marker,
+    map,
+    geocoder,
+    ciudad = "Culiacan Rosales",
+    calle,
+    numero,
+    colonia,
+    direccion = ciudad;
+
 
 $(document).ready(function () {
+
+    $('#calle').blur(function(){
+        calle = $(this).val();
+        buscarCoordenadas();
+    });
+    $('#numero').blur(function(){
+        numero = $(this).val();
+        buscarCoordenadas();
+    });
+     $('#colonia').blur(function(){
+        colonia = $(this).val();
+        buscarCoordenadas();
+    });
+
 
     $('#mapa-canvas').height($('body').height());
 
@@ -229,3 +253,76 @@ google.maps.Map.prototype.clearOverlays = function () {
         }
     }
 }
+
+/***Mapa modal***/
+function iniciarMapaLugar() {
+      var mapOptions = {
+        zoom: 13,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        center: culiacan
+      };
+      geocoder = new google.maps.Geocoder();
+      lugarM = new google.maps.Map(document.getElementById('lugarMap'),
+              mapOptions);
+
+
+      marcadorL = new google.maps.Marker({
+        map:lugarM,
+        draggable:true,
+        animation: google.maps.Animation.DROP,
+        position: culiacan
+      });
+
+      google.maps.event.addListener(marcadorL, 'click', toggleBounce);
+      google.maps.event.addListener(lugarM, 'click', function(event){
+
+        var latlng = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
+        moverMarcador(latlng);
+
+      });
+
+      google.maps.event.addListener(marcadorL, 'mouseup', cambiaCoordenada);
+    }
+    google.maps.event.addDomListener(window, 'load', iniciarMapaLugar);
+    lugarM.setCenter(marcadorL.getPosition());
+
+
+
+    
+
+    function buscarCoordenadas(){
+        adress = ciudad+" "+calle+" "+numero+" "+colonia;
+        geocoder.geocode( { 'address': adress}, function(results) {
+            moverMarcador(results[0].geometry.location);
+        });
+
+    }
+    
+
+
+    function moverMarcador(latlng){
+        marcadorL.setMap(null);
+        marcadorL = new google.maps.Marker({
+            map:lugarM,
+            draggable:true,
+            animation: google.maps.Animation.DROP,
+            position: latlng
+        });
+        cambiaCoordenada();
+        google.maps.event.addListener(marcadorL, 'mouseup', cambiaCoordenada);
+
+    }
+    function toggleBounce() {
+
+      if (marcadorL.getAnimation() != null) {
+        marcadorL.setAnimation(null);
+      } else {
+        marcadorL.setAnimation(google.maps.Animation.BOUNCE);
+      }
+    }
+
+    function cambiaCoordenada(){
+        document.getElementById('lat').value = marcadorL.getPosition().lat();
+        document.getElementById('lng').value = marcadorL.getPosition().lng();
+    }
+    

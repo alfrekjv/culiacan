@@ -69,6 +69,13 @@
                 </div>
             </div>
             <div id="sidebar" class="col-xs-3 col-sm-3 col-md-3 col-lg-2 hidden-xs">
+            <div class="social-share">
+                <span class='st_sharethis_large' displayText='ShareThis'></span>
+                <span class='st_facebook_large' displayText='Facebook'></span>
+                <span class='st_twitter_large' displayText='Tweet'></span>
+                <span class='st_email_large' displayText='Email'></span>
+            </div>
+
                 <form class="form-persona" action="#" method="POST">
                     <div class="form-group">
                         <div class="input-group">
@@ -77,7 +84,7 @@
                         </div>
                     </div>
                 </form>
-                <a class="twitter-timeline" href="https://twitter.com/search?q=%23CuliacanEstaDePie" height="500"
+                <a class="twitter-timeline" href="https://twitter.com/search?q=%23CuliacanEstaDePie" height="460"
                    data-widget-id="381198995961307137">Tweets sobre "#culiacanEstaDePie"</a>
                 <script>!function (e, t, n) {
                         var r, i = e.getElementsByTagName(t)[0], s = /^http:/.test(e.location) ? "http" : "https";
@@ -323,13 +330,12 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <label class="control-label" for="observaciones">Observaciones</label>
+                                <label>Señala el punto en el mapa</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <textarea id="observaciones" name="observaciones" class="form-control"
-                                          rows="3" tabindex="9"></textarea>
+                                <div id="lugarMap" style="height:250px;"></div>
                             </div>
                         </div>
                     </form>
@@ -395,4 +401,8 @@
 <?php $view['slots']->start('include_js_body'); ?>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="<?= $view['assets']->getUrl('js/home.js'); ?>"></script>
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "ur-ade195a7-2dbe-babe-a95f-cb7ac5c1a700"});</script>
+
 <?php $view['slots']->stop(); ?>
