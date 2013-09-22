@@ -11,10 +11,18 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="Culiacán">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 
-    <title><?= !empty($title) ? $title . " - " : ''; ?> <?php $view['slots']->output('title', 'Culiacán') ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <meta name="description" content="Culiacán - DNIII | Unidos por Sinaloa - Albergues, Centros de Acopio, Abastecimientos de Agua Potable, porque todos podemos ayudar!">
+    <meta name="author" content="Cloudadmin, Inc, Ayto. de Culiacán, TomatoValley">
+
+    <meta property="og:title" content="Culiacán - DNIII | Unidos por Sinaloa - Albergues, Centros de Acopio, Abastecimientos de Agua Potable, porque todos podemos ayudar!" />
+    <meta property="og:site_name" content="Culiacán - DNIII"/>
+    <meta property="og:url" content="http://culiacan.cloudadmin.mx"/>
+    <meta property="og:type" content="website">
+    <meta property="description" content="Plataforma web para difundir información sobre centros de acopio, albergues, zonas afectadas, zonas evacuadas, personas desaparecidas, para apoyar en las tareas de rescate y limpieza en las zonas afectadas por el huracán Manuel.">
+
+    <title><?= !empty($title) ? $title . " - " : ''; ?> <?php $view['slots']->output('title', 'Culiacán - DNIII | Unidos por Sinaloa - Albergues, Centros de Acopio, Abastecimientos de Agua Potable, porque todos podemos ayudar!') ?></title>
 
     <!-- CSS Stuff -->
     <link href="<?= $view['assets']->getUrl('css/libs/bootstrap.min.css'); ?>" rel="stylesheet">

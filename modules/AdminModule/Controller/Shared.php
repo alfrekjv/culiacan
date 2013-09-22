@@ -132,6 +132,10 @@ class Shared extends BaseController
     }
     
     protected function isAdmin() {
+        return $this->isLoggedIn() && in_array($this->getService('user.security')->getUser()->getLevelTitle(), array('Admin'));
+    }
+
+    protected function isColaborador() {
         return $this->isLoggedIn() && in_array($this->getService('user.security')->getUser()->getLevelTitle(), array('Admin', 'Developer'));
     }
 

@@ -12,7 +12,7 @@ class Index extends SharedController
 
         $post            = $this->post();
         $requiredKeys    = array(
-            'nombre_completo',
+            'nombre_contacto',
             'correo_electronico',
             'mensaje'
         );
@@ -43,7 +43,7 @@ class Index extends SharedController
         $fromUser = new UserEntity(
             array(
                  'email'     => $post['correo_electronico'],
-                 'firstname' => $post['nombre_completo']
+                 'firstname' => $post['nombre_contacto']
             )
         );
 

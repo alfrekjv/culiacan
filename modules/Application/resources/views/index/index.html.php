@@ -69,15 +69,24 @@
                 </div>
             </div>
             <div id="sidebar" class="col-xs-3 col-sm-3 col-md-3 col-lg-2 hidden-xs">
+            <div class="social-share">
+                <span class='st_sharethis_large' displayText='ShareThis'></span>
+                <span class='st_facebook_large' displayText='Facebook'></span>
+                <span class='st_twitter_large' displayText='Tweet'></span>
+                <span class='st_email_large' displayText='Email'></span>
+            </div>
+
                 <form class="form-persona" action="#" method="POST">
                     <div class="form-group">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Buscar personas">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <span class="input-group-addon btn">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </span>
                         </div>
                     </div>
                 </form>
-                <a class="twitter-timeline" href="https://twitter.com/search?q=%23CuliacanEstaDePie" height="500"
+                <a class="twitter-timeline" href="https://twitter.com/search?q=%23CuliacanEstaDePie" height="460"
                    data-widget-id="381198995961307137">Tweets sobre "#culiacanEstaDePie"</a>
                 <script>!function (e, t, n) {
                         var r, i = e.getElementsByTagName(t)[0], s = /^http:/.test(e.location) ? "http" : "https";
@@ -259,10 +268,10 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <input type="text" id="nombre" name="nombre" class="form-control">
+                                <input type="text" id="nombre" name="nombre" class="form-control" tabindex="1">
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <input type="text" id="calle" name="calle" class="form-control">
+                                <input type="text" id="calle" name="calle" class="form-control" tabindex="2">
                             </div>
                         </div>
                         <div class="row">
@@ -275,10 +284,10 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <input type="text" id="numero" name="numero" class="form-control">
+                                <input type="text" id="numero" name="numero" class="form-control" tabindex="3">
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <input type="text" id="colonia" name="colonia" class="form-control">
+                                <input type="text" id="colonia" name="colonia" class="form-control" tabindex="4">
                             </div>
                         </div>
                         <div class="row">
@@ -291,10 +300,10 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <input type="text" id="ciudad" name="ciudad" class="form-control">
+                                <input type="text" id="ciudad" name="ciudad" class="form-control" tabindex="5">
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <input type="text" id="estado" name="estado" class="form-control">
+                                <input type="text" id="estado" name="estado" class="form-control" tabindex="6">
                             </div>
                         </div>
                         <div class="row">
@@ -307,10 +316,10 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <input type="text" id="codigo_postal" name="codigo_postal" class="form-control">
+                                <input type="text" id="codigo_postal" name="codigo_postal" class="form-control" tabindex="7">
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <select name="tipo" id="tipo" class="form-control">
+                                <select name="tipo" id="tipo" class="form-control" tabindex="8">
                                     <option value="centro de acopio">Centro de Acopio</option>
                                     <option value="albergue">Albergue</option>
                                     <option value="zona afectada">Zona Afectada</option>
@@ -322,23 +331,22 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <label class="control-label" for="observaciones">Observaciones</label>
+                                <label>Señala el punto en el mapa</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <textarea id="observaciones" name="observaciones" class="form-control"
-                                          rows="3"></textarea>
+                                <div id="lugarMap" style="height:250px;"></div>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-danger pull-left" data-dismiss="modal" type="button"><span
+                    <button class="btn btn-danger pull-left" data-dismiss="modal" type="button" tabindex="11"><span
                             class="glyphicon glyphicon-minus-sign"></span> Cancelar
                     </button>
                     <button id="btn-guardar-reportar-lugar" name="btn-guardar-reportar-lugar" class="btn btn-success"
-                            type="submit" data-loading-text="Espere.."><span class="glyphicon glyphicon-ok-sign"></span>
+                            type="submit" data-loading-text="Espere.." tabindex="10"><span class="glyphicon glyphicon-ok-sign"></span>
                         Enviar Reporte
                     </button>
                 </div>
@@ -360,40 +368,43 @@
                         <div id="mensaje-contacto"></div>
 
                         <div class="form-group">
-                            <label for="nombre_completo">Tu nombre</label>
-                            <input type="text" class="form-control" id="nombre_completo"
-                                   placeholder="Escribe tu nombre completo" name="nombre_completo">
+                            <label for="nombre_contacto" class="control-label">Tu nombre</label>
+                            <input type="text" class="form-control" id="nombre_contacto"
+                                   placeholder="Escribe tu nombre completo" name="nombre_contacto" tabindex="12">
                         </div>
                         <div class="form-group">
-                            <label for="correo_electronico">Correo Electrónico</label>
+                            <label for="correo_electronico" class="control-label">Correo Electrónico</label>
                             <input type="text" class="form-control" id="correo_electronico"
-                                   placeholder="Ej: tucorreo@gmail.com" name="correo_electronico">
+                                   placeholder="Ej: tucorreo@gmail.com" name="correo_electronico" tabindex="13">
                         </div>
                         <div class="form-group">
-                            <label for="mensaje">Mensaje</label>
-                            <textarea class="form-control" id="mensaje" name="mensaje" rows="3"></textarea>
+                            <label for="mensaje" class="control-label">Mensaje</label>
+                            <textarea class="form-control" id="mensaje" name="mensaje" rows="3" tabindex="14"></textarea>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal"><span
+                    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" tabindex="16"><span
                             class="glyphicon glyphicon-minus-sign"></span> Cancelar
                     </button>
-                    <button type="button" class="btn btn-success sendEmail"><span
+                    <button type="button" class="btn btn-success sendEmail" tabindex="15"><span
                             class="glyphicon glyphicon-ok-sign"></span>
                         Enviar mensaje
                     </button>
                 </div>
             </div>
-            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+    </div>
 
     <div id="modal-reportar-persona" class="modal fade" tabindex="-1" aria-hidden="true" data-keyboard="false"
          data-backdrop="static">
-    </div><!-- /.modal -->
+    </div>
 <?php $view['slots']->start('include_js_body'); ?>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="<?= $view['assets']->getUrl('js/home.js'); ?>"></script>
+
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "ur-ade195a7-2dbe-babe-a95f-cb7ac5c1a700"});</script>
+
 <?php $view['slots']->stop(); ?>
