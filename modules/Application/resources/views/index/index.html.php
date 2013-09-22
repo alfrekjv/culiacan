@@ -5,7 +5,7 @@
     <link href="<?= $view['assets']->getUrl('css/landing.css'); ?>" type="text/css" rel="stylesheet"/>
 <?php $view['slots']->stop(); ?>
 
-    <div class="navbar navbar-inverse navbar-fixed-top hidden-md hidden-lg">
+    <div id="top-nav" class="navbar navbar-inverse navbar-fixed-top hidden-md hidden-lg">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-md-collapse">
@@ -30,7 +30,7 @@
                         <a href="#"><span class="glyphicon glyphicon-log-in"></span> Zonas Afectadas</a>
                     </li>
                     <li>
-                        <a href="#"><span class="glyphicon glyphicon-log-in"></span> Abast. de Agua Potable</a>
+                        <a href="#"><span class="glyphicon glyphicon-log-in"></span> Agua Potable</a>
                     </li>
                 </ul>
             </div>
@@ -50,7 +50,7 @@
         <div class="row">
             <div id="google-maps" class="col-xs-9 col-sm-9 col-md-9 col-lg-10">
                 <div id="mapa-canvas" class="hidden-xs"></div>
-                <div id="btn-municipios" class="btn-group hidden-xs hidden-md">
+                <div id="btn-municipios" class="btn-group hidden-xs">
                     <button type="button" class="btn btn-primary btn-municipios btn-lg dropdown-toggle"
                             data-toggle="dropdown">
                         <span class="glyphicon glyphicon-map-marker"></span>
@@ -88,11 +88,11 @@
                             i.parentNode.insertBefore(r, i)
                         }
                     }(document, "script", "twitter-wjs")</script>
+                    <a class="emergency" href="#"><b><span class="glyphicon glyphicon-phone-alt"></span> EMERGENCIAS 066</b></a>
             </div>
         </div>
     </div>
 
-    <div class="navbar navbar-inverse navbar-banderas navbar-fixed-bottom hidden-xs hidden-md" style="bottom:49px">
         <div id="btn-tipo" class="btn-group" data-toggle="buttons">
             <a href="#" class="btn btn-default btn-lg" data-tipo="centros">
                 <span class="glyphicon glyphicon-home"></span><input type="radio" name="options"> Centros de Acopio
@@ -107,42 +107,41 @@
                 <span class="glyphicon glyphicon-log-in"></span><input type="radio" name="options"> Zonas Afectadas
             </a>
             <a href="#" class="btn btn-default btn-lg" data-tipo="agua">
-                <span class="glyphicon glyphicon-log-in"></span><input type="radio" name="options"> Abast. de Agua
+                <span class="glyphicon glyphicon-log-in"></span><input type="radio" name="options"> Agua
                 Potable
             </a>
         </div>
-    </div>
 
-    <div class="navbar navbar-inverse navbar-fixed-bottom">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-xs-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><b><span class="glyphicon glyphicon-phone-alt"></span> EMERGENCIAS 066</b></a>
+    <footer>
+        <div class="navbar navbar-inverse navbar-fixed-bottom">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-xs-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+            <div id="bottom-nav" class="collapse navbar-collapse navbar-xs-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#modal-directorio" data-toggle="modal">Directorio</a>
+                    </li>
+                    <li>
+                        <a href="#modal-donaciones" data-toggle="modal">Donaciones</a>
+                    </li>
+                    <li>
+                        <a href="#" id="btn-reportar-lugar">Reportar Lugar</a>
+                    </li>
+                    <li>
+                        <a href="#" class="reportarPersona">Reportar Persona</a>
+                    </li>
+                    <li>
+                        <a href="#modal-contacto" data-toggle="modal">Contacto</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="collapse navbar-collapse navbar-xs-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#modal-directorio" data-toggle="modal">Directorio</a>
-                </li>
-                <li>
-                    <a href="#modal-donaciones" data-toggle="modal">Donaciones</a>
-                </li>
-                <li>
-                    <a href="#" id="btn-reportar-lugar">Reportar Lugar</a>
-                </li>
-                <li>
-                    <a href="#" class="reportarPersona">Reportar Persona</a>
-                </li>
-                <li>
-                    <a href="#modal-contacto" data-toggle="modal">Contacto</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    </footer>
 
     <div id="modal-directorio" class="modal fade" tabindex="-1" aria-hidden="true" data-keyboard="false"
          data-backdrop="static">
@@ -316,7 +315,7 @@
                                     <option value="albergue">Albergue</option>
                                     <option value="zona afectada">Zona Afectada</option>
                                     <option value="zona evacuada">Zona Evacuada</option>
-                                    <option value="agua potable">Abst. de Agua Potable</option>
+                                    <option value="agua potable">Agua Potable</option>
                                     <option value="otro">Otro</option>
                                 </select>
                             </div>

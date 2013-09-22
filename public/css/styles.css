@@ -1,0 +1,367 @@
+/** Butterfly UI A simpler framework for simpler sites  This is the reset file, where all browsers get a consistent base style. */
+* { margin: 0; padding: 0; -webkit-font-smoothing: antialiased; /* The better box model */ -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; /* Fixing iOS/Win8 text fails */ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+/* Because other browsers get scared of Webkit */
+::-webkit-file-upload-button { margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+
+/** Bug fixes */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary { display: block; }
+
+audio:not([controls]), [hidden], .print-only { display: none; }
+
+img, fieldset, legend { border: none; }
+
+abbr[title] { border-bottom: 1px dotted; }
+
+b, strong, .bold { font-weight: 500; }
+
+button, a, [type=submit], [href], label[for], [type=reset] { cursor: pointer; }
+
+::-webkit-file-upload-button { cursor: p; }
+
+[disabled] { opacity: .7; cursor: default; }
+
+nav li { list-style: none; }
+
+p a { text-decoration: none; }
+
+acronym, abbr { border-bottom: 1px dotted; cursor: help; }
+
+span.hilite, i.hilite, mark { padding: 2px 4px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; }
+
+blockquote { padding: 20px 30px 10px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; }
+
+blockquote + cite { position: relative; display: block; padding: 20px 0 40px 30px; font-weight: 500; font-style: normal; }
+
+blockquote + cite:after { content: ''; display: block; position: absolute; left: 30px; top: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; }
+
+/* Input resets */
+input, textarea, button { font-family: inherit; }
+
+::-webkit-file-upload-button { font-family: inherit; }
+
+[type=search] { -webkit-appearance: none; appearance: normal; }
+
+::-webkit-search-cancel-button, ::-webkit-search-decoration { -webkit-appearance: none; }
+
+::-moz-focus-inner { border: none; }
+
+textarea { overflow: auto; vertical-align: top; }
+
+button, [type=button], [type=reset], [type=submit] { border: none; -webkit-appearance: button; *overflow: visible; }
+
+/** Tables */
+table { border-collapse: collapse; border-spacing: 0; width: 100%; margin-bottom: 25px; }
+
+th, thead td { padding: 10px 15px; font-weight: bold; text-align: left; }
+
+td { padding: 6px 15px; border-bottom: 1px solid #e3e7ee; }
+
+tr:nth-child(2n) { background: #f6f8fb; }
+
+/** Lists */
+ul, ol, dl { margin: .4em 0 1em; list-style: none; }
+
+nav ul, nav ol, nav dl { margin: 0; }
+
+li:before { display: inline-block; width: 15px; padding-right: 5px; }
+
+nav li:before, .navigation li:before { display: none; }
+
+ul li { list-style: none; list-style: square\9; }
+
+ol li { counter-increment: list; }
+
+ol li:before { content: counter(list) "."; font-weight: 500; }
+
+dt { display: block; font-weight: 500; }
+
+dd { display: block; padding-left: 20px; margin-bottom: 1em; }
+
+figure img { max-width: 100%; height: auto; }
+
+figcaption { margin: 5px 0 25px; }
+
+.cf:before, .cf:after { content: " "; display: table; }
+
+.cf:after { clear: both; }
+
+.cf { *zoom: 1; }
+
+/** Butterfly UI A simpler framework for simpler sites  Navigation, links, and everything hypertext. */
+/* Top header bar */
+.header { position: relative; top: 0; height: 70px; /* IT'S OVER 9000!!!!!1! */ z-index: 100000000; }
+
+.header.fixed { position: fixed; left: 0; right: 0; top: 0; }
+
+.header.fixed:hover { margin-top: 65px; }
+
+.header.fixed + * { margin-top: 110px; }
+
+.header .title, .header .logo, .header ul { float: left; margin-right: 40px; }
+
+header .title, .header .logo { position: relative; top: 2px; display: inline-block; line-height: 70px; }
+
+.header nav { margin-right: 40px; }
+
+.header nav li { float: left; padding: 15px 0; }
+
+.header nav li a { display: inline-block; padding: 8px 20px; margin-right: 20px; font-weight: 500; text-decoration: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; }
+
+.header .btn, .header button { margin-top: 18px; padding: 6px 20px; }
+
+.navigation.vertical { display: block; }
+
+.navigation.vertical li { border-bottom: 1px solid; }
+
+.navigation.vertical li:first-child { border-top: 1px solid; }
+
+.navigation.vertical li a { display: block; padding: 8px 20px; font-size: 13px; font-weight: 500; text-decoration: none; }
+
+/** Butterfly UI A simpler framework for simpler sites  Giving everything a consistent typographic style. */
+a, input, button, .btn, [type=submit], ::-webkit-file-upload-button { -webkit-transition: color .2s, background .2s, border .2s; }
+
+.header { -webkit-transition: margin-top .2s; }
+
+/** Butterfly UI A simpler framework for simpler sites  Giving everything a consistent typographic style. */
+body, html { font: 14px/22px "Roboto", sans-serif; }
+
+h1 { font-size: 35px; line-height: 43px; font-weight: 300; padding-bottom: .4em; }
+
+h2 { font-size: 25px; line-height: 33px; font-weight: 500; padding-bottom: 19px; }
+
+.sidebar h2 { font-size: 15px; line-height: 25px; }
+
+h3 { font-size: 24px; line-height: 39px; font-weight: 300; padding-bottom: .7em; }
+
+h4 { font-size: 17px; line-height: 25px; font-weight: 500; }
+
+p, h4 { padding-bottom: 1em; }
+
+i.hilite { font-style: normal; }
+
+code, pre { font: 90%/140% Inconsolata, monospace; }
+
+blockquote { font: italic 14px/24px Georgia, serif; }
+
+.grater-container { width: 820px; margin: 0 auto; }
+@media all and (max-width: 720px) { .grater-container { width: 92%; } }
+
+.grater { zoom: 1; }
+.grater > div { width: 360px; margin: 0 0 2em; }
+.grater > div:first-child { float: left; }
+.grater > div:last-child { float: right; }
+.grater.reverse > div:first-child { float: right; }
+.grater.reverse > div:last-child { float: left; }
+.grater:before, .grater:after { content: ""; display: table; }
+.grater:after { clear: both; }
+@media all and (max-width: 720px) { .grater { margin-bottom: 1em; }
+  .grater > div { width: 100%; float: none !important; margin: 0 auto 2em; } }
+
+@media (max-width: 480px) { body p { font-size: 13px; }
+  body h1 { font-size: 26px; }
+  body h2 { font-size: 18px; } }
+/** Butterfly UI A simpler framework for simpler sites  Typin', inputtin', it's all good. */
+form p { padding-bottom: 0; }
+
+form p:last-child > [type=submit] { margin-top: 25px; }
+
+/* Texty inputs */
+input, textarea { padding: 10px 14px; margin-bottom: 15px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; font-size: 13px; }
+
+textarea { resize: vertical; min-height: 100px; max-height: 600px; }
+
+textarea.small { min-height: 45px; max-height: 150px; }
+
+textarea.tall { min-height: 200px; max-height: 750px; }
+
+input:focus, textarea:focus { outline: none; }
+
+select { -webkit-appearance: none; border: none; font-family: inherit; font-size: 13px; line-height: 21px; font-weight: 500; padding: 7px 20px; margin-bottom: 15px; }
+
+select:focus { outline: none; }
+
+input, textarea, select { width: 100%; }
+
+button, .btn, [type=submit], [type=reset], [type=button] { display: inline-block; width: auto; padding: 10px 20px; margin-right: 20px; /* Multiple buttons next to each other */ border: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; font-size: 13px; font-weight: 500; text-decoration: none; }
+
+::-webkit-file-upload-button { padding: 10px 20px; border: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; font-size: 13px; font-weight: 500; cursor: pointer; }
+
+form button, [type=submit], [type=reset] { padding: 12px 24px; }
+
+label { display: block; padding: 4px 0 8px; line-height: 19px; font-weight: 500; }
+
+legend { display: block; width: 100%; padding-bottom: 20px; position: relative; font-size: 19px; font-weight: 500; }
+
+/** Full-size forms */
+legend, .full p { border-bottom: 1px solid #e5e9f0; }
+
+.full p { min-height: 70px; margin: 30px 0 25px; }
+
+.full .help { display: block; margin-top: -2px; margin-bottom: 20px; font-size: 11px; font-style: normal; font-weight: normal; color: #9ba5b6; }
+
+.full .status { padding-left: 20px; }
+
+.full button + button { margin-left: 20px; }
+
+.full label { float: left; padding: 2px 20px 8px 0; }
+
+/** File upload fields */
+[type=file] { -webkit-appearance: none; padding: 0; border: none; }
+
+[type=file]::-webkit-file-upload-button { -webkit-appearance: none; padding-left: 43px; background-image: url("../img/cloud.png"); background-repeat: no-repeat; background-position: 15px 50%; }
+
+::selection { background: #fff9e6; color: #997649; }
+
+body, html { color: #65717d; background: #fcfafd; }
+
+body.dark { background: #373e45; }
+
+a .copy { color: #f6f5f5; }
+a .copy:hover { color: #82ba3b; }
+
+a { color: #1b5fa5; text-decoration: none; font-weight: bold; }
+
+a:hover { color: #76a314; }
+
+p a { border-bottom: 1px solid #d3e2f1; }
+
+p a:hover { border-color: #e2efc6; }
+
+b { color: #505b67; }
+
+blockquote { background: #e9f0f8; color: #3f5d80; }
+
+blockquote + cite:after { border-top: 10px solid #e9f0f8; }
+
+span.hilite, i.hilite, mark { background: #ebf2fc; color: #3e649e; }
+
+.header { background: #f1f3f5; }
+
+.dark .header { background: rgba(0, 0, 0, 0.1); }
+
+h1 { color: #424b55; }
+
+.dark :-webkit-any(h1, h2, h3, h4) { color: #fff; }
+
+h2, h3, h4 { color: #4c5762; }
+
+nav li a { color: #7e8797; }
+
+nav li a:hover { color: #4d535e; }
+
+nav li.active a, nav li a.active { background: #fff; }
+
+/**
+*   Forms
+*/
+:placeholder { color: #b3bdcd; }
+
+::-webkit-input-placeholder { color: #b3bdcd; }
+
+::-moz-placeholder { color: #b3bdcd; }
+
+/* Standard inputs */
+input, textarea { border: 2px solid #b9c1ce; color: #5f6672; background: transparent; }
+
+input:focus, textarea:focus { border-color: #97a7c3; background: #f3f6fc; }
+
+select { background: #9cb1ca url("../img/arrow.png") no-repeat 100% 50%; border: 2px solid #7991ac; color: #fff; }
+
+select option { background-color: #b7cfed; }
+
+.success input { border-color: #82b01e; color: #6e7e4a; }
+
+.success input:focus { background: #fbfff3; }
+
+.success .status { color: #82b01e; }
+
+.error input { border-color: #d13d29; color: #884b43; }
+
+.error input:focus { background: #fff6f5; }
+
+.error .status { color: #d13d29; }
+
+/* Buttons! So many buttons! */
+button, .btn, [type=submit], [type=button] { background: #3f70c0; color: #fff; }
+
+button:hover, .btn:hover, [type=submit]:hover { background: #2151a1; color: #fff; }
+
+button.green, .btn.green, [type=submit].green, button.primary, .btn.primary, [type=submit].primary { background: #75ab1f; }
+
+button.green:hover, .btn.green:hover, [type=submit].green:hover, button.primary:hover, .btn.primary:hover, [type=submit].primary:hover { background: #619214; }
+
+button.red, .btn.red, [type=submit].red, button.danger, .btn.danger, [type=submit].danger { background: #cf402d; }
+
+button.red:hover, .btn.red:hover, [type=submit].red:hover, button.danger:hover, .btn.danger:hover, [type=submit].danger:hover { background: #a2200f; }
+
+button.orange, .btn.orange, [type=submit].orange, button.warning, .btn.warning, [type=submit].warning { background: #de8925; }
+
+button.orange:hover, .btn.orange:hover, [type=submit].orange:hover, button.warning:hover, .btn.warning:hover, [type=submit].warning:hover { background: #c56110; }
+
+button.white, .btn.white, [type=submit].white, [type=reset] { background: #dee6f2; color: #3c5378; }
+
+button.white:hover, .btn.white:hover, [type=submit].white:hover, [type=reset]:hover { background: #c4d4eb; color: #24395a; }
+
+button.pink, .btn.pink, [type=submit].pink { background: #de3882; }
+
+button.pink:hover, .btn.pink:hover, [type=submit].pink:hover { background: #bb1d63; }
+
+button.purple, .btn.purple, [type=submit].purple { background: #813fbe; }
+
+button.purple:hover, .btn.purple:hover, [type=submit].purple:hover { background: #63279c; }
+
+button[disabled], .btn[disabled], [type=submit][disabled], button.disabled, .btn.disabled, [type=submit][disabled] { background: #cbcfd6; color: #6f7886; }
+
+::-webkit-file-upload-button { background-color: #33aad6; color: #fff; }
+
+::-webkit-file-upload-button:hover { background-color: #1e8ab2; }
+
+/**
+*   Tables
+*/
+th, thead td { color: #41526f; border-bottom: 2px solid #dee3eb; }
+
+/**
+*   List items
+*/
+li:before { color: #8aa0bf; }
+
+/**
+*   Navigation
+*/
+.navigation a { color: #606b77; }
+
+.navigation a:hover { background: #f5f7fa; }
+
+.navigation li { border-color: #dee5ec !important; }
+
+/* Prism syntax highlighting */
+html, body { background: #2e3236; }
+
+.container { margin: 0 auto 25px; padding: 20px; background: #fff; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; }
+
+.well { background: rgba(220, 220, 220, 0.1); border: 1px solid #eff1f2; padding: 10px; -webkit-border-radius: 2px; -moz-border-radius: 2px; -ms-border-radius: 2px; -o-border-radius: 2px; border-radius: 2px; }
+
+#dashboard, #dashboard .col6 { margin-bottom: 0; }
+
+#logo { width: 100px; display: block; margin: 40px auto; }
+#logo img { width: 100px; display: block; }
+
+.copy { text-align: center; font-size: 12px; }
+
+.status { margin: 0; padding: 0; }
+.status li { font-size: 12px; list-style: none; padding: 0 0 8px 0; border-bottom: 1px solid #eff1f2; margin-bottom: 8px; }
+.status li:last-child { padding: 0; margin: 0; border: none; }
+.status li strong { text-transform: uppercase; }
+
+.hilite > div { background: #eff5fc; color: #7a9abe; padding: 20px 25px; text-align: center; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2); }
+
+.sp-statusdashboard-up, .sp-statusdashboard-down { width: 54px; padding: 2px 0px; background: red; color: #fff; text-align: center; float: right; line-height: 18px; font-weight: 900; font-size: 11px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; }
+
+.sp-statusdashboard-up { background: #82ba3b; }
+
+.sp-statusdashboard-down { background: #f9432b; }
+
+/* apply a natural box layout model to all elements */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }

@@ -1,0 +1,256 @@
+html, body {height: 100%}
+
+body {
+  background-color: #eee;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.row {margin-right: 0;margin-left: 0}
+.navbar-hr {
+    background: #373737;
+    border-top: 1px solid #101010;
+    height: 1px; margin-top: 10px
+}
+#google-maps {
+  padding-right: 0
+}
+#sidebar {
+   background-color: #eee;
+   height: 100%;
+   position: fixed;
+   right: 0;
+   border-left: 1px solid #c0c0c0;
+}
+#btn-municipios {
+   top: 10px; right: 5px;
+   position: absolute;
+   z-index: 1000 !important
+}
+#btn-municipios .btn {
+  font-size: 16px;
+}
+.form-persona {margin-top: 10px}
+
+#btn-tipo {
+  bottom: 51px;
+  position: absolute;
+  background: #f14d0b;
+  display: block;
+  width: 100%;
+  opacity:0.90;
+  filter:alpha(opacity=90)
+}
+
+#btn-tipo > .btn-lg {
+  border-radius: 0;
+}
+
+#btn-tipo a {
+  width: 20%;
+  border: none;
+  float: left;
+  display: block;
+  margin: 0;
+  padding: 14px 10px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  background: #f14d0b;
+}
+
+#btn-tipo a:hover, #btn-tipo a:focus {
+  background: #ff611f;
+  cursor: pointer;
+}
+
+#btn-tipo span {
+  margin: 0 8px 0 0;
+}
+
+// Municipios
+.btn-municipios {
+  background-color: #222;
+  border-color: #080808;
+}
+.btn-municipios:hover,
+.btn-municipios:focus,
+.btn-municipios:active,
+.btn-municipios.active,
+.open .dropdown-toggle.btn-municipios {
+  background-color: #444;
+  border-color: #080808;
+}
+
+.modal.fade.in {
+  overflow: auto
+}
+.modal-header, .modal-body, .modal-footer {
+  padding: 10px
+}
+
+.spot .title {font-weight: bold;}
+
+#bottom-nav {
+  font-size: 15px;
+}
+
+.emergency {
+  padding: 15px;
+  float: left;
+  color: #fff;
+  background: #ff1111;
+  border-radius: 3px;
+
+
+  &:hover, &:active {
+    text-decoration: none;
+    background: #ff2222;
+    color: #fff;
+  }
+}
+
+
+  #bottom-nav  {
+    float: right;
+    width: 80%;
+
+    ul {
+      width: 100%;
+
+      li {
+        padding: 0;
+        width: 20%;
+        text-align: center;
+        a {
+          display: block;
+          text-align: center;
+      }
+    }
+  }
+}
+
+// Media Queries
+
+@media (max-width: 768px) {
+   body {
+      padding-top: 170px
+   }
+   #btn-municipios {
+     top: 45px;
+     right: 10px;
+   }
+   #google-maps {
+    padding: 0;
+   }
+    #sidebar {
+      padding: 0;
+      .form-persona {
+        display: none;
+      }
+      .emergency {
+        border-radius: 0;
+      }
+    }
+}
+
+@media (min-width: 768px) {
+
+  #top-nav, #top-nav .container {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+
+    .navbar-header {
+      margin: 10px auto;
+      width: 100%;
+      display: block;
+      text-align: center;
+      .navbar-brand {
+        width: 100%;
+        margin: 0;
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  #top-nav .navbar-nav {
+    width: 100%;
+    li {
+      width: 20%;
+      padding: 0;
+      text-align: center;
+      a {
+        padding: 0;
+        font-size: 14px;
+      }
+
+      span {
+        display: block;
+        margin: 0 0 8px 0;
+      }
+    }
+  }
+
+  #btn-tipo {
+    a {
+      font-size: 12px;
+    }
+  }
+
+  #bottom-nav {
+    width: 100%;
+
+    ul li {
+      text-align: center;
+      a {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .emergency {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 13px;
+  }
+}
+
+
+
+@media (max-width:480px) {
+  body {
+    padding-top: 130px;
+  }
+
+  .container-fluid {
+    height: 100%;
+  }
+  #top-nav {
+    margin-bottom: 10px;
+    .navbar-hr {
+      margin: 10px 0;
+    }
+    div .form-persona {
+      margin: 0;
+    }
+    input {
+      padding: 6px 10px;
+      height: 31px;
+      font-size: 14px;
+    }
+  }
+
+  #btn-tipo a {
+    display: block;
+    width: 100%;
+    padding: 10px inherit;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+  }
+}

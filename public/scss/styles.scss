@@ -1,0 +1,100 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/*-----------------------------------*\
+  $GRID
+\*-----------------------------------*/
+
+.container {
+  /* Whatever you want. They’re your oats. */
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 30px;
+  padding: 0 1.5rem;
+}
+
+.container, body, html { height: 100%;}
+
+html {
+  background: url(../img/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-size: 100%;
+  padding: 300px 0 20px 0;
+  font-family: calendas_plusregular;
+  color: #f8fafc;
+  font-family: 'Helvetica Neue Light', 'Open Sans', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  padding: 0;
+  font-weight: 300;
+  font-weight: 100;
+  text-align: center;
+  font-size: 3.5em;
+}
+
+.amp {
+  color: #e16136;
+  font-family: Baskerville MT Std, Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 110%;
+}
+
+p {
+  font-size: 1.15em;
+  font-weight: 400;
+  line-height: 1.4em;
+  margin-bottom: 20px;
+}
+
+a {
+  color: darken(#d2960a, 5%);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+a:hover {
+  border-bottom-color: #d2960a;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+footer {
+  small {
+    color: #b1b1b5;
+    display: block;
+    margin: 0 0 20px 0;
+    font-style: italic;
+  }
+}
+
+@media (max-width:480px) {
+  html {
+    background-position: -548px center;
+  }
+
+  body {
+    font-size: 80%;
+  }
+}
