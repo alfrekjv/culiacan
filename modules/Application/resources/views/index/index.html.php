@@ -198,6 +198,9 @@
 
                         <p>Nuestro objetivo es centralizar la información para apoyar en las labores de rescate,
                             limpieza y evacuación.</p>
+
+                        <small>Gen 9:12-16</small>
+
                         <h5 class="text-center" style="margin-bottom:0">Atentamente</h5>
                         <h5 class="text-center" style="margin-top:0"><b>Alfredo Juárez</b></h5>
                     </div>
@@ -211,6 +214,7 @@
                             <li>Jorge Pilotzi</li>
                         </ul>
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal"><span
