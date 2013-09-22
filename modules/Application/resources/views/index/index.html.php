@@ -46,24 +46,10 @@
         </div>
     </div>
 
-    <div class="container-fluid hidden-md hidden-lg">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12">
-                <div class="list-group">
-                    <a href="#" class="list-group-item">Cras justo odio</a>
-                    <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                    <a href="#" class="list-group-item">Morbi leo risus</a>
-                    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="container-fluid">
         <div class="row">
             <div id="google-maps" class="col-xs-9 col-sm-9 col-md-9 col-lg-10">
-                <div id="mapa-canvas" class="hidden-xs hidden-md"></div>
+                <div id="mapa-canvas" class="hidden-xs"></div>
                 <div id="btn-municipios" class="btn-group hidden-xs hidden-md">
                     <button type="button" class="btn btn-primary btn-municipios btn-lg dropdown-toggle"
                             data-toggle="dropdown">
@@ -129,7 +115,7 @@
 
     <div class="navbar navbar-inverse navbar-fixed-bottom">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex6-collapse">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-xs-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -137,7 +123,7 @@
             </button>
             <a class="navbar-brand" href="#"><b><span class="glyphicon glyphicon-phone-alt"></span> EMERGENCIAS 066</b></a>
         </div>
-        <div class="collapse navbar-collapse navbar-ex6-collapse">
+        <div class="collapse navbar-xs-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#modal-directorio" data-toggle="modal">Directorio</a>
