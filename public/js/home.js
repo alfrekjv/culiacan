@@ -23,10 +23,9 @@ $(document).ready(function () {
             }
 
             if (response.status == 'error') {
-
-                // @todo: Ponerle color..
-                $('.alert-error').fadeIn('fast');
-                $('.alert-error').html(response.message);
+                
+                $('#mensaje-contacto').toggleClass('alert alert-danger');
+                $('#mensaje-contacto').html(response.message);
             }
 
         }, 'json');
