@@ -143,7 +143,7 @@
                     <a href="#modal-directorio" data-toggle="modal">Directorio</a>
                 </li>
                 <li>
-                    <a href="#">Donaciones</a>
+                    <a href="#modal-donaciones" data-toggle="modal">Donaciones</a>
                 </li>
                 <li>
                     <a href="#" id="btn-reportar-lugar">Reportar Lugar</a>
@@ -227,6 +227,27 @@
         </div>
     </div>
 
+    <div id="modal-donaciones" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Donaciones</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info text-center" style="margin-bottom:0">
+                        <h4 style="margin:0">En construcción</h4>
+                        Módulo para realizar donaciones a damnificados
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span
+                            class="glyphicon glyphicon-minus-sign"></span> Cerrar ventana
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div id="modal-reportar-lugar" class="modal fade" tabindex="-1" aria-hidden="true" data-keyboard="false"
          data-backdrop="static">
@@ -351,7 +372,7 @@
                 <div class="modal-body">
                     <form role="form" id="contact-form" name="contact-form">
 
-                        <span class="alert-error"></span>
+                        <div id="mensaje-contacto"></div>
 
                         <div class="form-group">
                             <label for="nombre_completo">Tu nombre</label>
