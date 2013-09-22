@@ -8,61 +8,70 @@ class User extends SharedController
 
     public function indexAction($errors = array())
     {
-        if(!$this->isAdmin()) {
-            $this->setFlash('error', 'You don\'t have permission to access that page');
+        if (!$this->isAdmin()) {
+            
+            $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
+
             return $this->redirectToRoute('User_Login');
         }
-        
+
         $users = $this->getService('user.storage')->getAll();
+
         return $this->render('AdminModule:users:index.html.php', compact('users'));
     }
-    
+
     public function deleteAction()
     {
-        
-        if(!$this->isAdmin()) {
-            $this->setFlash('error', 'You don\'t have permission to access that page');
+
+        if (!$this->isAdmin()) {
+            $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
+
             return $this->redirectToRoute('User_Login');
         }
-        
+
         $userID = $this->getRouteParam('id');
-        
-        if(!filter_var($userID, FILTER_VALIDATE_INT)) {
+
+        if (!filter_var($userID, FILTER_VALIDATE_INT)) {
             die('E_INVALID_ROLE_ID');
         }
-        
+
         $this->getService('user.storage')->deleteByID($userID);
 
         $this->setFlash('success', 'Usuario eliminado correctamente.');
+
         return $this->redirectToRoute('Admin_Users_Index');
     }
-    
+
     public function editAction()
     {
-        
-        if(!$this->isAdmin()) {
-            $this->setFlash('error', 'You don\'t have permission to access that page');
+
+        if (!$this->isAdmin()) {
+            $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
+
             return $this->redirectToRoute('User_Login');
         }
-        
+
         $userID = $this->getRouteParam('id');
-        
+
         $us = $this->getService('user.storage');
-        
-        if(!$us->existsByID($userID)) {
+
+        if (!$us->existsByID($userID)) {
             $this->setFlash('error', 'Invalid Role ID');
+
             return $this->redirectToRoute('Admin_Roles_Index');
         }
-        
+
         $user = $us->getByID($userID);
+
         return $this->render('AdminModule:users:edit.html.php', compact('user', 'userID'));
     }
 
     public function editSubmitAction()
     {
 
-        if(!$this->isAdmin()) {
-            $this->setFlash('error', 'You don\'t have permission to access that page');
+        if (!$this->isAdmin()) {
+            $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
+
             return $this->redirectToRoute('User_Login');
         }
 
@@ -79,25 +88,27 @@ class User extends SharedController
         $user          = $userStorage->getByID($userID);
 
         // Check for missing fields, or fields being empty.
-        foreach($requiredKeys as $field) {
-            if(!isset($post[$field]) || empty($post[$field])) {
+        foreach ($requiredKeys as $field) {
+            if (!isset($post[$field]) || empty($post[$field])) {
                 $missingFields[] = $field;
             }
         }
 
         // If any fields were missing, inform the client
-        if(!empty($missingFields)) {
+        if (!empty($missingFields)) {
             $errors[] = 'Debe llenar todos los campos';
-            return $this->render('AdminModule:users:edit.html.php', compact('errors','user'));
+
+            return $this->render('AdminModule:users:edit.html.php', compact('errors', 'user'));
         }
 
         // If the user has changed their email address from their current one
-        if($post['userEmail'] !== $user->getEmail()) {
+        if ($post['userEmail'] !== $user->getEmail()) {
 
             // If the new email is already taken by another user, set an error
-            if($userStorage->existsByEmail($post['email'])) {
+            if ($userStorage->existsByEmail($post['email'])) {
                 $errors[] = 'The email address you have changed to already exists by another user';
-                return $this->render('AdminModule:users:edit.html.php', compact('errors','user'));
+
+                return $this->render('AdminModule:users:edit.html.php', compact('errors', 'user'));
             }
 
         }
@@ -105,11 +116,11 @@ class User extends SharedController
         // Prepare user array for insertion
         $userStorage->update(
             array(
-                  'user'       => $post['userUser'],
-                  'email'      => $post['userEmail'],
-                  'first_name' => $post['userFirstName'],
-                  'last_name'  => $post['userLastName']
-             ),
+                 'user'       => $post['userUser'],
+                 'email'      => $post['userEmail'],
+                 'first_name' => $post['userFirstName'],
+                 'last_name'  => $post['userLastName']
+            ),
             array('id' => $userID)
         );
 
@@ -121,16 +132,17 @@ class User extends SharedController
 
     public function createSubmitAction()
     {
-        
-        if(!$this->isAdmin()) {
-            $this->setFlash('error', 'You don\'t have permission to access that page');
+
+        if (!$this->isAdmin()) {
+            $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
+
             return $this->redirectToRoute('User_Login');
         }
 
-        $errors          = $missingFields = array();
-        $post            = $this->post();
-        $userStorage     = $this->getService('user.storage');
-        $requiredKeys    = array(
+        $errors       = $missingFields = array();
+        $post         = $this->post();
+        $userStorage  = $this->getService('user.storage');
+        $requiredKeys = array(
             'userFirstName',
             'userLastName',
             'userEmail',
@@ -187,21 +199,23 @@ class User extends SharedController
 
         // Create the user
         $newUserID = $userStorage->create($user, $this->getConfigSalt());
-        
+
         $this->setFlash('success', 'Usuario creado correctamente.');
+
         return $this->redirectToRoute('Admin_Users_Index');
     }
 
     public function createAction()
     {
 
-        if(!$this->isAdmin()) {
-            $this->setFlash('error', 'You don\'t have permission to access that page');
+        if (!$this->isAdmin()) {
+            $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
+
             return $this->redirectToRoute('User_Login');
         }
 
         return $this->render('AdminModule:users:create.html.php');
-        
+
     }
 
 }

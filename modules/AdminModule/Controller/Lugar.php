@@ -9,8 +9,8 @@ class Lugar extends SharedController
     public function indexAction()
     {
 
-        if (!$this->isAdmin()) {
-            $this->setFlash('error', 'You don\'t have permission to access that page');
+        if (!$this->isAdmin() || !$this->isColaborador()) {
+            $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
 
             return $this->redirectToRoute('User_Login');
         }
@@ -23,8 +23,8 @@ class Lugar extends SharedController
     public function createAction()
     {
 
-        if (!$this->isAdmin()) {
-            $this->setFlash('error', 'You don\'t have permission to access that page');
+        if (!$this->isAdmin() || !$this->isColaborador()) {
+            $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
 
             return $this->redirectToRoute('User_Login');
         }
@@ -67,8 +67,8 @@ class Lugar extends SharedController
     public function editAction()
     {
 
-        if (!$this->isAdmin()) {
-            $this->setFlash('error', 'You don\'t have permission to access that page');
+        if (!$this->isAdmin() || !$this->isColaborador()) {
+            $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
 
             return $this->redirectToRoute('User_Login');
         }
@@ -130,7 +130,7 @@ class Lugar extends SharedController
     {
 
         if (!$this->isAdmin()) {
-            $this->setFlash('error', 'You don\'t have permission to access that page');
+            $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
 
             return $this->redirectToRoute('User_Login');
         }
@@ -172,9 +172,11 @@ class Lugar extends SharedController
 
     }
 
-    public function publicarAction(){
-        if (!$this->isAdmin()) {
-            $this->setFlash('error', 'You don\'t have permission to access that page');
+    public function publicarAction()
+    {
+
+        if (!$this->isAdmin() || !$this->isColaborador()) {
+            $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
             return $this->redirectToRoute('User_Login');
         }
 

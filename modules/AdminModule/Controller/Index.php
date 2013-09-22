@@ -10,7 +10,7 @@ class Index extends SharedController
     {
         
         if(!$this->isAdmin()) {
-            $this->setFlash('error', 'You don\'t have permission to access that page');
+            $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
             return $this->redirectToRoute('User_Login');
         }
         

@@ -80,7 +80,9 @@
                     <div class="form-group">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Buscar personas">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            <span class="input-group-addon btn">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </span>
                         </div>
                     </div>
                 </form>
