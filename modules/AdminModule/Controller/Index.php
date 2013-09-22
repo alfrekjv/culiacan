@@ -9,7 +9,7 @@ class Index extends SharedController
     public function indexAction()
     {
 
-        if (!$this->isAdmin() || !$this->isColaborador()) {
+        if (!$this->isAdmin() && !$this->isColaborador()) {
             $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
             return $this->redirectToRoute('User_Login');
         }

@@ -9,7 +9,7 @@ class Persona extends SharedController
     public function indexAction()
     {
 
-        if (!$this->isAdmin() || !$this->isColaborador()) {
+        if (!$this->isAdmin() && !$this->isColaborador()) {
             $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
 
             return $this->redirectToRoute('User_Login');
@@ -28,7 +28,7 @@ class Persona extends SharedController
     public function createAction()
     {
 
-        if (!$this->isAdmin() || !$this->isColaborador()) {
+        if (!$this->isAdmin() && !$this->isColaborador()) {
             $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
 
             return $this->redirectToRoute('User_Login');
@@ -72,7 +72,7 @@ class Persona extends SharedController
     public function editAction()
     {
 
-        if (!$this->isAdmin() || !$this->isColaborador()) {
+        if (!$this->isAdmin() && !$this->isColaborador()) {
             $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
 
             return $this->redirectToRoute('User_Login');
@@ -128,7 +128,7 @@ class Persona extends SharedController
     public function deleteAction()
     {
 
-        if (!$this->isAdmin() || !$this->isColaborador()) {
+        if (!$this->isAdmin() && !$this->isColaborador()) {
             $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
 
             return $this->redirectToRoute('User_Login');
