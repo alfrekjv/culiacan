@@ -212,6 +212,7 @@
                             <li>Alonso Uribe</li>
                             <li>Luis Benítez</li>
                             <li>Jorge Pilotzi</li>
+                            <li>Joel Rodelo</li>
                         </ul>
                     </div>
 
