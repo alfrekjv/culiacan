@@ -8,14 +8,14 @@
     <div class="navbar navbar-inverse navbar-fixed-top hidden-md hidden-lg">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-md-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">Culiacán</a>
             </div>
-            <div class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse navbar-md-collapse">
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="#"><span class="glyphicon glyphicon-home"></span> Centros de Acopio</a>
@@ -123,7 +123,7 @@
             </button>
             <a class="navbar-brand" href="#"><b><span class="glyphicon glyphicon-phone-alt"></span> EMERGENCIAS 066</b></a>
         </div>
-        <div class="collapse navbar-xs-collapse">
+        <div class="collapse navbar-collapse navbar-xs-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#modal-directorio" data-toggle="modal">Directorio</a>
