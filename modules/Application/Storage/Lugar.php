@@ -96,6 +96,25 @@ class Lugar extends BaseStorage
         return $entities;
     }
 
+    public function getByType($type = 'albergue')
+    {
+
+        $entities = array();
+        $rows     = $this->createQueryBuilder()
+                    ->select('*')
+                    ->from($this->getTableName(), 'l')
+                    ->where("l.tipo = '{$type}'")
+                    ->andWhere('l.status = 1')
+                    ->execute()
+                    ->fetchAll($this->getFetchMode());
+
+        foreach ($rows as $row) {
+            $entities[] = new Entity($row);
+        }
+
+        return $entities;
+    }
+
     public function getAlbergues()
     {
 

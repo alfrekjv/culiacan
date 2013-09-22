@@ -36,7 +36,7 @@ class Lugar extends SharedController
     {
 
         $storage = $this->getService('lugar.storage');
-        $lugares = $storage->getAlbergues();
+        $lugares = $storage->getByType('albergue');
         $map     = array();
 
         foreach ($lugares as $lugar) {
@@ -56,7 +56,7 @@ class Lugar extends SharedController
     {
 
         $storage = $this->getService('lugar.storage');
-        $lugares = $storage->getCentros();
+        $lugares = $storage->getByType('centro de acopio');
         $map     = array();
 
         foreach ($lugares as $lugar) {
@@ -76,7 +76,7 @@ class Lugar extends SharedController
     {
 
         $storage = $this->getService('lugar.storage');
-        $lugares = $storage->getEvacuadas();
+        $lugares = $storage->getByType('zona evacuada');
         $map     = array();
 
         foreach ($lugares as $lugar) {
@@ -96,7 +96,7 @@ class Lugar extends SharedController
     {
 
         $storage = $this->getService('lugar.storage');
-        $lugares = $storage->getAfectadas();
+        $lugares = $storage->getByType('zona afectada');
         $map     = array();
 
         foreach ($lugares as $lugar) {
@@ -116,7 +116,7 @@ class Lugar extends SharedController
     {
 
         $storage = $this->getService('lugar.storage');
-        $lugares = $storage->getAgua();
+        $lugares = $storage->getByType('agua potable');
         $map     = array();
 
         foreach ($lugares as $lugar) {
