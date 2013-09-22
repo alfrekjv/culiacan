@@ -71,6 +71,15 @@ $(document).ready(function () {
         $('#msj-error').css({'display': 'none'});
         document.getElementById('form-reportar-lugar').reset();
     });
+    $('#modal-reportar-lugar').on('shown.bs.modal', function () {
+        $('#nombre').focus();
+    });
+    $('#modal-reportar-persona').on('shown.bs.modal', function () {
+        $('#nombre_completo').focus();
+    });
+    $('#modal-contacto').on('shown.bs.modal', function () {
+        $('#nombre_contacto').focus();
+    });
 
     $('#btn-reportar-lugar').click(function(){
         $('#modal-reportar-lugar').modal('show');
@@ -123,9 +132,8 @@ $(document).ready(function () {
 
             if (response.status == 'error') {
 
-                // @todo: Ponerle color..
-                $('.alert-error').fadeIn('fast');
-                $('.alert-error').html(response.message);
+                $('#mensaje-persona').toggleClass('alert alert-danger');
+                $('#mensaje-persona').html(response.message);
             }
 
         }, 'json');
