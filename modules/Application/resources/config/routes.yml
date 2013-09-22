@@ -43,3 +43,13 @@ Reportar_Lugares_Create:
     defaults: { _controller: "AdminModule:Lugar:reportar" }
     requirements:
         _method: POST
+
+Reportar_Personas:
+    pattern: /reportar/persona
+    defaults: { _controller: "Application:Persona:reportarPersona" }
+
+Reportar_Persona_Submit:
+    pattern: /reportar/persona/save
+    defaults: { _controller: "Application:Persona:reportarPersona" }
+    requirements:
+        _method: POST
