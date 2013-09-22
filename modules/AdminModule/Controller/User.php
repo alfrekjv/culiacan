@@ -9,7 +9,7 @@ class User extends SharedController
     public function indexAction($errors = array())
     {
         if (!$this->isAdmin()) {
-            
+
             $this->setFlash('error', 'No tienes permiso para esta zona, quieres ayudar? Solicitalo :)');
 
             return $this->redirectToRoute('User_Login');
