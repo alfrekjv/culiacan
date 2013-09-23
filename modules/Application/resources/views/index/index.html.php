@@ -133,19 +133,20 @@
             <div id="bottom-nav" class="collapse navbar-collapse navbar-xs-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#modal-directorio" data-toggle="modal">Directorio</a>
-                    </li>
-                    <li>
-                        <a href="#modal-donaciones" data-toggle="modal">Donaciones</a>
-                    </li>
-                    <li>
                         <a href="#" id="btn-reportar-lugar">Reportar Lugar</a>
                     </li>
                     <li>
                         <a href="#" class="reportarPersona">Reportar Persona</a>
                     </li>
                     <li>
+                        <a href="#modal-donaciones" data-toggle="modal">Donaciones</a>
+                    </li>
+
+                    <li>
                         <a href="#modal-contacto" data-toggle="modal">Contacto</a>
+                    </li>
+                    <li>
+                        <a href="#modal-directorio" data-toggle="modal">Directorio</a>
                     </li>
                 </ul>
             </div>
