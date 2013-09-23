@@ -32,6 +32,7 @@ $(document).ready(function () {
 
 
     $('#mapa-canvas').height($('body').height());
+    $("#lugarMap").width('100%').height(250);
 
     $('.sendEmail').live('click', function (e) {
 
@@ -98,6 +99,7 @@ $(document).ready(function () {
 
     $('#modal-reportar-lugar').on('shown.bs.modal', function () {
         $('#nombre').focus();
+        iniciarMapaLugar();
     });
 
     $('#modal-reportar-persona').on('shown.bs.modal', function () {
@@ -270,6 +272,7 @@ function iniciarMapaLugar() {
     geocoder = new google.maps.Geocoder();
     lugarM = new google.maps.Map(document.getElementById('lugarMap'),
         mapOptions);
+    google.maps.event.trigger(lugarM, 'resize') 
 
     marcadorL = new google.maps.Marker({
         map: lugarM,
@@ -283,13 +286,12 @@ function iniciarMapaLugar() {
 
         var latlng = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
         moverMarcador(latlng);
-
     });
 
     google.maps.event.addListener(marcadorL, 'mouseup', cambiaCoordenada);
+    google.maps.event.addDomListener(window, 'load', iniciarMapaLugar);
+    lugarM.setCenter(marcadorL.getPosition());
 }
-google.maps.event.addDomListener(window, 'load', iniciarMapaLugar);
-lugarM.setCenter(marcadorL.getPosition());
 
 function buscarCoordenadas() {
     adress = ciudad + " " + calle + " " + numero + " " + colonia;
