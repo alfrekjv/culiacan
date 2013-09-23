@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 </form>
-                <a class="twitter-timeline" href="https://twitter.com/search?q=%23CuliacanEstaDePie" height="460"
+                <a class="twitter-timeline" href="https://twitter.com/search?q=%23CuliacanEstaDePie" height="420"
                    data-widget-id="381198995961307137">Tweets sobre "#culiacanEstaDePie"</a>
                 <script>!function (e, t, n) {
                         var r, i = e.getElementsByTagName(t)[0], s = /^http:/.test(e.location) ? "http" : "https";
