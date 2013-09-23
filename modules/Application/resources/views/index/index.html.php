@@ -146,25 +146,25 @@
                         <a href="#modal-contacto" data-toggle="modal">Contacto</a>
                     </li>
                     <li>
-                        <a href="#modal-directorio" data-toggle="modal">Directorio</a>
+                        <a href="#modal-creditos" data-toggle="modal">Creditos</a>
                     </li>
                 </ul>
             </div>
         </div>
     </footer>
 
-    <div id="modal-directorio" class="modal fade" tabindex="-1" aria-hidden="true" data-keyboard="false"
+    <div id="modal-creditos" class="modal fade" tabindex="-1" aria-hidden="true" data-keyboard="false"
          data-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <a class="close" data-dismiss="modal" aria-hidden="true" data-toggle="tooltip" data-placement="left"
                        data-original-title="Cerrar ventana">&times;</a>
-                    <h4 class="modal-title">Directorio</h4>
+                    <h4 class="modal-title">Creditos</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                    <ul id="list-directorio" class="list-inline text-center">
+                    <ul id="list-creditos" class="list-inline text-center">
                         <li>
                             <a href="http://culiacan.gob.mx/" target="_blank">
                                 <img src="<?= $view['assets']->getUrl('images/ayuntamiento-culiacan.png'); ?>"
