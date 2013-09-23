@@ -47,6 +47,8 @@ body, h1, h2, h3, h4, h5, h6 { font-family: Helvetica, Arial, sans-serif; }
 #bottom-nav ul { width: 100%; }
 #bottom-nav ul li { padding: 0; width: 20%; text-align: center; }
 #bottom-nav ul li a { display: block; text-align: center; }
+#list-directorio li{ display: inline-block; padding-right: 2px; padding-left: 2px;}
+
 
 @media (max-width: 768px) { body { padding-top: 170px; }
   #btn-municipios { top: 45px; right: 10px; }

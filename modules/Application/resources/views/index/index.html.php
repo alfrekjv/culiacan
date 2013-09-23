@@ -163,6 +163,7 @@
                     <h4 class="modal-title">Directorio</h4>
                 </div>
                 <div class="modal-body">
+                    <div class="row">
                     <ul id="list-directorio" class="list-inline text-center">
                         <li>
                             <a href="http://culiacan.gob.mx/" target="_blank">
@@ -183,9 +184,13 @@
                             </a>
                         </li>
                     </ul>
+                    </div>
                     <div class="creditos">
-                        <p>"La grandeza de un pueblo no se mide en su riqueza, si no en su capacidad de unirse para
-                            salir adelante en situaciones difíciles" -- A Juárez.</p>
+                        <blockquote>
+                            "La grandeza de un pueblo no se mide en su riqueza, si no en su capacidad de unirse para
+                                salir adelante en situaciones difíciles"
+                                <small>A Juárez.</small>
+                        </blockquote>
 
                         <p>Culiacán ha demostrado que es un pueblo muy unido y con mucho coraje ante situaciones tan
                             adversas como la presente.</p>
@@ -206,15 +211,16 @@
                         <h5 class="text-center" style="margin-top:0"><b>Alfredo Juárez</b></h5>
                     </div>
                     <div class="contributors">
-                        <h4>Colaboradores</h4>
+                        <small>Colaboradores
                         <ul class="list-inline" style="margin-bottom:0">
-                            <li>Julián Quiñonez</li>
-                            <li>Antonio Yee</li>
-                            <li>Alonso Uribe</li>
-                            <li>Luis Benítez</li>
-                            <li>Jorge Pilotzi</li>
-                            <li>Joel Rodelo</li>
+                            <li><a href="https://twitter.com/julkie" target="_blank">@julkie</a></li>
+                            <li><a href="https://twitter.com/AntonioYee" target="_blank">@AntonioYee</a></li>
+                            <li><a href="https://twitter.com/alonsouribe" target="_blank">@alonsouribe</a></li>
+                            <li><a href="https://twitter.com/LuisBenit3z" target="_blank">@LuisBenit3z</a></li>
+                            <li><a href="https://twitter.com/Jamaica_Gold" target="_blank">@Jamaica_Gold</a></li>
+                            <li><a href="https://twitter.com/joelrodelo" target="_blank">@joelrodelo</a></li>
                         </ul>
+                        </small>
                     </div>
 
                 </div>
