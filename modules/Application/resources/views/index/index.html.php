@@ -1,7 +1,6 @@
 <?php $view->extend('::base.html.php'); ?>
 
 <?php $view['slots']->start('include_css') ?>
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet'>
     <link href="<?= $view['assets']->getUrl('css/landing.css'); ?>" type="text/css" rel="stylesheet"/>
 <?php $view['slots']->stop(); ?>
 
