@@ -241,8 +241,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-info text-center" style="margin-bottom:0">
-                        <h4 style="margin:0">En construcción</h4>
-                        Módulo para realizar donaciones a damnificados
+                        <h4 style="margin:0">Unidos por México</h4>
+                        <p>Visita esta página para realizar tus donaciones: <a href="http://pormexico.karmashop.org">http://pormexico.karmashop.org</a>.</p>
                     </div>
                 </div>
                 <div class="modal-footer">
